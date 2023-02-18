@@ -3,7 +3,7 @@ quotes: quotes_no_dead_keys {
         compatible = "zmk,behavior-mod-morph";
         label = "QUOTES_NO_DEAD_KEYS";
         #binding-cells = <0>;
-        bindings = <&squotes>, <&kp US_DQT>;
+        bindings = <&ht US_SQT US_GRAVE>, <&kp US_DQT>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 accents: accents_fr {
