@@ -1,16 +1,16 @@
 
-accents: accents_fr {
-        compatible = "zmk,behavior-mod-morph";
-        label = "ACCENTS_FR";
-        #binding-cells = <0>;
-        bindings = <&kp US_DCARET>, <&kp US_DDQT>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-};
 quotes: quotes_no_dead_keys {
         compatible = "zmk,behavior-mod-morph";
         label = "QUOTES_NO_DEAD_KEYS";
         #binding-cells = <0>;
         bindings = <&squotes>, <&kp US_DQT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+accents: accents_fr {
+        compatible = "zmk,behavior-mod-morph";
+        label = "ACCENTS_FR";
+        #binding-cells = <0>;
+        bindings = <&kp US_DCARET>, <&kp US_DDQT>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 a_custom: a_custom {
