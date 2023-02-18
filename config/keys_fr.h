@@ -67,8 +67,8 @@
 #define US_I    I    // I
 #define US_O    O    // O
 #define US_P    P    // P
-#define US_LBKC LBKC // [
-#define US_RBKC RBKC // ]
+#define US_LBKT LBKT // [
+#define US_RBKT RBKT // ]
 #define US_BSLH BSLH // (backslash)
 // Row 3
 #define US_A    A    // A
@@ -122,8 +122,8 @@
 #define US_UNDER LS(US_MINUS) // _
 #define US_PLUS LS(US_EQUAL)  // +
 // Row 2
-#define US_LBRC LS(US_LBKC) // {
-#define US_RBRC LS(US_RBKC) // }
+#define US_LBRC LS(US_LBKT) // {
+#define US_RBRC LS(US_RBKT) // }
 #define US_PIPE2 LS(US_BSLH) // |
 // Row 3
 #define US_COLON LS(US_SEMI) // :
@@ -172,8 +172,8 @@
 #define US_IACU RA(US_I)    // Í
 #define US_OACU RA(US_O)    // Ó
 #define US_ODIA RA(US_P)    // Ö
-#define US_LDAQ RA(US_LBKC) // «
-#define US_RDAQ RA(US_RBKC) // »
+#define US_LDAQ RA(US_LBKT) // «
+#define US_RDAQ RA(US_RBKT) // »
 #define US_NOT  RA(US_BSLH) // ¬
 // Row 3
 #define US_AACU RA(US_A)    // Á
@@ -220,8 +220,8 @@
 #define US_DOTB LS(RA(US_MINUS)) // ̣  (dead)
 #define US_DIV  LS(RA(US_EQUAL))  // ÷
 // Row 2
-#define US_LDQU LS(RA(US_LBKC)) // “
-#define US_RDQU LS(RA(US_RBKC)) // ”
+#define US_LDQU LS(RA(US_LBKT)) // “
+#define US_RDQU LS(RA(US_RBKT)) // ”
 #define US_BRKP LS(RA(US_BSLH)) // ¦
 // Row 3
 #define US_SECT LS(RA(US_S))    // §

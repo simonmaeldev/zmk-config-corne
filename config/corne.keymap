@@ -55,18 +55,7 @@
 // |   .  |  :  |  ;  |  @  |  {  |  }  |   | 0 F10 | 1 F1 | 2 F2 | 3 F3 |  =  | LY4 |
 //                    | LY1 | GUI | / \ |   | RALT  | SHFT | LY3 |
                         bindings = <
-   &kp US_EXCL 
-   &kp US_QMARK 
-   &kp US_HASH  
-   &kp US_PERCENT 
-   &kp US_LBKC 
-   &kp US_RBKC   
-   &LT_cstm 
-   &N7_cstm 
-   &N7_cstm 
-   &N9_cstm 
-   &kp US_PLUS  
-   &minus_custom
+   &kp US_EXCL &kp US_QMARK &kp US_HASH &kp US_PERCENT &kp US_LBKT &kp US_RBKT   &LT_cstm &N7_cstm &N8_cstm &N9_cstm &kp US_PLUS   &minus_custom
    &kp US_AMPS &kp US_PIPE2 &kp US_CARET &kp US_DLLR    &kp US_LPAR &kp US_RPAR   &GT_cstm &N4_cstm &N5_cstm &N6_cstm &kp US_STAR  &kp US_UNDER
    &kp US_DOT  &kp US_COLON &kp US_SEMI  &kp US_AT      &kp US_LBRC &kp US_LBRC   &N0_cstm &N1_cstm &N2_cstm &N3_cstm &kp US_EQUAL &to CONTROL
                           	         &to DEFAULT    &mt LGUI    &slh_custom   &mt RALT &RSHFT   &to NAVI
