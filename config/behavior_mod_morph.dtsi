@@ -150,7 +150,7 @@ LT_cstm: LT_custom {
         compatible = "zmk,behavior-mod-morph";
         label = "LT_CUSTOM";
         #binding-cells = <1>;
-        bindings = <&kp LT>, <&kp F>12;
+        bindings = <&kp LT>, <&kp F12>;
         mods = <(MOD_LALT|MOD_RALT)>;
 };
 GT_cstm: GT_custom {
