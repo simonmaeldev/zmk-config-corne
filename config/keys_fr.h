@@ -108,30 +108,30 @@
  * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
  */
 // Row 1
-#define US_DTILDE S(US_DGRAVE) // ~ (dead)
-#define US_EXCL S(US_1)    // !
-#define US_AT   S(US_2)    // @
-#define US_HASH S(US_3)    // #
-#define US_DLLR  S(US_4)    // $
-#define US_PERCENT S(US_5)    // %
-#define US_DCARET S(US_6)    // ^ (dead)
-#define US_AMPS S(US_7)    // &
-#define US_STAR S(US_8)    // *
-#define US_LPAR S(US_9)    // (
-#define US_RPAR S(US_0)    // )
-#define US_UNDER S(US_MINUS) // _
-#define US_PLUS S(US_EQUAL)  // +
+#define US_DTILDE LS(US_DGRAVE) // ~ (dead)
+#define US_EXCL LS(US_1)    // !
+#define US_AT   LS(US_2)    // @
+#define US_HASH LS(US_3)    // #
+#define US_DLLR  LS(US_4)    // $
+#define US_PERCENT LS(US_5)    // %
+#define US_DCARET LS(US_6)    // ^ (dead)
+#define US_AMPS LS(US_7)    // &
+#define US_STAR LS(US_8)    // *
+#define US_LPAR LS(US_9)    // (
+#define US_RPAR LS(US_0)    // )
+#define US_UNDER LS(US_MINUS) // _
+#define US_PLUS LS(US_EQUAL)  // +
 // Row 2
-#define US_LBRC S(US_LBKC) // {
-#define US_RBRC S(US_RBKC) // }
-#define US_PIPE2 S(US_BSLH) // |
+#define US_LBRC LS(US_LBKC) // {
+#define US_RBRC LS(US_RBKC) // }
+#define US_PIPE2 LS(US_BSLH) // |
 // Row 3
-#define US_COLON S(US_SEMI) // :
-#define US_DDQT S(US_DSQT) // ¨ (dead)
+#define US_COLON LS(US_SEMI) // :
+#define US_DDQT LS(US_DSQT) // ¨ (dead)
 // Row 4
-#define US_LT S(US_COMMA) // <
-#define US_GT S(US_DOT)  // >
-#define US_QMARK S(US_FSLH) // ?
+#define US_LT LS(US_COMMA) // <
+#define US_GT LS(US_DOT)  // >
+#define US_QMARK LS(US_FSLH) // ?
 
 /* AltGr symbols
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
@@ -148,49 +148,49 @@
  */
 
 // Row 1
-#define US_GRAVE  ALGR(US_DGRAVE) // `
-#define US_IEXL ALGR(US_1)    // ¡
-#define US_SUP2 ALGR(US_2)    // ²
-#define US_SUP3 ALGR(US_3)    // ³
-#define US_CURR ALGR(US_4)    // ¤
-#define US_EURO ALGR(US_5)    // €
-#define US_QRTR ALGR(US_6)    // ¼
-#define US_HALF ALGR(US_7)    // ½
-#define US_TQTR ALGR(US_8)    // ¾
-#define US_LSQU ALGR(US_9)    // ‘
-#define US_RSQU ALGR(US_0)    // ’
-#define US_YEN  ALGR(US_MINUS) // ¥
-#define US_MUL  ALGR(US_EQUAL)  // ×
+#define US_GRAVE  RA(US_DGRAVE) // `
+#define US_IEXL RA(US_1)    // ¡
+#define US_SUP2 RA(US_2)    // ²
+#define US_SUP3 RA(US_3)    // ³
+#define US_CURR RA(US_4)    // ¤
+#define US_EURO RA(US_5)    // €
+#define US_QRTR RA(US_6)    // ¼
+#define US_HALF RA(US_7)    // ½
+#define US_TQTR RA(US_8)    // ¾
+#define US_LSQU RA(US_9)    // ‘
+#define US_RSQU RA(US_0)    // ’
+#define US_YEN  RA(US_MINUS) // ¥
+#define US_MUL  RA(US_EQUAL)  // ×
 // Row 2
-#define US_ADIA ALGR(US_Q)    // Ä
-#define US_ARNG ALGR(US_W)    // Å
-#define US_EACU ALGR(US_E)    // É
-#define US_REGD ALGR(US_R)    // ®
-#define US_THRN ALGR(US_T)    // Þ
-#define US_UDIA ALGR(US_Y)    // Ü
-#define US_UACU ALGR(US_U)    // Ú
-#define US_IACU ALGR(US_I)    // Í
-#define US_OACU ALGR(US_O)    // Ó
-#define US_ODIA ALGR(US_P)    // Ö
-#define US_LDAQ ALGR(US_LBKC) // «
-#define US_RDAQ ALGR(US_RBKC) // »
-#define US_NOT  ALGR(US_BSLH) // ¬
+#define US_ADIA RA(US_Q)    // Ä
+#define US_ARNG RA(US_W)    // Å
+#define US_EACU RA(US_E)    // É
+#define US_REGD RA(US_R)    // ®
+#define US_THRN RA(US_T)    // Þ
+#define US_UDIA RA(US_Y)    // Ü
+#define US_UACU RA(US_U)    // Ú
+#define US_IACU RA(US_I)    // Í
+#define US_OACU RA(US_O)    // Ó
+#define US_ODIA RA(US_P)    // Ö
+#define US_LDAQ RA(US_LBKC) // «
+#define US_RDAQ RA(US_RBKC) // »
+#define US_NOT  RA(US_BSLH) // ¬
 // Row 3
-#define US_AACU ALGR(US_A)    // Á
-#define US_SS   ALGR(US_S)    // ß
-#define US_ETH  ALGR(US_D)    // Ð
-#define US_OE   ALGR(US_K)    // Œ
-#define US_OSTR ALGR(US_L)    // Ø
-#define US_PILC ALGR(US_SEMI) // ¶
-#define US_SQT  ALGR(US_DSQT) // '
+#define US_AACU RA(US_A)    // Á
+#define US_SS   RA(US_S)    // ß
+#define US_ETH  RA(US_D)    // Ð
+#define US_OE   RA(US_K)    // Œ
+#define US_OSTR RA(US_L)    // Ø
+#define US_PILC RA(US_SEMI) // ¶
+#define US_SQT  RA(US_DSQT) // '
 // Row 4
-#define US_AE   ALGR(US_Z)    // Æ
-#define US_COPY ALGR(US_C)    // ©
-#define US_NTIL ALGR(US_N)    // Ñ
-#define US_MICR ALGR(US_M)    // µ
-#define US_CCED ALGR(US_COMMA) // Ç
-#define US_DOTA ALGR(US_DOT)  // ˙ (dead)
-#define US_IQUE ALGR(US_FSLH) // ¿
+#define US_AE   RA(US_Z)    // Æ
+#define US_COPY RA(US_C)    // ©
+#define US_NTIL RA(US_N)    // Ñ
+#define US_MICR RA(US_M)    // µ
+#define US_CCED RA(US_COMMA) // Ç
+#define US_DOTA RA(US_DOT)  // ˙ (dead)
+#define US_IQUE RA(US_FSLH) // ¿
 
 /* Shift+AltGr symbols
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
@@ -206,28 +206,28 @@
  * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
  */
 // Row 1
-#define US_TILDE S(ALGR(US_DGRAVE)) // ~
-#define US_SUP1 S(ALGR(US_1))    // ¹
-#define US_DACU S(ALGR(US_2))    // ˝ (dead)
-#define US_MACR S(ALGR(US_3))    // ¯ (dead)
-#define US_PND  S(ALGR(US_4))    // £
-#define US_CEDL S(ALGR(US_5))    // ¸ (dead)
-#define US_CARET S(ALGR(US_6))    // ^
-#define US_HORN S(ALGR(US_7))    // ̛  (dead)
-#define US_OGON S(ALGR(US_8))    // ˛ (dead)
-#define US_BREV S(ALGR(US_9))    // ˘ (dead)
-#define US_RNGA S(ALGR(US_0))    // ° (dead)
-#define US_DOTB S(ALGR(US_MINUS)) // ̣  (dead)
-#define US_DIV  S(ALGR(US_EQUAL))  // ÷
+#define US_TILDE LS(RA(US_DGRAVE)) // ~
+#define US_SUP1 LS(RA(US_1))    // ¹
+#define US_DACU LS(RA(US_2))    // ˝ (dead)
+#define US_MACR LS(RA(US_3))    // ¯ (dead)
+#define US_PND  LS(RA(US_4))    // £
+#define US_CEDL LS(RA(US_5))    // ¸ (dead)
+#define US_CARET LS(RA(US_6))    // ^
+#define US_HORN LS(RA(US_7))    // ̛  (dead)
+#define US_OGON LS(RA(US_8))    // ˛ (dead)
+#define US_BREV LS(RA(US_9))    // ˘ (dead)
+#define US_RNGA LS(RA(US_0))    // ° (dead)
+#define US_DOTB LS(RA(US_MINUS)) // ̣  (dead)
+#define US_DIV  LS(RA(US_EQUAL))  // ÷
 // Row 2
-#define US_LDQU S(ALGR(US_LBKC)) // “
-#define US_RDQU S(ALGR(US_RBKC)) // ”
-#define US_BRKP S(ALGR(US_BSLH)) // ¦
+#define US_LDQU LS(RA(US_LBKC)) // “
+#define US_RDQU LS(RA(US_RBKC)) // ”
+#define US_BRKP LS(RA(US_BSLH)) // ¦
 // Row 3
-#define US_SECT S(ALGR(US_S))    // §
-#define US_DEG  S(ALGR(US_SEMI)) // °
-#define US_DQT S(ALGR(US_DSQT)) // "
+#define US_SECT LS(RA(US_S))    // §
+#define US_DEG  LS(RA(US_SEMI)) // °
+#define US_DQT LS(RA(US_DSQT)) // "
 // Row 4
-#define US_CENT S(ALGR(US_C))    // ¢
-#define US_CARN S(ALGR(US_DOT))  // ˇ (dead)
-#define US_HOKA S(ALGR(US_FSLH)) // ̉  (dead)
+#define US_CENT LS(RA(US_C))    // ¢
+#define US_CARN LS(RA(US_DOT))  // ˇ (dead)
+#define US_HOKA LS(RA(US_FSLH)) // ̉  (dead)
