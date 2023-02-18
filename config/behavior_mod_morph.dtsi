@@ -1,11 +1,4 @@
 
-quotes: quotes_no_dead_keys {
-        compatible = "zmk,behavior-mod-morph";
-        label = "QUOTES_NO_DEAD_KEYS";
-        #binding-cells = <0>;
-        bindings = <&ht US_SQT US_GRAVE>, <&kp US_DQT>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-};
 accents: accents_fr {
         compatible = "zmk,behavior-mod-morph";
         label = "ACCENTS_FR";
@@ -166,4 +159,11 @@ GT_cstm: GT_custom {
         #binding-cells = <1>;
         bindings = <&kp GT>, <&kp F11>;
         mods = <(MOD_LALT|MOD_RALT)>;
+};
+quotes: quotes_no_dead_keys {
+        compatible = "zmk,behavior-mod-morph";
+        label = "QUOTES_NO_DEAD_KEYS";
+        #binding-cells = <0>;
+        bindings = <&ht US_SQT US_GRAVE>, <&kp US_DQT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
 };
