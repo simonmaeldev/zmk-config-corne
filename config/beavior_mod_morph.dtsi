@@ -1,0 +1,169 @@
+
+accents: accents_fr {
+        compatible = "zmk,behavior-mod-morph";
+        label = "ACCENTS_FR";
+        #binding-cells = <0>;
+        bindings = <&kp US_DCARET>, <&kp US_DDQT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+quotes: quotes_no_dead_keys {
+        compatible = "zmk,behavior-mod-morph";
+        label = "QUOTES_NO_DEAD_KEYS";
+        #binding-cells = <0>;
+        bindings = <&squotes>, <&kp US_DQT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+a_custom: a_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "A_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_A>, <&kp US_AE>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+e_custom: e_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "E_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_E>, <&kp US_EURO>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+i_custom: i_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "I_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_I>, <&kp INS>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+o_custom: o_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "O_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_O>, <&kp US_OE>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+u_custom: u_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "U_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_U>, <&ac_ugrv>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+eacu_custom: eacu_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "EACU_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_EACU>, <&kp US_DOT>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+egrv_custom: egrv_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "EGRV_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&ac_egrv>, <&kp US_QMARK>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+cced_custom: cced_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "CCED_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_CCED>, <&kp US_EXCL>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+slh_custom: slh_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "SLH_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_FSLH>, <&kp US_BSLH>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+minus_custom: minus_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "MINUS_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_MINUS>, <&kp US_TILDE>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+N0_cstm: N0_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "N0_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp N0>, <&kp F10>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+N1_cstm: N1_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "N1_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp N1>, <&kp F1>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+N2_cstm: N2_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "N2_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp N2>, <&kp F2>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+N3_cstm: N3_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "N3_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp N3>, <&kp F3>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+N4_cstm: N4_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "N4_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp N4>, <&kp F4>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+N5_cstm: N5_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "N5_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp N5>, <&kp F5>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+N6_cstm: N6_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "N6_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp N6>, <&kp F6>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+N7_cstm: N7_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "N7_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp N7>, <&kp F7>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+N8_cstm: N8_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "N8_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp N8>, <&kp F8>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+N9_cstm: N9_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "N9_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp N9>, <&kp F9>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+LT_cstm: LT_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "LT_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp LT>, <&kp F>12;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+GT_cstm: GT_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "GT_CUSTOM";
+        #binding-cells = <1>;
+        bindings = <&kp GT>, <&kp F11>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
