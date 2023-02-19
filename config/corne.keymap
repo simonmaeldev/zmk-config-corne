@@ -10,10 +10,10 @@
 #include "accents.dtsi"
 #include "keys_fr.h"
 
-#define DEFAULT 1 // default_layer
-#define SYMBOLS 2 // symbols_layer
-#define NAVI    3 // navigation layer
-#define CONTROL 4 // media + bluetooth
+#define DEFAULT 0 // default_layer
+#define SYMBOLS 1 // symbols_layer
+#define NAVI    2 // navigation layer
+#define CONTROL 3 // media + bluetooth
 
 / {
 
@@ -21,7 +21,7 @@
                 ht: hold_tap {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOLD_TAP";
-                        #binding-cells = <DEFAULT>;
+                        #binding-cells = <2>;
                         tapping-term-ms = <500>;
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
