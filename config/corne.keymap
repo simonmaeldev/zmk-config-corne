@@ -42,9 +42,9 @@
 // |   ALT  |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M   | É , | È ? |   Ç !   |   ESC    |
 //                     |- CTRL|_ GUI| SPC |   | ENT |, SHFT| LY2 |
                         bindings = <
-   &kp TAB             &kp US_Q  &kp US_W &kp US_F &kp US_P &kp US_G   &kp US_J &kp US_L  &u_custom    &kp US_Y     &accents    &kp BSPC
-   &mt LSHIFT &ac_agrv &a_custom &kp US_R &kp US_S &kp US_T &kp US_D   &kp US_H &kp US_N  &e_custom    &i_custom    &o_custom   &quotes 
-   &kp LALT            &kp US_Z  &kp US_X &kp US_C &kp US_V &kp US_B   &kp US_K &kp US_M  &eacu_custom &egrv_custom &cced_custom &kp ESC
+   &kp TAB  &kp US_Q  &kp US_W &kp US_F &kp US_P &kp US_G   &kp US_J &kp US_L  &u_custom    &kp US_Y     &accents    &kp BSPC
+   &ac_agrv &a_custom &kp US_R &kp US_S &kp US_T &kp US_D   &kp US_H &kp US_N  &e_custom    &i_custom    &o_custom   &quotes 
+   &kp LALT &kp US_Z  &kp US_X &kp US_C &kp US_V &kp US_B   &kp US_K &kp US_M  &eacu_custom &egrv_custom &cced_custom &kp ESC
                   &mt LCTRL US_MINUS &mt LGUI US_UNDER &kp SPACE   &kp RET &mt RSHFT US_COMMA &to SYMBOLS
                         >;
                 };
