@@ -22,7 +22,7 @@
                         if-layers = <SYMBOLS FUNCTIONS>;
                         then-layer = <CONTROL>;
                 }; 
-        }
+        };
 
         behaviors {
                 ht: hold_tap {
