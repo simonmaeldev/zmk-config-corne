@@ -164,6 +164,27 @@ quotes: quotes_no_dead_keys {
         compatible = "zmk,behavior-mod-morph";
         label = "QUOTES_NO_DEAD_KEYS";
         #binding-cells = <0>;
-        bindings = <&ht US_GRAVE US_SQT>, <&kp US_DQT>;
+        bindings = <&kp US_SQT>, <&kp US_DQT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+PAR_cstm: PAR_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "PAR_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_LPAR>, <&kp US_RPAR>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+BKT_cstm: BTK_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "BKT_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_LBKT>, <&kp US_RBKT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+BRC_cstm: BRC_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "BRC_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_LBRC>, <&kp US_RBRC>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
 };

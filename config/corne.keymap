@@ -10,12 +10,19 @@
 #include "accents.dtsi"
 #include "keys_fr.h"
 
-#define DEFAULT 0 // default_layer
-#define SYMBOLS 1 // symbols_layer
-#define NAVI    2 // navigation layer
-#define CONTROL 3 // media + bluetooth
+#define DEFAULT   0 // default_layer
+#define SYMBOLS   1 // symbols_layer
+#define FUNCTIONS 2 // functions layer
+#define CONTROL   3 // media + bluetooth + Functions keys
 
 / {
+        conditional_layers {
+                compatible = "zmk,conditional-layers";
+                control_layer {
+                        if-layers = <SYMBOLS FUNCTIONS>;
+                        then-layer = <CONTROL>;
+                }; 
+        }
 
         behaviors {
                 ht: hold_tap {
@@ -37,55 +44,55 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |   TAB  |  Q  |  W  |  F  |  P  |  G  |   |  J  |  L   | U ù |  Y  | ^ trema | BKSP/DEL |
-// | À SHFT |  A  |  R  |  S  |  T  |  D  |   |  H  |  N   | E € |I INS|   O œ   |   ' " `  |
-// |   ALT  |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M   | É , | È ? |   Ç !   |   ESC    |
-//                     |- CTRL|_ GUI| SPC |   | ENT |, SHFT| LY2 |
+// | , < |  Q  |  W  |  F  |  P  |  G  |   |  J  |  L  | U ù |  Y  |  À  |   BKSP  |
+// | . > |  A  |  R  |  S  |  T  |  D  |   |  H  |  N  | E € |  I  | O œ |   TAB   |
+// | GUI |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |  É  |  È  |  Ç  | ^ trema |
+//                   |CTRL | LT1 | SPC |   |SHIFT| LT2 | ALT |
                         bindings = <
-   &kp TAB  &kp US_Q  &kp US_W &kp US_F &kp US_P &kp US_G   &kp US_J &kp US_L  &u_custom    &kp US_Y     &accents    &kp BSPC
-   &ac_agrv &a_custom &kp US_R &kp US_S &kp US_T &kp US_D   &kp US_H &kp US_N  &e_custom    &i_custom    &o_custom   &quotes 
-   &kp LALT &kp US_Z  &kp US_X &kp US_C &kp US_V &kp US_B   &kp US_K &kp US_M  &eacu_custom &egrv_custom &cced_custom &kp ESC
-                  &mt LCTRL US_MINUS &mt LGUI US_UNDER &kp SPACE   &kp RET &mt RSHFT US_COMMA &to SYMBOLS
+   &kp US_COMMA &kp US_Q  &kp US_W &kp US_F &kp US_P &kp US_G   &kp US_J &kp US_L  &u_custom   &kp US_Y &ac_agrav   &kp BSPC
+   &kp US_DOT   &a_custom &kp US_R &kp US_S &kp US_T &kp US_D   &kp US_H &kp US_N  &e_custom   &kp US_I &o_custom   &kp TAB 
+   &mt LGUI     &kp US_Z  &kp US_X &kp US_C &kp US_V &kp US_B   &kp US_K &kp US_M  &kp US_EACU &ac_egrv &kp US_CCED &accents
+                              &kp LCTRL &mo SYMBOLS &kp SPACE   &kp RSHIFT &mo FUNCTIONS &kp RALT
                         >;
                 };
                 symbols_layer {
 // -----------------------------------------------------------------------------------------
-// |   !  |  ?  |  #  |  %  |  [  |  ]  |   | < F12 | 7 F7 | 8 F8 | 9 F9 |  +  | - ~ |
-// |   &  | "|" |  ^  |  $  |  (  |  )  |   | > F11 | 4 F4 | 5 F5 | 6 F6 |  *  |  _  |
-// |   .  |  :  |  ;  |  @  |  {  |  }  |   | 0 F10 | 1 F1 | 2 F2 | 3 F3 |  =  | LY4 |
-//                    | LY1 | GUI | / \ |   | RALT  | SHFT | LY3 |
+// |   ;  |  7  |  8  |  9  | - _ | [ ] |   |  %  |  *  |  /  |  \  |  ~  |BKSPC|
+// |   :  |  1  |  2  |  3  |  0  | ( ) |   |  `  | ' " |  ^  |  $  |ENTER| TAB |
+// |  GUI |  4  |  5  |  6  | = + | { } |   |  #  |  @  |  &  | "|" |  !  |  ?  |
+//                    |CTRL | LT1 | SPC |   |SHIFT| LT2 | ALT |
                         bindings = <
-   &kp US_EXCL &kp US_QMARK &kp US_HASH &kp US_PERCENT &kp US_LBKT &kp US_RBKT   &LT_cstm &N7_cstm &N8_cstm &N9_cstm &kp US_PLUS   &minus_custom
-   &kp US_AMPS &kp US_PIPE2 &kp US_CARET &kp US_DLLR    &kp US_LPAR &kp US_RPAR   &GT_cstm &N4_cstm &N5_cstm &N6_cstm &kp US_STAR  &kp US_UNDER
-   &kp US_DOT  &kp US_COLON &kp US_SEMI  &kp US_AT      &kp US_LBRC &kp US_RBRC   &N0_cstm &N1_cstm &N2_cstm &N3_cstm &kp US_EQUAL &to CONTROL
-                          	         &to DEFAULT    &kp LGUI    &slh_custom   &kp RALT &kp RSHFT &to NAVI
+   &kp US_SEMI  &kp US_7 &kp US_8 &kp US_9 &kp US_MINUS &BRK_cstm   &kp US_PERCENT &kp US_STAR &kp US_FSLH  &kp US_BSLH  &kp US_TILDE &trans
+   &kp US_COLON &kp US_1 &kp US_2 &kp US_3 &kp US_0     &PAR_cstm   &kp US_GRAVE   &quotes     &kp US_CARET &kp US_DLLR  &kp ENTER    &trans
+   &trans       &kp US_4 &kp US_5 &kp US_6 &kp US_EQUAL &BRC_cstm   &kp US_HASH    &kp US_AT   &kp US_AMPS  &kp US_PIPE2 &kp US_EXCL  &kp US_QMARK
+                                  &trans   &trans       &trans      &trans         &trans      &trans
                         >;
                 };
 
                 navigation_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB | scrll_left | mouse_up | scrll_right | scrll_up | right_cl |   |  F5  | page_up | prev_tab |    ↑    | next_tab | BKSP  |
-// |  A  | mouse_left | mouse_dn | mouse_right | scrll_dn | middle_cl|   | back | page_dn |     ←    |    ↓    |     →    | frwrd |
-// | ALT |            |          |      C      |     V    |          |   | home |   end   | accel_1  | accel_2 | accel_3  |  ESC  |
-//                   | LY1 | GUI | CTRL|   | ENT  | left_cl |   LY2    |
+// |     |     |     |     |     |     |   |pg_up|     |  ↑  |     |     |BKSPC|
+// |     |BKSPC| ESC | Home| End | Del |   |pg_dn|  ←  |  ↓  |  →  |ENTER| TAB |
+// | GUI |     |     |     |     |     |   |     |     |     |     |     |     |
+//                   |CTRL | LT1 | SPC |   |SHIFT| LT2 | ALT |
                         bindings = <
-   &kp TAB  &none &none &none    &kp C_AC_SCROLL_UP   &none      &kp F5        &kp PG_UP &none    &kp UP   &none     &kp BSPC
-   &kp US_A &none &none &none    &kp C_AC_SCROLL_DOWN &none      &kp C_AC_BACK &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp C_AC_FORWARD
-   &kp LALT &none &none &kp US_C &kp US_V             &none      &kp HOME      &kp END   &none    &none    &none     &kp ESC
-                    	     &to DEFAULT &kp LGUI     &kp LCTRL  &kp RET       &none     &to SYMBOLS
+   &none  &none    &none   &none    &none   &none      &kp PG_UP &none    &kp UP   &none     &none     &trans
+   &none  &kp BSPC &kp ESC &kp HOME &kp END &kp DEL    &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp ENTER &trans
+   &trans &none    &none   &none    &none   &none      &none     &none    &none    &none     &none     &kp ESC
+                    	   &trans   &trans  &trans     &none     &none    &none
                         >;
                 };
                 control_layer {
 // -----------------------------------------------------------------------------------------
-// |  BTclear   |    BT1   |  BT2 |  BT3 |    BT4   |    BT5   |     |   |   |     |   |   |   |
-// | play/pause | previous | next | mute | volume - | volume + |     |   |   |     |   |   |   |
-// |            |          |      |      |          |          |     |   |   |     |   |   |   |
-//                                |  LY1 |          |          |     |   |   | LY2 |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+//                   |     |     |     |   |     |     |     |
                         bindings = <
-   &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 &none &none &none &none &none &none
-   &kp C_PP   &kp C_PREV   &kp C_NEXT   &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &none &none &none &none &none &none
-   &none      &none        &none        &none        &none        &none        &none &none &none &none &none &none
-                                        &to DEFAULT  &none        &none        &none &none &to SYMBOLS
+   &kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7     &kp F8   &kp F9     &kp F10      &kp F11      &kp F1&2
+   &bt BR_CLR &bt BT_SEL_1 &bt BT_SEL_2 &bt BT_SEL_3 &bt BT_SEL_4 &bt BT_SEL_5 &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &kp C_MUTE
+   &none      &none        &none        &none        &none        &none        &none      &none    &none      &none        &none        &none
+                                        &trans       &trans       &trans       &trans     &trans   &trans
                         >;
                 };
         };
