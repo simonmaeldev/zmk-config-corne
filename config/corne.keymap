@@ -49,7 +49,7 @@
 // | GUI |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |  É  |  È  |  Ç  | ^ trema |
 //                   |CTRL | LT1 | SPC |   |SHIFT| LT2 | ALT |
                         bindings = <
-   &kp US_COMMA &kp US_Q  &kp US_W &kp US_F &kp US_P &kp US_G   &kp US_J &kp US_L  &u_custom   &kp US_Y &ac_agrav   &kp BSPC
+   &kp US_COMMA &kp US_Q  &kp US_W &kp US_F &kp US_P &kp US_G   &kp US_J &kp US_L  &u_custom   &kp US_Y &ac_agrv   &kp BSPC
    &kp US_DOT   &a_custom &kp US_R &kp US_S &kp US_T &kp US_D   &kp US_H &kp US_N  &e_custom   &kp US_I &o_custom   &kp TAB 
    &mt LGUI     &kp US_Z  &kp US_X &kp US_C &kp US_V &kp US_B   &kp US_K &kp US_M  &kp US_EACU &ac_egrv &kp US_CCED &accents
                               &kp LCTRL &mo SYMBOLS &kp SPACE   &kp RSHIFT &mo FUNCTIONS &kp RALT
