@@ -12,8 +12,9 @@
 
 #define DEFAULT   0 // default_layer
 #define SYMBOLS   1 // symbols_layer
-#define FUNCTIONS 2 // functions layer
+#define FUNCTIONS 2 // functions_layer
 #define CONTROL   3 // media + bluetooth + Functions keys
+#define MINECRAFT 4 // minecraft_layer
 
 / {
         conditional_layers {
@@ -72,27 +73,40 @@
                 functions_layer {
 // -----------------------------------------------------------------------------------------
 // |     |     |     |     |     |     |   |pg_up|     |  ↑  |     |     |BKSPC|
-// |     |BKSPC| ESC | Home| End | Del |   |pg_dn|  ←  |  ↓  |  →  |ENTER| TAB |
+// |     |BKSPC| Home| End | ESC | Del |   |pg_dn|  ←  |  ↓  |  →  |ENTER| TAB |
 // | GUI |     |     |     |     |     |   |     |     |     |     |     |     |
 //                   |CTRL | LT1 | SPC |   |SHIFT| LT2 | ALT |
                         bindings = <
    &none  &none    &none   &none    &none   &none      &kp PG_UP &none    &kp UP   &none     &none     &trans
-   &none  &kp BSPC &kp ESC &kp HOME &kp END &kp DEL    &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp ENTER &trans
+   &none  &kp BSPC &kp HOME &kp END &kp ESC &kp DEL    &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp ENTER &trans
    &trans &none    &none   &none    &none   &none      &none     &none    &none    &none     &none     &kp ESC
-                    	   &trans   &trans  &trans     &none     &none    &none
+                    	   &trans   &trans  &trans     &trans    &trans   &trans
                         >;
                 };
                 control_layer {
 // -----------------------------------------------------------------------------------------
-// |     |     |     |     |     |     |   |     |     |     |     |     |     |
-// |     |     |     |     |     |     |   |     |     |     |     |     |     |
-// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+// |  F1 |  F2 |  F3 | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11 | F12 |
+// |BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |prev |play |next |vol+ |vol- |mute |
+// |     |     |     |     |     |     |   |     |mncrf|     |     |     |     |
 //                   |     |     |     |   |     |     |     |
                         bindings = <
-   &kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7     &kp F8   &kp F9     &kp F10      &kp F11      &kp F12
-   &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &kp C_MUTE
-   &none      &none        &none        &none        &none        &none        &none      &none    &none      &none        &none        &none
+   &kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7     &kp F8        &kp F9     &kp F10      &kp F11      &kp F12
+   &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 &kp C_PREV &kp C_PP      &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &kp C_MUTE
+   &none      &none        &none        &none        &none        &none        &none      &to MINECRAFT &none      &none        &none        &none
                                         &trans       &trans       &trans       &trans     &trans   &trans
+                        >;
+                };
+                minecraft_layer {
+// -----------------------------------------------------------------------------------------
+// | ESC |  Q  |  1  |  W  |  E  |  R  |   |     |       |     |     |     |         |
+// | TAB |  F  |  A  |  S  |  D  |  L  |   |     |DEFAULT|     |     |     |         |
+// |  F5 |SHIFT|     | F3+H| F3+G| F3+B|   |     |       |     |     |     |         |
+//                   | CTRL| F3  |SPACE|   |     |       |     |
+                        bindings = <
+   &kp ESC &kp US_Q  &kp US_1 &kp US_W &kp US_E &kp US_R   &none &none       &none &none &none &none
+   &kp TAB &kp US_A  &kp US_A &kp US_S &kp US_D &kp US_L   &none &to DEFAULT &none &none &none &none
+   &kp F5  &kp SHIFT &none    &kp US_H &kp US_G &kp US_B   &none &none       &none &none &none &none
+                              &kp CTRL &kp F3   &kp SPACE  &none &none &none
                         >;
                 };
         };
