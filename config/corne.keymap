@@ -105,7 +105,7 @@
                         bindings = <
    &kp ESC &kp US_Q  &kp US_1 &kp US_W &kp US_E &kp US_R   &none &none       &none &none &none &none
    &kp TAB &kp US_A  &kp US_A &kp US_S &kp US_D &kp US_L   &none &to DEFAULT &none &none &none &none
-   &kp F5  &kp SHIFT &none    &none    &none    &none      &none &none       &none &none &none &none
+   &none   &none     &none    &none    &none    &none      &none &none       &none &none &none &none
                               &kp CTRL &kp F3   &kp SPACE  &none &none &none
                         >;
                 };
