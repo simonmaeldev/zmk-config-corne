@@ -62,7 +62,7 @@
 // |  GUI |  4  |  5  |  6  | = + | { } |   |  #  |  @  |  &  | "|" |  !  |  ?  |
 //                    |CTRL | LT1 | SPC |   |SHIFT| LT2 | ALT |
                         bindings = <
-   &kp US_SEMI  &kp US_7 &kp US_8 &kp US_9 &kp US_MINUS &BRK_cstm   &kp US_PERCENT &kp US_STAR &kp US_FSLH  &kp US_BSLH  &kp US_TILDE &trans
+   &kp US_SEMI  &kp US_7 &kp US_8 &kp US_9 &kp US_MINUS &BKT_cstm   &kp US_PERCENT &kp US_STAR &kp US_FSLH  &kp US_BSLH  &kp US_TILDE &trans
    &kp US_COLON &kp US_1 &kp US_2 &kp US_3 &kp US_0     &PAR_cstm   &kp US_GRAVE   &quotes     &kp US_CARET &kp US_DLLR  &kp ENTER    &trans
    &trans       &kp US_4 &kp US_5 &kp US_6 &kp US_EQUAL &BRC_cstm   &kp US_HASH    &kp US_AT   &kp US_AMPS  &kp US_PIPE2 &kp US_EXCL  &kp US_QMARK
                                   &trans   &trans       &trans      &trans         &trans      &trans
