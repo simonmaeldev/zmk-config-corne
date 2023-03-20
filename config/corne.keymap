@@ -99,8 +99,8 @@
                 minecraft_layer {
 // -----------------------------------------------------------------------------------------
 // | ESC |  Q  |  1  |  W  |  E  |  R  |   |     |       |     |     |     |         |
-// | TAB |  F  |  A  |  S  |  D  |  L  |   |     |DEFAULT|     |     |     |         |
-// |  F5 |SHIFT|     | F3+H| F3+G| F3+B|   |     |       |     |     |     |         |
+// | TAB |SHIFT|  A  |  S  |  D  |  L  |   |     |DEFAULT|     |     |     |         |
+// |  F5 |  F  |     |  H  |  G  |  B  |   |     |       |     |     |     |         |
 //                   | CTRL| F3  |SPACE|   |     |       |     |
                         bindings = <
    &kp ESC &kp US_Q   &kp US_1 &kp US_W &kp US_E &kp US_R   &none &none       &none &none &none &none
