@@ -15,16 +15,9 @@
 #define FUNCTIONS 2 // functions_layer
 #define CONTROL   3 // media + bluetooth + Functions keys
 #define MINECRAFT 4 // minecraft_layer
+#define I3        5 // layer to navigate in i3
 
 / {
-        conditional_layers {
-                compatible = "zmk,conditional-layers";
-                control_layer {
-                        if-layers = <SYMBOLS FUNCTIONS>;
-                        then-layer = <CONTROL>;
-                }; 
-        };
-
         behaviors {
                 ht: hold_tap {
                         compatible = "zmk,behavior-hold-tap";
@@ -35,6 +28,14 @@
                         flavor = "tap-preferred";
                         bindings = <&kp>, <&kp>;
                 };
+                mo_to: behavior_mo_to {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "mo_to";
+                        #binding-cells = <2>;
+                        flavor = "hold-preferred";
+                        tapping-term-ms = <200>;
+                        bindings = <&mo>, <&to>;
+                }; //momentary on hold, to on tap
                 
                 #include "behavior_mod_morph.dtsi"
 
@@ -45,42 +46,42 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// | , < |  Q  |  W  |  F  |  P  |  G  |   |  J  |  L  | U ù |  Y  |  À  |   BKSP  |
-// | . > |  A  |  R  |  S  |  T  |  D  |   |  H  |  N  | E € |  I  | O œ |   TAB   |
-// | GUI |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |  É  |  È  |  Ç  | ^ trema |
-//                   |CTRL | LT1 | SPC |   |SHIFT| LT2 | ALT |
+// |  ç   |  J  |  D  |  L  | ' ? |  X  |   |  W  |  B  | O œ |  P  |  È  | ^ ! |
+// | ESC  |  N  |  T  |  R  |  S  |  M  |   | , ; | U ù | E € |I trm| A Æ |  Z  |
+// |AltTab|  Q  |  F  |  H  |  C  |  V  |   | . : |  G  |  É  |  Y  |  À  |  K  |
+//                   |CTRL | SPC | LY |   |SHIFT| ENT | BSP |
                         bindings = <
-   &kp US_COMMA &kp US_Q  &kp US_W &kp US_F &kp US_P &kp US_G   &kp US_J &kp US_L  &u_custom   &kp US_Y &ac_agrv   &kp BSPC
-   &kp US_DOT   &a_custom &kp US_R &kp US_S &kp US_T &kp US_D   &kp US_H &kp US_N  &e_custom   &kp US_I &o_custom   &kp TAB 
-   &kp LGUI     &kp US_Z  &kp US_X &kp US_C &kp US_V &kp US_B   &kp US_K &kp US_M  &kp US_EACU &ac_egrv &kp US_CCED &accents
-                              &kp LCTRL &mo SYMBOLS &kp SPACE   &kp RSHIFT &mo FUNCTIONS &kp RALT
+   &kp US_CCED  &kp US_J  &kp US_D &kp US_L &squote_bvofrak         &kp US_X   &kp US_W       &kp US_B  &o_custom   &kp US_P   &ac_egrv  &caret_bvofrak
+   &kp ESC      &a_custom &kp US_T &kp US_R &kp US_S                &kp US_M   &comma_bvofrak &u_custom &e_custom   &i_bvofrak &a_custom &kp US_Z 
+   &mt LALT TAB &kp US_Q  &kp US_F &kp US_H &kp US_C                &kp US_V   &dot_bvofrak   &kp US_G  &kp US_EACU &kp US_Y   &ac_agrv  &kp US_K
+                          &kp LCTRL &kp SPACE &mo_to I3 SYMBOLS     &kp RSHIFT &kp ENTER &kp BSPC
                         >;
                 };
                 symbols_layer {
 // -----------------------------------------------------------------------------------------
-// |   ;  |  7  |  8  |  9  | - _ | [ ] |   |  %  |  *  |  /  |  \  |  ~  |BKSPC|
-// |   :  |  1  |  2  |  3  |  0  | ( ) |   |  `  | ' " |  ^  |  $  |ENTER| TAB |
-// |  GUI |  4  |  5  |  6  | = + | { } |   |  #  |  @  |  &  | "|" |  !  |  ?  |
-//                    |CTRL | LT1 | SPC |   |SHIFT| LT2 | ALT |
+// |   \  |  ~  |  ^  |  $  |  "  |  `  |   | [ { |  7  |  8  |  9  | - _ |  /  |
+// |to def|  #  |HOME | END | DEL |  @  |   | ( ) |  1  |  2  |  3  |  0  |  *  |
+// |      |  |  |  &  |  %  |  <  |  >  |   | ] } |  4  |  5  |  6  | = + |     |
+//                    |     |     |     |   |     |     |     |
                         bindings = <
-   &kp US_SEMI  &kp US_7 &kp US_8 &kp US_9 &kp US_MINUS &BKT_cstm   &kp US_PERCENT &kp US_STAR &kp US_FSLH  &kp US_BSLH  &kp US_TILDE &trans
-   &kp US_COLON &kp US_1 &kp US_2 &kp US_3 &kp US_0     &PAR_cstm   &kp US_GRAVE   &quotes     &kp US_CARET &kp US_DLLR  &kp ENTER    &trans
-   &trans       &kp US_4 &kp US_5 &kp US_6 &kp US_EQUAL &BRC_cstm   &kp US_HASH    &kp US_AT   &kp US_AMPS  &kp US_PIPE2 &kp US_EXCL  &kp US_QMARK
-                                  &trans   &trans       &trans      &trans         &trans      &trans
+   &kp US_BSLH &kp US_TILDE &kp US_CARET &kp US_DLLR    &kp US_DQT &kp US_GRAVE   &kp US_LBKT &kp US_7 &kp US_8 &kp US_9 &kp US_MINUS &kp US_FSLH
+   &to DEFAULT &kp US_HASH  &kp HOME     &kp END        &kp DEL    &kp US_AT      &PAR_cstm   &kp US_1 &kp US_2 &kp US_3 &kp US_0     &kp US_STAR
+   &trans      &kp US_PIPE2 &kp US_AMPS  &kp US_PERCENT &kp US_LT  &kp US_GT      &kp US_RBKT &kp US_4 &kp US_5 &kp US_6 &kp US_EQUAL &trans
+                                  &trans   &trans       &mo_to I3 FUNCTIONS       &trans         &trans      &trans
                         >;
                 };
 
                 functions_layer {
 // -----------------------------------------------------------------------------------------
-// |     |     |     |     |     |     |   |pg_up|     |  ↑  |     |     |BKSPC|
-// |     |BKSPC| Home| End | ESC | Del |   |pg_dn|  ←  |  ↓  |  →  |ENTER| TAB |
-// | GUI |     |     |     |     |     |   |     |     |     |     |     |     |
-//                   |CTRL | LT1 | SPC |   |SHIFT| LT2 | ALT |
+// |      |     |     |     |     |     |   |pg_up|     |  ↑  |     |     |     |
+// |to def|BKSPC| Home| End | ESC | Del |   |pg_dn|  ←  |  ↓  |  →  |ENTER|     |
+// |      |     |     |     |     |     |   |     |     |     |     |     |     |
+//                    |     |     |     |   |     |     |     |
                         bindings = <
    &none  &none    &none   &none    &none   &none      &kp PG_UP &none    &kp UP   &none     &none     &trans
-   &none  &kp BSPC &kp HOME &kp END &kp ESC &kp DEL    &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp ENTER &trans
+   &to DEFAULT  &kp BSPC &kp HOME &kp END &kp ESC &kp DEL    &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp ENTER &trans
    &trans &none    &none   &none    &none   &none      &none     &none    &none    &none     &none     &kp ESC
-                    	   &trans   &trans  &trans     &trans    &trans   &trans
+                    	   &trans   &trans  &mo_to I3 CONTROL     &trans    &trans   &trans
                         >;
                 };
                 control_layer {
@@ -93,7 +94,7 @@
    &kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7     &kp F8        &kp F9     &kp F10      &kp F11      &kp F12
    &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 &kp C_PREV &kp C_PP      &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &kp C_MUTE
    &none      &none        &none        &none        &none        &none        &none      &to MINECRAFT &none      &none        &none        &none
-                                        &trans       &trans       &trans       &trans     &trans   &trans
+                                        &trans       &trans       &mo_to I3 DEFAULT       &trans     &trans   &trans
                         >;
                 };
                 minecraft_layer {
@@ -107,6 +108,19 @@
    &kp TAB &kp LSHIFT &kp US_A &kp US_S &kp US_D &kp US_L   &none &to DEFAULT &none &none &none &none
    &kp F5  &kp US_F   &none    &kp US_H &kp US_G &kp US_B   &none &none       &none &none &none &none
                               &kp LCTRL &kp F3   &kp SPACE  &none &none &none
+                        >;
+                };
+                i3_layer {
+// -----------------------------------------------------------------------------------------
+// |  5  |  6  |  7  |  8  |  9  |  0  |   |     |  E  |  W  |  S  |     |     |
+// |  Q  |  4  |  3  |  2  |  1  |  D  |   |     |  ←  |  ↓  |  ↑  |  →  |     |
+// |     |     |  F  |  H  |  R  |  S  |   |     |     |     |     |     |     |
+//                   |     |     |     |   |     |     |     |
+                        bindings = <
+   &kp LG(US_5) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &none &LG(US_E) &LG(US_W) &LG(US_S) &none      &none
+   &kp LG(US_Q) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &none &LG(LEFT) &LG(DOWN) &LG(UP)   &LG(RIGHT) &none
+   &trans       &trans       &kp LG(US_F) &kp LG(US_H) &kp LG(US_R) &kp LG(US_V)   &none &none     &none     &none     &none      &none
+                                          &trans       &trans       &mo I3         &trans &trans &trans
                         >;
                 };
         };

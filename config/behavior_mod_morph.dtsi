@@ -188,3 +188,38 @@ BRC_cstm: BRC_custom {
         bindings = <&kp US_LBRC>, <&kp US_RBRC>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
 };
+squote_bvofrak: squote_bvofrak {
+        compatible = "zmk,behavior-mod-morph";
+        label = "squote_bvofrak";
+        #binding-cells = <0>;
+        bindings = <&kp US_SQT>, <&kp US_QMARK>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+carret_bvofrak: carret_bvofrak {
+        compatible = "zmk,behavior-mod-morph";
+        label = "carret_bvofrak";
+        #binding-cells = <0>;
+        bindings = <&kp US_DCARET>, <&kp US_EXCL>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+dot_bvofrak: dot_bvofrak {
+        compatible = "zmk,behavior-mod-morph";
+        label = "dot_bvofrak";
+        #binding-cells = <0>;
+        bindings = <&kp US_DOT>, <&kp US_COLON>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+comma_bvofrak: comma_bvofrak {
+        compatible = "zmk,behavior-mod-morph";
+        label = "comma_bvofrak";
+        #binding-cells = <0>;
+        bindings = <&kp US_COMMA>, <&kp US_SEMI>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+i_bvofrak: i_bvofrak {
+        compatible = "zmk,behavior-mod-morph";
+        label = "i_bvofrak";
+        #binding-cells = <0>;
+        bindings = <&kp US_I>, <&kp US_DDQT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
