@@ -10,12 +10,11 @@
 #include "accents.dtsi"
 #include "keys_fr.h"
 
-#define DEFAULT   0 // default_layer
-#define SYMBOLS   1 // symbols_layer
-#define FUNCTIONS 2 // functions_layer
-#define CONTROL   3 // media + bluetooth + Functions keys
-#define MINECRAFT 4 // minecraft_layer
-#define I3        5 // layer to navigate in i3
+#define DEFAULT    0 // default_layer
+#define SYMBOLS    1 // symbols_layer
+#define CONTROL    2 // media + bluetooth + Functions keys
+#define MINECRAFT  3 // minecraft_layer
+#define NAVIGATION 4 // layer to navigate in i3 and the rest
 
 / {
         behaviors {
@@ -68,20 +67,6 @@
                                   &trans   &trans       &mo_to I3 FUNCTIONS       &trans         &trans      &trans
                         >;
                 };
-
-                functions_layer {
-// -----------------------------------------------------------------------------------------
-// |      |     |     |     |     |     |   |pg_up|     |  ↑  |     |     |     |
-// |to def|BKSPC| Home| End | ESC | Del |   |pg_dn|  ←  |  ↓  |  →  |ENTER|     |
-// |      |     |     |     |     |     |   |     |     |     |     |     |     |
-//                    |     |     |     |   |     |     |     |
-                        bindings = <
-   &none  &none    &none   &none    &none   &none      &kp PG_UP &none    &kp UP   &none     &none     &trans
-   &to DEFAULT  &kp BSPC &kp HOME &kp END &kp ESC &kp DEL    &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp ENTER &trans
-   &trans &none    &none   &none    &none   &none      &none     &none    &none    &none     &none     &kp ESC
-                    	   &trans   &trans  &mo_to I3 CONTROL     &trans    &trans   &trans
-                        >;
-                };
                 control_layer {
 // -----------------------------------------------------------------------------------------
 // |  F1 |  F2 |  F3 | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11 | F12 |
@@ -110,15 +95,15 @@
                 };
                 i3_layer {
 // -----------------------------------------------------------------------------------------
-// |  5  |  6  |  7  |  8  |  9  |  0  |   |     |  E  |  W  |  S  |     |     |
-// |  Q  |  4  |  3  |  2  |  1  |  D  |   |     |  ←  |  ↓  |  ↑  |  →  |     |
-// | LGUI|     |  F  |  H  |  R  |  S  |   |     |     |     |     |     |     |
+// |  5  |  6  |  7  |  8  |  9  |  0  |   |PG_UP|  E  |  W  |  S  |     |     |
+// | def |  4  |  3  |  2  |  1  |  D  |   |PG_DN|  ←  |  ↓  |  ↑  |  →  |     |
+// | LGUI|CTRL |  F  |  H  |  R  |  S  |   |     |     |     |     |     |     |
 //                   |     |     |     |   |     |     |     |
                         bindings = <
-   &kp LG(US_5) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &none &kp LG(US_E) &kp LG(US_W) &kp LG(US_S) &none     &none
-   &kp LG(US_Q) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &none &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT &none
-   &kp LGUI     &trans       &kp LG(US_F) &kp LG(US_H) &kp LG(US_R) &kp LG(US_V)   &none &none        &none        &none        &none     &none
-                                          &trans       &trans       &mo I3         &trans &kp LG(RET) &trans
+   &kp LG(US_5) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &kp PG_UP &kp LG(US_E) &kp LG(US_W) &kp LG(US_S) &none     &none
+   &to DEFAULT  &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &kp PG_DN &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT &none
+   &kp LGUI     &kp LCTRL    &kp LG(US_F) &kp LG(US_H) &kp LG(US_R) &kp LG(US_V)   &none     &none        &none        &none        &none     &none
+                                          &trans       &trans       &mo I3         &trans &kp LG(RET) &LG(ESC)
                         >;
                 };
         };
