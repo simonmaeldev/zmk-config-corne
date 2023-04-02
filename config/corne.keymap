@@ -117,9 +117,9 @@
 // |     |     |  F  |  H  |  R  |  S  |   |     |     |     |     |     |     |
 //                   |     |     |     |   |     |     |     |
                         bindings = <
-   &kp LG(US_5) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &none &LG(US_E) &LG(US_W) &LG(US_S) &none      &none
-   &kp LG(US_Q) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &none &LG(LEFT) &LG(DOWN) &LG(UP)   &LG(RIGHT) &none
-   &trans       &trans       &kp LG(US_F) &kp LG(US_H) &kp LG(US_R) &kp LG(US_V)   &none &none     &none     &none     &none      &none
+   &kp LG(US_5) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &none &kp LG(US_E) &kp LG(US_W) &kp LG(US_S) &none         &none
+   &kp LG(US_Q) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &none &kp LG(LEFT) &kp LG(DOWN) &kp LG(UP)   &kp LG(RIGHT) &none
+   &trans       &trans       &kp LG(US_F) &kp LG(US_H) &kp LG(US_R) &kp LG(US_V)   &none &none        &none        &none        &none         &none
                                           &trans       &trans       &mo I3         &trans &trans &trans
                         >;
                 };
