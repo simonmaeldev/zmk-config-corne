@@ -64,7 +64,7 @@
    &kp US_BSLH &kp US_TILDE &kp US_CARET &kp US_DLLR    &kp US_DQT &kp US_GRAVE   &kp US_LBKT &kp US_7 &kp US_8 &kp US_9 &kp US_MINUS &kp US_FSLH
    &to DEFAULT &kp US_HASH  &kp HOME     &kp END        &kp DEL    &kp US_AT      &PAR_cstm   &kp US_1 &kp US_2 &kp US_3 &kp US_0     &kp US_STAR
    &trans      &kp US_PIPE2 &kp US_AMPS  &kp US_PERCENT &kp US_LT  &kp US_GT      &kp US_RBKT &kp US_4 &kp US_5 &kp US_6 &kp US_EQUAL &trans
-                                  &trans   &trans       &mo_to I3 FUNCTIONS       &trans         &trans      &trans
+                                  &trans   &trans       &mo_to I3 CONTROL         &trans         &trans      &trans
                         >;
                 };
                 control_layer {
@@ -103,7 +103,7 @@
    &kp LG(US_5) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &kp PG_UP &kp LG(US_E) &kp LG(US_W) &kp LG(US_S) &none     &none
    &to DEFAULT  &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &kp PG_DN &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT &none
    &kp LGUI     &kp LCTRL    &kp LG(US_F) &kp LG(US_H) &kp LG(US_R) &kp LG(US_V)   &none     &none        &none        &none        &none     &none
-                                          &trans       &trans       &mo I3         &trans &kp LG(RET) &LG(ESC)
+                                          &trans       &trans       &mo I3         &trans    &kp LG(RET)  &kp LG(ESC)
                         >;
                 };
         };
