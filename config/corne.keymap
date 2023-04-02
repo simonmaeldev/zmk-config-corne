@@ -37,14 +37,6 @@
                         tapping-term-ms = <200>;
                         bindings = <&mo>, <&to>;
                 }; //momentary on hold, to on tap
-                htu: behavior_htu {
-                        compatible = "zmk,behavior-hold-tap";
-                        label = "htu";
-                        #binding-cells = <0>;
-                        flavor = "hold-preferred";
-                        tapping-term-ms = <200>;
-                        bindings = <&kp LEFT>, <&u_custom>;
-                }; //arrow on hold, letter on tap
         };
 
         keymap {
@@ -58,7 +50,7 @@
 //                   |CTRL | SPC | LY |   |SHIFT| ENT | BSP |
                         bindings = <
    &kp US_CCED  &kp US_J &kp US_D &kp US_L &squote_bvofrak &kp US_X      &kp US_W       &kp US_B  &o_custom   &kp US_P   &ac_egrv  &carret_bvofrak
-   &kp ESC      &kp US_N &kp US_T &kp US_R &kp US_S        &kp US_M      &comma_bvofrak &htu      &e_custom   &i_bvofrak &a_custom &kp US_Z 
+   &kp ESC      &kp US_N &kp US_T &kp US_R &kp US_S        &kp US_M      &comma_bvofrak &u_custom &e_custom   &i_bvofrak &a_custom &kp US_Z 
    &mt LALT TAB &kp US_Q &kp US_F &kp US_H &kp US_C        &kp US_V      &dot_bvofrak   &kp US_G  &kp US_EACU &kp US_Y   &ac_agrv  &kp US_K
                           &kp LCTRL &kp SPACE &mo_to I3 SYMBOLS          &kp RSHIFT &kp ENTER &kp BSPC
                         >;
@@ -120,12 +112,12 @@
 // -----------------------------------------------------------------------------------------
 // |  5  |  6  |  7  |  8  |  9  |  0  |   |     |  E  |  W  |  S  |     |     |
 // |  Q  |  4  |  3  |  2  |  1  |  D  |   |     |  ←  |  ↓  |  ↑  |  →  |     |
-// |     |     |  F  |  H  |  R  |  S  |   |     |     |     |     |     |     |
+// | LGUI|     |  F  |  H  |  R  |  S  |   |     |     |     |     |     |     |
 //                   |     |     |     |   |     |     |     |
                         bindings = <
-   &kp LG(US_5) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &none &kp LG(US_E) &kp LG(US_W) &kp LG(US_S) &none         &none
-   &kp LG(US_Q) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &none &kp LG(LEFT) &kp LG(DOWN) &kp LG(UP)   &kp LG(RIGHT) &none
-   &trans       &trans       &kp LG(US_F) &kp LG(US_H) &kp LG(US_R) &kp LG(US_V)   &none &none        &none        &none        &none         &none
+   &kp LG(US_5) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &none &kp LG(US_E) &kp LG(US_W) &kp LG(US_S) &none     &none
+   &kp LG(US_Q) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &none &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT &none
+   &kp LGUI     &trans       &kp LG(US_F) &kp LG(US_H) &kp LG(US_R) &kp LG(US_V)   &none &none        &none        &none        &none     &none
                                           &trans       &trans       &mo I3         &trans &kp LG(RET) &trans
                         >;
                 };
