@@ -19,6 +19,7 @@
 
 / {
         behaviors {
+                #include "behavior_mod_morph.dtsi"
                 ht: hold_tap {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOLD_TAP";
@@ -36,9 +37,14 @@
                         tapping-term-ms = <200>;
                         bindings = <&mo>, <&to>;
                 }; //momentary on hold, to on tap
-                
-                #include "behavior_mod_morph.dtsi"
-
+                htu: behavior_htu {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "htu";
+                        #binding-cells = <0>;
+                        flavor = "hold-preferred";
+                        tapping-term-ms = <200>;
+                        bindings = <&kp LEFT>, <&u_custom>;
+                }; //arrow on hold, letter on tap
         };
 
         keymap {
@@ -51,10 +57,10 @@
 // |AltTab|  Q  |  F  |  H  |  C  |  V  |   | . : |  G  |  É  |  Y  |  À  |  K  |
 //                   |CTRL | SPC | LY |   |SHIFT| ENT | BSP |
                         bindings = <
-   &kp US_CCED  &kp US_J  &kp US_D &kp US_L &squote_bvofrak         &kp US_X   &kp US_W       &kp US_B  &o_custom   &kp US_P   &ac_egrv  &carret_bvofrak
-   &kp ESC      &a_custom &kp US_T &kp US_R &kp US_S                &kp US_M   &comma_bvofrak &u_custom &e_custom   &i_bvofrak &a_custom &kp US_Z 
-   &mt LALT TAB &kp US_Q  &kp US_F &kp US_H &kp US_C                &kp US_V   &dot_bvofrak   &kp US_G  &kp US_EACU &kp US_Y   &ac_agrv  &kp US_K
-                          &kp LCTRL &kp SPACE &mo_to I3 SYMBOLS     &kp RSHIFT &kp ENTER &kp BSPC
+   &kp US_CCED  &kp US_J &kp US_D &kp US_L &squote_bvofrak &kp US_X      &kp US_W       &kp US_B  &o_custom   &kp US_P   &ac_egrv  &carret_bvofrak
+   &kp ESC      &kp US_N &kp US_T &kp US_R &kp US_S        &kp US_M      &comma_bvofrak &htu      &e_custom   &i_bvofrak &a_custom &kp US_Z 
+   &mt LALT TAB &kp US_Q &kp US_F &kp US_H &kp US_C        &kp US_V      &dot_bvofrak   &kp US_G  &kp US_EACU &kp US_Y   &ac_agrv  &kp US_K
+                          &kp LCTRL &kp SPACE &mo_to I3 SYMBOLS          &kp RSHIFT &kp ENTER &kp BSPC
                         >;
                 };
                 symbols_layer {
