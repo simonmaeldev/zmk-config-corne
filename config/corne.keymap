@@ -51,7 +51,7 @@
 // |AltTab|  Q  |  F  |  H  |  C  |  V  |   | . : |  G  |  É  |  Y  |  À  |  K  |
 //                   |CTRL | SPC | LY |   |SHIFT| ENT | BSP |
                         bindings = <
-   &kp US_CCED  &kp US_J  &kp US_D &kp US_L &squote_bvofrak         &kp US_X   &kp US_W       &kp US_B  &o_custom   &kp US_P   &ac_egrv  &caret_bvofrak
+   &kp US_CCED  &kp US_J  &kp US_D &kp US_L &squote_bvofrak         &kp US_X   &kp US_W       &kp US_B  &o_custom   &kp US_P   &ac_egrv  &carret_bvofrak
    &kp ESC      &a_custom &kp US_T &kp US_R &kp US_S                &kp US_M   &comma_bvofrak &u_custom &e_custom   &i_bvofrak &a_custom &kp US_Z 
    &mt LALT TAB &kp US_Q  &kp US_F &kp US_H &kp US_C                &kp US_V   &dot_bvofrak   &kp US_G  &kp US_EACU &kp US_Y   &ac_agrv  &kp US_K
                           &kp LCTRL &kp SPACE &mo_to I3 SYMBOLS     &kp RSHIFT &kp ENTER &kp BSPC
