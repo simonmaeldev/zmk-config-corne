@@ -221,5 +221,5 @@ i_bvofrak: i_bvofrak {
         label = "i_bvofrak";
         #binding-cells = <0>;
         bindings = <&kp US_I>, <&kp US_DDQT>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
+        mods = <(MOD_LALT|MOD_RALT)>;
 };
