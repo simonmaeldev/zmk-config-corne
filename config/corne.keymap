@@ -50,7 +50,7 @@
                         bindings = <
    &kp ESC      &kp US_Q  &kp US_W &e_custom &kp US_R &kp US_T      &kp US_Y &u_custom &kp US_I     &o_custom  &kp US_P    &kp BSPC
    &mt LALT TAB &a_custom &kp US_S &kp US_D  &kp US_F &kp US_G      &kp US_H &kp US_J  &kp US_K     &kp US_L   &kp US_SEMI &kp US_DSQT 
-   &ac_egrv     &kp US_Z  &kp US_X &kp US_C  &kp US_V &kp US_B      &kp US_N &kp US_M  &kp US_COMMA &kp US_DOT &kp US_FLSH &carret_bvofrak
+   &ac_egrv     &kp US_Z  &kp US_X &kp US_C  &kp US_V &kp US_B      &kp US_N &kp US_M  &kp US_COMMA &kp US_DOT &kp US_FSLH &carret_bvofrak
                           &kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
                         >;
                 };
@@ -82,27 +82,27 @@
                 };
                 control_layer {
 // -----------------------------------------------------------------------------------------
-// |to def|     |     |     |     |     |   |     |     |     |     |     |     |
+// |to def|     |     |     |     |     |   |     |     |     |     |mncrf|     |
 // |  F1  |  F2 |  F3 | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11 | F12 |
 // |BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |prev |play |next |vol+ |vol- |mute |
 //                   |     |     |     |   |     |     |     |
                         bindings = <
-   &to DEFAULT &none        &none        &none        &none        &none        &none      &none    &none      &none        &none        &none
-   &kp F1      &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7     &kp F8   &kp F9     &kp F10      &kp F11      &kp F12
-   &bt BT_CLR  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN &kp C_MUTE
+   &to DEFAULT &none        &none        &none        &none        &none        &none      &none    &none      &none        &to MINECRAFT &none
+   &kp F1      &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7     &kp F8   &kp F9     &kp F10      &kp F11       &kp F12
+   &bt BT_CLR  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN  &kp C_MUTE
                                         &trans       &trans       &mo_to NAVIGATION DEFAULT       &trans     &trans   &trans
                         >;
                 };
                 minecraft_layer {
 // -----------------------------------------------------------------------------------------
-// | ESC |  Q  |  1  |  W  |  E  |  R  |   |     |       |     |     |     |         |
-// | TAB |SHIFT|  A  |  S  |  D  |  L  |   |     |DEFAULT|     |     |     |         |
-// |  F5 |  F  |     |  H  |  G  |  B  |   |     |       |     |     |     |         |
+// | ESC |  Q  |  1  |  W  |  E  |  R  |   |     |       |     |     |     |DEFAULT|
+// | TAB |SHIFT|  A  |  S  |  D  |  L  |   |     |       |     |     |     |       |
+// |  F5 |  F  |     |  H  |  G  |  B  |   |     |       |     |     |     |       |
 //                   | CTRL| F3  |SPACE|   |     |       |     |
                         bindings = <
-   &kp ESC &kp US_Q   &kp US_1 &kp US_W &kp US_E &kp US_R   &none &none       &none &none &none &none
-   &kp TAB &kp LSHIFT &kp US_A &kp US_S &kp US_D &kp US_L   &none &to DEFAULT &none &none &none &none
-   &kp F5  &kp US_F   &none    &kp US_H &kp US_G &kp US_B   &none &none       &none &none &none &none
+   &kp ESC &kp US_Q   &kp US_1 &kp US_W &kp US_E &kp US_R   &none &none &none &none &none &to DEFAULT
+   &kp TAB &kp LSHIFT &kp US_A &kp US_S &kp US_D &kp US_L   &none &none &none &none &none &none
+   &kp F5  &kp US_F   &none    &kp US_H &kp US_G &kp US_B   &none &none &none &none &none &none
                               &kp LCTRL &kp F3   &kp SPACE  &none &none &none
                         >;
                 };
