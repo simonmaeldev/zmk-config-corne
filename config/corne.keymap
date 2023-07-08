@@ -49,7 +49,7 @@
 //                   |CTRL | SPC | LY |   |SHIFT| ENT | BSP |
                         bindings = <
    &kp ESC      &kp US_Q  &kp US_W &e_custom &kp US_R &kp US_T      &kp US_Y &u_custom &kp US_I     &o_custom  &kp US_P    &kp BSPC
-   &mt LAlT TAB &a_custom &kp US_S &kp US_D  &kp US_F &kp US_G      &kp US_H &kp US_J  &kp US_K     &kp US_L   &kp US_SEMI &kp US_DSQT 
+   &mt LALT TAB &a_custom &kp US_S &kp US_D  &kp US_F &kp US_G      &kp US_H &kp US_J  &kp US_K     &kp US_L   &kp US_SEMI &kp US_DSQT 
    &ac_egrv     &kp US_Z  &kp US_X &kp US_C  &kp US_V &kp US_B      &kp US_N &kp US_M  &kp US_COMMA &kp US_DOT &kp US_FLSH &carret_bvofrak
                           &kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
                         >;
