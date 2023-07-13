@@ -82,26 +82,26 @@
                 //};
                 symbols_layer {
 // -----------------------------------------------------------------------------------------
-// |to def|  ~  |  ^  |  $  |  "  |  `  |   | [ { |  7  |  8  |  9  | - _ |  /  |
-// |   \  |  #  |HOME | END | DEL |  @  |   | ( ) |  1  |  2  |  3  |  0  |  *  |
-// |      |  |  |  &  |  %  |  <  |  >  |   | ] } |  4  |  5  |  6  | = + |     |
+// |   \  |  ~  |  ^  |  $  |  "  |  `  |   | [ { |  7  |  8  |  9  | - _ |  /  |
+// |to def|  #  |HOME | END | DEL |  @  |   | ( ) |  4  |  5  |  6  | = + |  *  |
+// |      |  |  |  &  |  %  |  <  |  >  |   | ] } |  1  |  2  |  3  |  0  |     |
 //                    |     |     |     |   |     |     |     |
                         bindings = <
-   &to DEFAULT &kp US_TILDE &kp US_CARET &kp US_DLLR    &kp US_DQT &kp US_GRAVE   &kp US_LBKT &kp US_7 &kp US_8 &kp US_9 &kp US_MINUS &kp US_FSLH
-   &kp US_BSLH &kp US_HASH  &kp HOME     &kp END        &kp DEL    &kp US_AT      &PAR_cstm   &kp US_1 &kp US_2 &kp US_3 &kp US_0     &kp US_STAR
-   &trans      &kp US_PIPE2 &kp US_AMPS  &kp US_PERCENT &kp US_LT  &kp US_GT      &kp US_RBKT &kp US_4 &kp US_5 &kp US_6 &kp US_EQUAL &trans
+   &kp US_BSLH &kp US_TILDE &kp US_CARET &kp US_DLLR    &kp US_DQT &kp US_GRAVE   &kp US_LBKT &kp US_7 &kp US_8 &kp US_9 &kp US_MINUS &kp US_FSLH
+   &to DEFAULT &kp US_HASH  &kp HOME     &kp END        &kp DEL    &kp US_AT      &PAR_cstm   &kp US_4 &kp US_5 &kp US_6 &kp US_EQUAL &kp US_STAR
+   &trans      &kp US_PIPE2 &kp US_AMPS  &kp US_PERCENT &kp US_LT  &kp US_GT      &kp US_RBKT &kp US_1 &kp US_2 &kp US_3 &kp US_0     &trans
                                   &trans   &trans       &mo_to NAVIGATION CONTROL         &trans         &trans      &trans
                         >;
                 };
                 control_layer {
 // -----------------------------------------------------------------------------------------
-// |to def|     |     |     |     |     |   |     |     |     |     |mncrf|     |
 // |  F1  |  F2 |  F3 | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11 | F12 |
+// |to def|     |     |     |     |     |   |     |     |     |     |mncrf|     |
 // |BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |prev |play |next |vol+ |vol- |mute |
 //                   |     |     |     |   |     |     |     |
                         bindings = <
-   &to DEFAULT &none        &none        &none        &none        &none        &none      &none    &none      &none        &to MINECRAFT &none
    &kp F1      &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7     &kp F8   &kp F9     &kp F10      &kp F11       &kp F12
+   &to DEFAULT &none        &none        &none        &none        &none        &none      &none    &none      &none        &to MINECRAFT &none
    &bt BT_CLR  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN  &kp C_MUTE
                                         &trans       &trans       &mo_to NAVIGATION DEFAULT       &trans     &trans   &trans
                         >;
@@ -121,13 +121,13 @@
                 };
                 i3_layer {
 // -----------------------------------------------------------------------------------------
-// | def |  6  |  7  |  8  |  9  |  0  |   |PG_UP|  E  |  Z  |  S  |  W  |     |
-// |  5  |  4  |  3  |  2  |  1  |  D  |   |PG_DN|  ←  |  ↓  |  ↑  |  →  |     |
+// |  5  |  6  |  7  |  8  |  9  |  0  |   |PG_UP|  E  |  Z  |  S  |  W  |     |
+// | def |  4  |  3  |  2  |  1  |  D  |   |PG_DN|  ←  |  ↓  |  ↑  |  →  |     |
 // | LGUI|CTRL |  F  |  H  |  R  |  S  |   |     |     |     |     |     |     |
 //                   |wintab|    |     |   |     |     |     |
                         bindings = <
-   &to DEFAULT  &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &kp PG_UP &kp LG(US_E) &kp LG(US_Z) &kp LG(US_S) &kp LG(US_W) &kp LG(ESC)
-   &kp LG(US_5) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &kp PG_DN &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none
+   &kp LG(US_5) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &kp PG_UP &kp LG(US_E) &kp LG(US_Z) &kp LG(US_S) &kp LG(US_W) &kp LG(ESC)
+   &to DEFAULT  &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &kp PG_DN &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none
    &kp LGUI     &kp LCTRL    &kp LG(US_F) &kp LG(US_H) &kp LG(US_R) &kp LG(US_V)   &none     &none        &none        &none        &none        &none
                                           &kp LG(TAB)  &trans     &mo NAVIGATION   &trans    &kp LG(RET)  &kp LG(US_Q)
                         >;
