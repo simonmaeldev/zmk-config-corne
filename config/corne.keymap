@@ -43,17 +43,30 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
+// | Tab | ? ! |  Y  | ( { |  P  | / = |   |'`"^ |  J  |  D  |  L  |  W  | ' " |
+// | ESC |  A  |  O  |  U  |  E  |  I  |   |  F  |  T  |  S  |  R  |  N  |  M  |
+// | Alt |  Z  |  X  |  C  |  V  |  B  |   |  K  |  Q  |  G  |  H  | , ; | . : |
+//                   |CTRL | SPC | LY  |   |SHIFT| ENT | BSP |
+                        bindings = <
+   &kp TAB  &dot_cstm &kp US_Y  &parbrc   &kp US_P  &slheq        &all_accent &kp US_J &kp US_D &kp US_L &kp US_W       &quotes
+   &kp ESC  &a_custom &o_custom &u_custom &e_custom &kp US_I      &kp US_F    &kp US_T &kp US_S &kp US_R &kp US_N       &kp US_M 
+   &kp RALT &kp US_Z  &kp US_X  &kp US_C  &kp US_V  &kp US_B      &kp US_K    &kp US_Q &kp US_G &kp US_H &comma_bvofrak &dot_bvofrak
+                          &kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
+                        >;
+                };
+                //qwerty_layer {
+// -----------------------------------------------------------------------------------------
 // | ESC  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BSP |
 // |Alttab|  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  | ; : | ' " |
 // |  è   |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  | , < | . > | / ? | ^ ! |
 //                   |CTRL | SPC | LY |   |SHIFT| ENT | BSP |
-                        bindings = <
-   &kp ESC      &kp US_Q  &kp US_W &e_custom &kp US_R &kp US_T      &kp US_Y &u_custom &kp US_I     &o_custom  &kp US_P    &kp BSPC
-   &mt LALT TAB &a_custom &kp US_S &kp US_D  &kp US_F &kp US_G      &kp US_H &kp US_J  &kp US_K     &kp US_L   &kp US_SEMI &kp US_DSQT 
-   &ac_egrv     &kp US_Z  &kp US_X &kp US_C  &kp US_V &kp US_B      &kp US_N &kp US_M  &kp US_COMMA &kp US_DOT &kp US_FSLH &carret_bvofrak
-                          &kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
-                        >;
-                };
+                        //bindings = <
+   //&kp ESC      &kp US_Q  &kp US_W &e_custom &kp US_R &kp US_T      &kp US_Y &u_custom &kp US_I     &o_custom  &kp US_P    &kp BSPC
+   //&mt LALT TAB &a_custom &kp US_S &kp US_D  &kp US_F &kp US_G      &kp US_H &kp US_J  &kp US_K     &kp US_L   &kp US_SEMI &kp US_DSQT 
+   //&ac_egrv     &kp US_Z  &kp US_X &kp US_C  &kp US_V &kp US_B      &kp US_N &kp US_M  &kp US_COMMA &kp US_DOT &kp US_FSLH &carret_bvofrak
+                          //&kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
+                        //>;
+                //};
                 //default_layer_bvofrak {
 // -----------------------------------------------------------------------------------------
 // |  ç   |  J  |  D  |  L  | ' ? |  X  |   |  W  |  B  | O œ |  P  |  È  | ^ ! |

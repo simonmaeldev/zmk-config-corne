@@ -223,3 +223,45 @@ i_bvofrak: i_bvofrak {
         bindings = <&kp US_I>, <&kp US_DDQT>;
         mods = <(MOD_LALT|MOD_RALT)>;
 };
+dot_cstm: dot_cstm {
+        compatible = "zmk,behavior-mod-morph";
+        label = "dot_cstm";
+        #binding-cells = <0>;
+        bindings = <&kp US_EXCL>, <&kp US_QMARK>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+parbrc: parbrc {
+        compatible = "zmk,behavior-mod-morph";
+        label = "parbrc";
+        #binding-cells = <0>;
+        bindings = <&kp US_LPAR>, <&kp US_LBRC>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+slheq: slheq {
+        compatible = "zmk,behavior-mod-morph";
+        label = "slheq";
+        #binding-cells = <0>;
+        bindings = <&kp US_FSLH>, <&kp US_EQUAL>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+all_accent1: all_accent1 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "all_accent1";
+        #binding-cells = <0>;
+        bindings = <&kp US_DSQT>, <&kp US_DGRAVE>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+all_accent2: all_accent2 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "all_accent2";
+        #binding-cells = <0>;
+        bindings = <&kp US_DCARET>, <&kp US_DDQT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+all_accent: all_accent {
+        compatible = "zmk,behavior-mod-morph";
+        label = "all_accent";
+        #binding-cells = <0>;
+        bindings = <&all_accent1>, <&all_accent2>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
