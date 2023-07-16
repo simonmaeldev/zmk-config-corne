@@ -12,9 +12,10 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <../boards/shields/corne/boards/nice_nano.overlay>
 
 // Overwrite number of leds on the keyboard. A Corne has 27 per side.
-//&led_strip { chain-length = <27>; };
+&led_strip { chain-length = <27>; };
 
 #define DEFAULT    0 // default_layer
 #define SYMBOLS    1 // symbols_layer
