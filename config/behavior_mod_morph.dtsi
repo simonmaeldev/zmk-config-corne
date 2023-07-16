@@ -255,7 +255,7 @@ all_accent2: all_accent2 {
         compatible = "zmk,behavior-mod-morph";
         label = "all_accent2";
         #binding-cells = <0>;
-        bindings = <&kp US_DCARET>, <&kp US_DDQT>;
+        bindings = <&kp US_DCARET>, <&kp US_DSQT>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 all_accent: all_accent {
