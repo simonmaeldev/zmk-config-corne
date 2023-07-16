@@ -9,6 +9,12 @@
 #include <dt-bindings/zmk/bt.h>
 #include "accents.dtsi"
 #include "keys_fr.h"
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
+
+// Overwrite number of leds on the keyboard. A Corne has 27 per side.
+&led_strip { chain-length = <27>; };
 
 #define DEFAULT    0 // default_layer
 #define SYMBOLS    1 // symbols_layer
@@ -96,13 +102,13 @@
                 control_layer {
 // -----------------------------------------------------------------------------------------
 // |  F1  |  F2 |  F3 | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11 | F12 |
-// |to def|     |     |     |     |     |   |     |     |     |     |mncrf|     |
+// |to def| OUT | BR- | BR+ | EFF | TOG |   |     |     |     |     |mncrf|     |
 // |BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |prev |play |next |vol+ |vol- |mute |
 //                   |     |     |     |   |     |     |     |
                         bindings = <
-   &kp F1      &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7     &kp F8   &kp F9     &kp F10      &kp F11       &kp F12
-   &to DEFAULT &none        &none        &none        &none        &none        &none      &none    &none      &none        &to MINECRAFT &none
-   &bt BT_CLR  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN  &kp C_MUTE
+   &kp F1      &kp F2       &kp F3          &kp F4          &kp F5          &kp F6          &kp F7     &kp F8   &kp F9     &kp F10      &kp F11       &kp F12
+   &to DEFAULT &out OUT_TOG &rgb_ug RGB_BRD &rgb_ug RGB_BRI &rgb_ug RGB_EFF &rgb_ub RGB_TOG &none      &none    &none      &none        &to MINECRAFT &none
+   &bt BT_CLR  &bt BT_SEL 1 &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &bt BT_SEL 5    &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN  &kp C_MUTE
                                         &trans       &trans       &mo_to NAVIGATION DEFAULT       &trans     &trans   &trans
                         >;
                 };
