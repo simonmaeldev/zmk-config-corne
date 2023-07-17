@@ -50,14 +50,14 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// | Tab | ? ! |  Y  | ( { |  P  | / = |   |'`"^ |  J  |  D  |  L  |  W  | ' " |
-// | ESC |  A  |  O  |  U  |  E  |  I  |   |  F  |  T  |  S  |  R  |  N  |  M  |
-// | Alt |  Z  |  X  |  C  |  V  |  B  |   |  K  |  Q  |  G  |  H  | , ; | . : |
+// | Tab | ? ! |  Y  |  P  |  O  | / = |   |'`"^ |  L  |  D  |  Q  |  J  | ' " |
+// | ESC |  U  |  A  |  I  |  E  | ( { |   | . : |  S  |  T  |  N  |  R  |  F  |
+// | Alt |  Z  |  X  |  C  |  V  |  B  |   | , ; |  H  |  G  |  W  |  M  |  K  |
 //                   |CTRL | SPC | LY  |   |SHIFT| ENT | BSP |
                         bindings = <
-   &kp TAB  &dot_cstm &kp US_Y  &parbrc   &kp US_P  &slheq        &all_accent &kp US_J &kp US_D &kp US_L &kp US_W       &quotes
-   &kp ESC  &a_custom &o_custom &u_custom &e_custom &kp US_I      &kp US_F    &kp US_T &kp US_S &kp US_R &kp US_N       &kp US_M 
-   &kp RALT &kp US_Z  &kp US_X  &kp US_C  &kp US_V  &kp US_B      &kp US_K    &kp US_Q &kp US_G &kp US_H &comma_bvofrak &dot_bvofrak
+   &kp TAB  &dot_cstm &kp US_Y  &kp US_P &o_custom &slheq        &all_accent    &kp US_L &kp US_D &kp US_Q &kp US_J &quotes
+   &kp ESC  &u_custom &a_custom &kp US_I &e_custom &parbrc       &dot_bvofrak   &kp US_S &kp US_T &kp US_N &kp US_R &kp US_F 
+   &kp RALT &kp US_Z  &kp US_X  &kp US_C &kp US_V  &kp US_B      &comma_bvofrak &kp US_H &kp US_G &kp US_W &kp US_M &kp US_K
                           &kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
                         >;
                 };
