@@ -58,7 +58,7 @@
    &kp TAB  &dot_cstm &kp US_Y  &kp US_P &o_custom &slheq        &all_accent    &kp US_L &kp US_D &kp US_M &kp US_J &quotes
    &kp ESC  &a_custom &u_custom &kp US_I &e_custom &parbrc       &dot_bvofrak   &kp US_S &kp US_T &kp US_N &kp US_R &kp US_F 
    &kp RALT &kp US_Z  &kp US_X  &kp US_C &kp US_V  &kp US_B      &comma_bvofrak &kp US_H &kp US_G &kp US_W &kp US_Q &kp US_K
-                          &kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
+                          &kp LCTRL &kp RET &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp SPACE   &kp BSPC
                         >;
                 };
                 //qwerty_layer {
@@ -128,15 +128,15 @@
                 };
                 i3_layer {
 // -----------------------------------------------------------------------------------------
-// |  5  |  6  |  7  |  8  |  9  |  0  |   |PG_UP|  E  |  Z  |  S  |  W  |     |
-// | def |  4  |  3  |  2  |  1  |  D  |   |PG_DN|  ←  |  ↓  |  ↑  |  →  |     |
-// | LGUI|CTRL |  F  |  H  |  R  |  S  |   |     |     |     |     |     |     |
+// | ESC |  6  |  7  |  8  |  9  |  0  |   |PG_UP|     |  D  |     |     |     |
+// | def |  5  |  4  |  3  |  2  |  1  |   |PG_DN|  ←  |  ↓  |  ↑  |  →  |     |
+// | LGUI|  Z  |  E  |  H  |  V  |  R  |   |     |     |     |     |     |     |
 //                   |wintab|    |     |   |     |     |     |
                         bindings = <
-   &kp LG(US_5) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &kp PG_UP &kp LG(US_E) &kp LG(US_Z) &kp LG(US_S) &kp LG(US_W) &kp LG(ESC)
-   &to DEFAULT  &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1) &kp LG(US_D)   &kp PG_DN &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none
-   &kp LGUI     &kp LCTRL    &kp LG(US_F) &kp LG(US_H) &kp LG(US_R) &kp LG(US_V)   &none     &none        &none        &none        &none        &none
-                                          &kp LG(TAB)  &trans     &mo NAVIGATION   &trans    &kp LG(RET)  &kp LG(US_Q)
+   &kp LG(ESC) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &kp PG_UP &none    &kp LG(US_D) &none  &none     &none 
+   &to DEFAULT &kp LG(US_5) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1)   &kp PG_DN &kp LEFT &kp DOWN     &kp UP &kp RIGHT &none
+   &kp LGUI    &kp LG(US_Z) &kp LG(US_E) &kp LG(US_H) &kp LG(US_V) &kp LG(US_R)   &none     &none    &none        &none  &none     &none
+                                         &kp LG(TAB)  &trans     &mo NAVIGATION   &trans    &kp LG(RET)  &kp LG(US_Q)
                         >;
                 };
         };
