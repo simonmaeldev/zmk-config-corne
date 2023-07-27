@@ -58,7 +58,7 @@
    &kp TAB  &dot_cstm &kp US_Y  &kp US_P &o_custom &slheq        &all_accent    &kp US_L &kp US_D &kp US_M &kp US_J &quotes
    &kp ESC  &a_custom &u_custom &kp US_I &e_custom &parbrc       &dot_bvofrak   &kp US_S &kp US_T &kp US_N &kp US_R &kp US_F 
    &kp RALT &kp US_Z  &kp US_X  &kp US_C &kp US_V  &kp US_B      &comma_bvofrak &kp US_H &kp US_G &kp US_W &kp US_Q &kp US_K
-                          &kp LCTRL &kp RET &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp SPACE   &kp BSPC
+                          &kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
                         >;
                 };
                 //qwerty_layer {
