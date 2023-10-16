@@ -56,7 +56,7 @@
 //                   |CTRL | SPC | LY  |   |SHIFT| ENT | BSP |
                         bindings = <
    &kp TAB  &dot_cstm &kp US_Y  &kp US_P &o_custom &slheq        &all_accent    &kp US_L &kp US_D &kp US_M &kp US_J &quotes
-   &kp ESC  &mt LGUI &a_custom &mt LCTRL &u_custom &mt RALT US_I &mt LSHIFT &e_custom &parbrc       &dot_bvofrak   &mt LSHIFT US_S &mt RALT US_T &mt LCTRL US_N &mt LGUI US_R &kp US_F 
+   &kp ESC  &mt LGUI a_custom &mt LCTRL &u_custom &mt RALT US_I &mt LSHIFT &e_custom &parbrc       &dot_bvofrak   &mt LSHIFT US_S &mt RALT US_T &mt LCTRL US_N &mt LGUI US_R &kp US_F 
    &kp RALT &kp US_Z  &kp US_X  &kp US_C &kp US_V  &kp US_B      &comma_bvofrak &kp US_H &kp US_G &kp US_W &kp US_Q &kp US_K
                           &kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
                         >;
