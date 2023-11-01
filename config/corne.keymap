@@ -160,9 +160,9 @@
 // |  V  |  W  |  C  |  L  |  G  |  Q  |   |  X  |  O  | . : | ^ " |  è  |  Z  |
 //                   |RALT |SUPR | SPC |   |ENTER| DEL | ESC |
                         bindings = <
-   &kp TAB   &kp US_B &kp US_M &kp US_D &kp US_P &kp US_K      &dot_cstm &kp US_H &comma_bvofrak &quotes &kp US_Y &ac_agrv
-   &kp US_J  &mt LGUI US_N &mt LALT US_T &mt LCTRL US_R &mt LSHIFT US_I &kp US_F       &US_EACU &mt LSHIFT US_S &mt LCTRL &e_custom &mt LALT &a_custom &mt LGUI &u_custom &equal 
-   &kp US_V  &kp US_W &kp cced_custom &kp US_L &kp US_G &kp US_Q      &kp US_X &kp o_custom &dot_bvofrak &accents_fr &ac_egrv &kp US_Z
+   &kp TAB   &kp US_B      &kp US_M        &kp US_D       &kp US_P        &kp US_K      &dot_cstm   &kp US_H        &comma_bvofrak      &quotes            &kp US_Y           &ac_agrv
+   &kp US_J  &mt LGUI US_N &mt LALT US_T   &mt LCTRL US_R &mt LSHIFT US_I &kp US_F      &kp US_EACU &mt LSHIFT US_S &mt LCTRL &e_custom &mt LALT &a_custom &mt LGUI &u_custom &equal 
+   &kp US_V  &kp US_W      &kp cced_custom &kp US_L       &kp US_G        &kp US_Q      &kp US_X    &kp o_custom    &dot_bvofrak        &accents_fr        &ac_egrv           &kp US_Z
                           &lt NUMEROS RALT &lt NAVIGATION DEL &lt I3 SPACE          &kp RET     &kp BSPC   &kp ESC
                         >;
                 };
