@@ -18,10 +18,9 @@
 &led_strip { chain-length = <27>; };
 
 #define DEFAULT    0 // default_layer
-#define SYMBOLS    1 // symbols_layer
-#define CONTROL    2 // media + bluetooth + Functions keys
-#define MINECRAFT  3 // minecraft_layer
-#define NAVIGATION 4 // layer to navigate in i3 and the rest
+#define I3    1 // navigation in i3
+#define NAVIGATION    2 // navigation classique
+#define NUMEROS  3 // numeros
 
 / {
         behaviors {
@@ -44,60 +43,166 @@
                         bindings = <&mo>, <&to>;
                 }; //momentary on hold, to on tap
         };
-
+        macros {
+                macro_diff: macro_diff {
+                        label = "macro_diff";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&macro_tap &kp EXCL &kp EQUAL>;
+                };
+                macro_chevrons: macro_chevrons {
+                        label = "macro_chevrons";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&macro_tap &kp LT &kp GT &kp LEFT>;
+                };
+        };
+        combos {
+                compatible = "zmk,combos";
+                combo_paro {
+                        timeout-ms = <50>;
+                        key-positions = <16 17>;
+                        bindings = <&all_paro>;
+                };
+                combo_cut {
+                        timeout-ms = <50>;
+                        key-positions = <26 28>;
+                        bindings = <&kp K_CUT>;
+                };
+                combo_copy {
+                        timeout-ms = <50>;
+                        key-positions = <26 27>;
+                        bindings = <&kp K_COPY>;
+                };
+                combo_paste {
+                        timeout-ms = <50>;
+                        key-positions = <27 28>;
+                        bindings = <&kp K_PASTE>;
+                };
+                combo_undo {
+                        timeout-ms = <50>;
+                        key-positions = <25 28>;
+                        bindings = <&kp K_UNDO>;
+                };
+                combo_redo {
+                        timeout-ms = <50>;
+                        key-positions = <25 29>;
+                        bindings = <&kp K_REDO>;
+                };
+                combo_select_all {
+                        timeout-ms = <50>;
+                        key-positions = <25 26>;
+                        bindings = <&kp LC(A)>;
+                };
+                combo_caps_word {
+                        timeout-ms = <50>;
+                        key-positions = <16 19>;
+                        bindings = <&caps_word>;
+                };
+                combo_lt {
+                        timeout-ms = <50>;
+                        key-positions = <7 8>;
+                        bindings = <&kp LT>;
+                };
+                combo_gt {
+                        timeout-ms = <50>;
+                        key-positions = <8 9>;
+                        bindings = <&kp GT>;
+                };
+                combo_chevrons {
+                        timeout-ms = <50>;
+                        key-positions = <7 9>;
+                        bindings = <&macro_chevrons>;
+                };
+                combo_slh {
+                        timeout-ms = <50>;
+                        key-positions = <18 19>;
+                        bindings = <&all_slh>;
+                };
+                combo_star {
+                        timeout-ms = <50>;
+                        key-positions = <19 20>;
+                        bindings = <&kp STAR>;
+                };
+                combo_at {
+                        timeout-ms = <50>;
+                        key-positions = <19 21>;
+                        bindings = <&kp AT>;
+                };
+                combo_hash {
+                        timeout-ms = <50>;
+                        key-positions = <21 22>;
+                        bindings = <&kp HASH>;
+                };
+                combo_prc {
+                        timeout-ms = <50>;
+                        key-positions = <19 22>;
+                        bindings = <&kp PERCENT>;
+                };
+                combo_and {
+                        timeout-ms = <50>;
+                        key-positions = <20 21>;
+                        bindings = <&kp AMPS>;
+                };
+                combo_diff {
+                        timeout-ms = <50>;
+                        key-positions = <6 7>;
+                        bindings = <&macro_diff>;
+                };
+        };
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// | Tab | ? ! |  Y  |  P  |  O  | / = |   |'`"^ |  L  |  D  |  M  |  J  | ' " |
-// | ESC |  A  |  U  |  I  |  E  | ( { |   | . : |  S  |  T  |  N  |  R  |  F  |
-// | Alt |  Z  |  X  |  C  |  V  |  B  |   | , ; |  H  |  G  |  W  |  Q  |  K  |
-//                   |CTRL | SPC | LY  |   |SHIFT| ENT | BSP |
+// | Tab |  B  |  M  |  D  |  P  |  K  |   | ! ? |  H  | , ; | ' " |  Y  |  à  |
+// |  J  |  N  |  T  |  R  |  I  |  F  |   |  é  |  S  |  E  |  A  |  U  | _ - |
+// |  V  |  W  |  C  |  L  |  G  |  Q  |   |  X  |  O  | . : | ^ " |  è  |  Z  |
+//                   |RALT |SUPR | SPC |   |ENTER| DEL | ESC |
                         bindings = <
-   &kp TAB  &dot_cstm &kp US_Y  &kp US_P &o_custom &slheq        &all_accent    &kp US_L &kp US_D &kp US_M &kp US_J &quotes
-   &kp ESC  &mt LGUI &a_custom &mt LCTRL &u_custom &mt RALT US_I &mt LSHIFT &e_custom &parbrc       &dot_bvofrak   &mt LSHIFT US_S &mt RALT US_T &mt LCTRL US_N &mt LGUI US_R &kp US_F 
-   &kp RALT &kp US_Z  &kp US_X  &kp US_C &kp US_V  &kp US_B      &comma_bvofrak &kp US_H &kp US_G &kp US_W &kp US_Q &kp US_K
-                          &kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
+   &kp TAB   &kp US_B &kp US_M &kp US_D &kp US_P &kp US_K      &dot_cstm &kp US_H &comma_bvofrak &quotes &kp US_Y &ac_agrv
+   &kp US_J  &mt LGUI US_N &mt LALT US_T &mt LCTRL US_R &mt LSHIFT US_I &kp US_F       &US_EACU &mt LSHIFT US_S &mt LCTRL &e_custom &mt LALT &a_custom &mt LGUI &u_custom &equal 
+   &kp US_V  &kp US_W &kp cced_custom &kp US_L &kp US_G &kp US_Q      &kp US_X &kp o_custom &dot_bvofrak &accents_fr &ac_egrv &kp US_Z
+                          &lt NUMEROS RALT &lt NAVIGATION DEL &lt I3 SPACE          &kp RET     &kp BSPC   &kp ESC
                         >;
                 };
-                //qwerty_layer {
+                i3_layer {
 // -----------------------------------------------------------------------------------------
-// | ESC  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BSP |
-// |Alttab|  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  | ; : | ' " |
-// |  è   |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  | , < | . > | / ? | ^ ! |
-//                   |CTRL | SPC | LY |   |SHIFT| ENT | BSP |
-                        //bindings = <
-   //&kp ESC      &kp US_Q  &kp US_W &e_custom &kp US_R &kp US_T      &kp US_Y &u_custom &kp US_I     &o_custom  &kp US_P    &kp BSPC
-   //&mt LALT TAB &a_custom &kp US_S &kp US_D  &kp US_F &kp US_G      &kp US_H &kp US_J  &kp US_K     &kp US_L   &kp US_SEMI &kp US_DSQT 
-   //&ac_egrv     &kp US_Z  &kp US_X &kp US_C  &kp US_V &kp US_B      &kp US_N &kp US_M  &kp US_COMMA &kp US_DOT &kp US_FSLH &carret_bvofrak
-                          //&kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
-                        //>;
-                //};
-                //default_layer_bvofrak {
-// -----------------------------------------------------------------------------------------
-// |  ç   |  J  |  D  |  L  | ' ? |  X  |   |  W  |  B  | O œ |  P  |  È  | ^ ! |
-// | ESC  |  N  |  T  |  R  |  S  |  M  |   | , ; | U ù | E € |I trm| A Æ |  Z  |
-// |AltTab|  Q  |  F  |  H  |  C  |  V  |   | . : |  G  |  É  |  Y  |  À  |  K  |
-//                   |CTRL | SPC | LY |   |SHIFT| ENT | BSP |
-                        //bindings = <
-   //&kp US_CCED  &kp US_J &kp US_D &kp US_L &squote_bvofrak &kp US_X      &kp US_W       &kp US_B  &o_custom   &kp US_P   &ac_egrv  &carret_bvofrak
-   //&kp ESC      &kp US_N &kp US_T &kp US_R &kp US_S        &kp US_M      &comma_bvofrak &u_custom &e_custom   &i_bvofrak &a_custom &kp US_Z 
-   //&mt LALT TAB &kp US_Q &kp US_F &kp US_H &kp US_C        &kp US_V      &dot_bvofrak   &kp US_G  &kp US_EACU &kp US_Y   &ac_agrv  &kp US_K
-                          //&kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
-                        //>;
-                //};
-                symbols_layer {
-// -----------------------------------------------------------------------------------------
-// |   \  |  ~  |  ^  |  $  |  "  |  `  |   | [ { |  7  |  8  |  9  | - _ |  /  |
-// |to def|  #  |HOME | END | DEL |  @  |   | ( ) |  4  |  5  |  6  | = + |  *  |
-// |      |  |  |  &  |  %  |  <  |  >  |   | ] } |  1  |  2  |  3  |  0  |     |
-//                    |     |     |     |   |     |     |     |
+// |wintb|  6  |  7  |  8  |  9  |  0  |   |     |     |     |     |     |     |
+// |     |  5  |  4  |  3  |  2  |  1  |   |     |  ←  |  ↓  |  ↑  |  →  |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+//                   |     |     |     |   |SHIFT|     |     |
                         bindings = <
-   &kp US_BSLH &kp US_TILDE &kp US_CARET &kp US_DLLR    &kp US_DQT &kp US_GRAVE   &kp US_LBKT &kp US_7 &kp US_8 &kp US_9 &kp US_MINUS &kp US_FSLH
-   &to DEFAULT &kp US_HASH  &kp HOME     &kp END        &kp DEL    &kp US_AT      &PAR_cstm   &kp US_4 &kp US_5 &kp US_6 &kp US_EQUAL &kp US_STAR
-   &trans      &kp US_PIPE2 &kp US_AMPS  &kp US_PERCENT &kp US_LT  &kp US_GT      &kp US_RBKT &kp US_1 &kp US_2 &kp US_3 &kp US_0     &trans
-                                  &trans   &trans       &mo_to NAVIGATION CONTROL         &trans         &trans      &trans
+   &kp LG(TAB) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &none &none        &none        &none      &none         &none 
+   &none       &kp LG(US_5) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1)   &none &kp LG(LEFT) &kp LG(DOWN) &kp LG(UP) &kp LG(RIGHT) &none
+   &none       &none        &none        &none        &none        &none          &none &none        &none        &none      &none         &none
+                                         &none        &none        &none          &kp LSHIFT &none  &none
+                        >;
+                };
+                navigation_layer {
+// -----------------------------------------------------------------------------------------
+// |     |     |     |     |     |     |   |PG_UP|HOME | END |     |     |     |
+// |     | GUI | ALT | CTRL|SHIFT|     |   |PG_DN|  ←  |  ↓  |  ↑  |  →  |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+//                   |     |     |     |   |     |     |     |
+                        bindings = <
+   &none &none    &none    &none    &none     &none      &kp PG_UP &kp HOME &kp END  &none  &none     &none 
+   &none &kp LGUI &kp LALT &kp CTRL &kp SHIFT &none      &kp PG_DN &kp LEFT &kp DOWN &kp UP &kp RIGHT &none
+   &none &none    &none    &none    &none     &none      &none     &none    &none    &none  &none     &none
+                                  &none &none &none      &none &none  &none
+                        >;
+                };
+              num_layer {
+// -----------------------------------------------------------------------------------------
+// |     |     |     |     |     |     |   |) } ]|  7  |  8  |  9  |  +  |  *  |
+// |     | GUI | ALT | CTRL|SHIFT|     |   |  0  |  4  |  5  |  6  |  .  |  =  |
+// |     |     |     |     |     |     |   | < > |  1  |  2  |  3  |  -  |  /  |
+//                   |     |     |     |   |     |     |     |
+                        bindings = <
+   &none &none &none &none &none &none      &all_parf &kp N7 &kp N8 &kp N9 &kp PLUS &kp STAR 
+   &none &kp LGUI &kp LALT &kp CTRL &kp SHIFT &none      &kp N0 &kp N4 &kp N5 &kp N6 &kp DOT &kp EQUAL
+   &none &none &none &none &none &none      &lgt &kp N1 &kp N2 &kp N3 &kp MINUS &kp FSLH
+                     &none &none &none      &none &none  &none
                         >;
                 };
                 control_layer {
@@ -113,31 +218,44 @@
                                         &trans       &trans       &mo_to NAVIGATION DEFAULT       &trans     &trans   &trans
                         >;
                 };
-                minecraft_layer {
+//                minecraft_layer {
 // -----------------------------------------------------------------------------------------
 // | ESC |  Q  |  1  |  W  |  E  |  R  |   |     |       |     |     |     |DEFAULT|
 // | TAB |SHIFT|  A  |  S  |  D  |  L  |   |     |       |     |     |     |       |
 // |  F5 |  F  |     |  H  |  G  |  B  |   |     |       |     |     |     |       |
 //                   | CTRL| F3  |SPACE|   |     |       |     |
-                        bindings = <
-   &kp ESC &kp US_Q   &kp US_1 &kp US_W &kp US_E &kp US_R   &none &none &none &none &none &to DEFAULT
-   &kp TAB &kp LSHIFT &kp US_A &kp US_S &kp US_D &kp US_L   &none &none &none &none &none &none
-   &kp F5  &kp US_F   &none    &kp US_H &kp US_G &kp US_B   &none &none &none &none &none &none
-                              &kp LCTRL &kp F3   &kp SPACE  &none &none &none
-                        >;
-                };
-                i3_layer {
+//                        bindings = <
+//   &kp ESC &kp US_Q   &kp US_1 &kp US_W &kp US_E &kp US_R   &none &none &none &none &none &to DEFAULT
+//   &kp TAB &kp LSHIFT &kp US_A &kp US_S &kp US_D &kp US_L   &none &none &none &none &none &none
+//   &kp F5  &kp US_F   &none    &kp US_H &kp US_G &kp US_B   &none &none &none &none &none &none
+//                              &kp LCTRL &kp F3   &kp SPACE  &none &none &none
+//                        >;
+//                };
+                //default_layer {
 // -----------------------------------------------------------------------------------------
-// | ESC |  6  |  7  |  8  |  9  |  0  |   |PG_UP|     |  D  |     |     |     |
-// | def |  5  |  4  |  3  |  2  |  1  |   |PG_DN|  ←  |  ↓  |  ↑  |  →  |     |
-// | LGUI|  Z  |  E  |  H  |  V  |  R  |   |     |     |     |     |     |     |
-//                   |wintab|    |     |   |     |     |     |
-                        bindings = <
-   &kp LG(ESC) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &kp PG_UP &none    &kp LG(US_D) &none  &none     &none 
-   &to DEFAULT &kp LG(US_5) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1)   &kp PG_DN &kp LEFT &kp DOWN     &kp UP &kp RIGHT &none
-   &kp LGUI    &kp LG(US_Z) &kp LG(US_E) &kp LG(US_H) &kp LG(US_V) &kp LG(US_R)   &none     &none    &none        &none  &none     &none
-                                         &kp LG(TAB)  &trans     &mo NAVIGATION   &trans    &kp LG(RET)  &kp LG(US_Q)
-                        >;
-                };
+// | Tab | ? ! |  Y  |  P  |  O  | / = |   |'`"^ |  L  |  D  |  M  |  J  | ' " |
+// | ESC |  A  |  U  |  I  |  E  | ( { |   | . : |  S  |  T  |  N  |  R  |  F  |
+// | Alt |  Z  |  X  |  C  |  V  |  B  |   | , ; |  H  |  G  |  W  |  Q  |  K  |
+//                   |CTRL | SPC | LY  |   |SHIFT| ENT | BSP |
+                        //bindings = <
+   //&kp TAB  &dot_cstm &kp US_Y  &kp US_P &o_custom &slheq        &all_accent    &kp US_L &kp US_D &kp US_M &kp US_J &quotes
+   //&kp ESC  &mt LGUI &a_custom &mt LCTRL &u_custom &mt RALT US_I &mt LSHIFT &e_custom &parbrc       &dot_bvofrak   &mt LSHIFT US_S &mt RALT US_T &mt LCTRL US_N &mt LGUI US_R &kp US_F 
+   //&kp RALT &kp US_Z  &kp US_X  &kp US_C &kp US_V  &kp US_B      &comma_bvofrak &kp US_H &kp US_G &kp US_W &kp US_Q &kp US_K
+                          //&kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
+                        //>;
+                //};
+//              none_layer {
+// -----------------------------------------------------------------------------------------
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+//                   |     |     |     |   |     |     |     |
+//                        bindings = <
+//   &none &none &none &none &none &none      &none &none &none &none &none &none 
+//   &none &none &none &none &none &none      &none &none &none &none &none &none
+//   &none &none &none &none &none &none      &none &none &none &none &none &none
+//                     &none &none &none      &none &none  &none
+//                        >;
+//                };
         };
 };

@@ -59,7 +59,7 @@ cced_custom: cced_custom {
         compatible = "zmk,behavior-mod-morph";
         label = "CCED_CUSTOM";
         #binding-cells = <0>;
-        bindings = <&kp US_CCED>, <&kp US_EXCL>;
+        bindings = <&kp US_C>, <&kp US_CCED>;
         mods = <(MOD_LALT|MOD_RALT)>;
 };
 slh_custom: slh_custom {
@@ -264,4 +264,60 @@ all_accent: all_accent {
         #binding-cells = <0>;
         bindings = <&all_accent1>, <&all_accent2>;
         mods = <(MOD_LALT|MOD_RALT)>;
+};
+all_paro1: all_paro1 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "all_paro1";
+        #binding-cells = <0>;
+        bindings = <&kp LBRC>, <&kp LBKT>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+all_paro: all_paro {
+        compatible = "zmk,behavior-mod-morph";
+        label = "all_paro";
+        #binding-cells = <0>;
+        bindings = <&kp LPAR>, <&all_paro1>;
+        mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
+};
+all_parf1: all_parf1 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "all_parf1";
+        #binding-cells = <0>;
+        bindings = <&kp RBRC>, <&kp RBKT>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+all_parf: all_parf {
+        compatible = "zmk,behavior-mod-morph";
+        label = "all_parf";
+        #binding-cells = <0>;
+        bindings = <&kp RPAR>, <&all_parf1>;
+        mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
+};
+equal: equal {
+        compatible = "zmk,behavior-mod-morph";
+        label = "equal";
+        #binding-cells = <0>;
+        bindings = <&kp MINUS>, <&kp EQUAL>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+all_slh1: all_slh1 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "all_slh1";
+        #binding-cells = <0>;
+        bindings = <&kp PIPE>, <&kp BSLH>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
+all_slh: all_slh {
+        compatible = "zmk,behavior-mod-morph";
+        label = "all_slh";
+        #binding-cells = <0>;
+        bindings = <&kp FSLH>, <&all_slh1>;
+        mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
+};
+lgt: lgt {
+        compatible = "zmk,behavior-mod-morph";
+        label = "lgt";
+        #binding-cells = <0>;
+        bindings = <&kp LT>, <&kp GT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
 };
