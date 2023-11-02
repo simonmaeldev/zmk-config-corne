@@ -227,7 +227,7 @@ dot_cstm: dot_cstm {
         compatible = "zmk,behavior-mod-morph";
         label = "dot_cstm";
         #binding-cells = <0>;
-        bindings = <&kp US_QMARK>, <&kp US_EXCL>;
+        bindings = <&kp US_EXCL>, <&kp US_QMARK>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 parbrc: parbrc {
