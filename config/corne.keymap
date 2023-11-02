@@ -46,36 +46,40 @@
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOMEROW_MOD_E";
                         #binding-cells = <2>;
-                        flavor = "balanced";
+                        flavor = "tap-preferred";
                         tapping-term-ms = <200>;
-                        quick-tap-ms = <0>;
+                        quick-tap-ms = <200>;
+                        require-prior-idle-ms = <125>;
                         bindings = <&kp>, <&e_custom>;
                 };
                 hma: homerow_mod_a {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOMEROW_MOD_A";
                         #binding-cells = <2>;
-                        flavor = "balanced";
+                        flavor = "tap-preferred";
                         tapping-term-ms = <200>;
-                        quick-tap-ms = <0>;
+                        quick-tap-ms = <200>;
+                        require-prior-idle-ms = <125>;
                         bindings = <&kp>, <&a_custom>;
                 };
                 hmu: homerow_mod_u {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOMEROW_MOD_U";
                         #binding-cells = <2>;
-                        flavor = "balanced";
+                        flavor = "tap-preferred";
                         tapping-term-ms = <200>;
-                        quick-tap-ms = <0>;
+                        quick-tap-ms = <200>;
+                        require-prior-idle-ms = <125>;
                         bindings = <&kp>, <&u_custom>;
                 };
                 bhm: balanced_homerow_mods {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOMEROW_MODS";
                         #binding-cells = <2>;
-                        tapping-term-ms = <200>;    // <---[[moderate duration]]
-                        quick-tap-ms = <0>;
-                        flavor = "balanced";
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <200>;
+                        require-prior-idle-ms = <125>;
                         bindings = <&kp>, <&kp>;
                 };
         };
@@ -199,7 +203,7 @@
    &kp TAB   &kp US_B       &kp US_M       &kp US_D        &kp US_P         &kp US_K      &dot_cstm   &kp US_H        &comma_bvofrak &quotes     &kp US_Y    &ac_agrv
    &kp US_J  &bhm LGUI US_N &bhm LALT US_T &bhm LCTRL US_R &bhm LSHIFT US_I &kp US_F      &kp US_EACU &mt LSHIFT US_S &hme LCTRL 0   &hma LALT 0 &hmu LGUI 0 &equal 
    &kp US_V  &kp US_W       &cced_custom   &kp US_L        &kp US_G         &kp US_Q      &kp US_X    &o_custom       &dot_bvofrak   &accents    &ac_egrv    &kp US_Z
-                          &lt NUMEROS RALT &lt NAVIGATION DEL &lt I3 SPACE          &kp RET     &kp BSPC   &kp ESC
+                          &lt NUMEROS RALT &lt NAVIGATION SPACE &lt I3 DEL          &kp BSPC     &kp RET   &kp ESC
                         >;
                 };
                 i3_layer {
