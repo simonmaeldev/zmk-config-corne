@@ -50,6 +50,7 @@
     accents {
         ACCENTED_KEY(agrv, "à", "À", "àÀ", US_A, US_DGRAVE)
         ACCENTED_KEY(egrv, "è", "È", "èÈ", US_E, US_DGRAVE)
+        ACCENTED_KEY(ecir, "ê", "Ê", "êÊ", US_E, US_DCARET)
         ACCENTED_KEY(ugrv, "ù", "Ù", "ùÙ", US_U, US_DGRAVE)
     };
 };

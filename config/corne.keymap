@@ -34,6 +34,42 @@
                         flavor = "tap-preferred";
                         bindings = <&kp>, <&kp>;
                 };
+                ht_par: hold_tap_parenthesis {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <500>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&all_parf>, <&all_paro>;
+                };
+                ht_qqu: hold_tap_qqu {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <500>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&macro_qu>, <&kp Q>;
+                };
+                ht_chevrons: hold_tap_chevrons {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <500>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&macro_chevrons>, <&lgt>;
+                };
+                ht_equal: hold_tap_chevrons {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <500>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&macro_diff>, <&kp EQUAL>;
+                };
                 mo_to: behavior_mo_to {
                         compatible = "zmk,behavior-hold-tap";
                         label = "mo_to";
@@ -69,6 +105,15 @@
                         quick-tap-ms = <200>;
                         bindings = <&kp>, <&u_custom>;
                 };
+                hms: homerow_mod_s {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_MOD_S";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <200>;
+                        bindings = <&kp>, <&s_custom>;
+                };
                 bhm: balanced_homerow_mods {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOMEROW_MODS";
@@ -77,6 +122,20 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <200>;
                         bindings = <&kp>, <&kp>;
+                };
+                kq_custom: kq_custom {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "JZ_CUSTOM";
+                        #binding-cells = <0>;
+                        bindings = <&kp US_K>, <&ht_qqu 0 0>;
+                        mods = <(MOD_LALT|MOD_RALT)>;
+                };
+                jz_custom: jz_custom {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "JZ_CUSTOM";
+                        #binding-cells = <0>;
+                        bindings = <&kp US_J>, <&kp US_Z>;
+                        mods = <(MOD_LALT|MOD_RALT)>;
                 };
         };
         macros {
@@ -92,27 +151,28 @@
                         #binding-cells = <0>;
                         bindings = <&macro_tap &kp LT &kp GT &kp LEFT>;
                 };
+                macro_qu: macro_qu {
+                        label = "macro_qu";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&macro_tap &kp Q &kp U>;
+                };
         };
         combos {
                 compatible = "zmk,combos";
-                combo_paro {
-                        timeout-ms = <50>;
-                        key-positions = <16 17>;
-                        bindings = <&all_paro>;
-                };
                 combo_cut {
                         timeout-ms = <50>;
-                        key-positions = <26 28>;
+                        key-positions = <25 27>;
                         bindings = <&kp K_CUT>;
                 };
                 combo_copy {
                         timeout-ms = <50>;
-                        key-positions = <26 27>;
+                        key-positions = <25 26>;
                         bindings = <&kp K_COPY>;
                 };
                 combo_paste {
                         timeout-ms = <50>;
-                        key-positions = <27 28>;
+                        key-positions = <26 27>;
                         bindings = <&kp K_PASTE>;
                 };
                 combo_undo {
@@ -120,70 +180,80 @@
                         key-positions = <25 28>;
                         bindings = <&kp K_UNDO>;
                 };
-                combo_redo {
-                        timeout-ms = <50>;
-                        key-positions = <25 29>;
-                        bindings = <&kp K_REDO>;
-                };
-                combo_select_all {
-                        timeout-ms = <50>;
-                        key-positions = <25 26>;
-                        bindings = <&kp LC(A)>;
-                };
                 combo_caps_word {
                         timeout-ms = <50>;
                         key-positions = <16 19>;
                         bindings = <&caps_word>;
                 };
-                combo_lt {
-                        timeout-ms = <50>;
-                        key-positions = <7 8>;
-                        bindings = <&kp LT>;
-                };
-                combo_gt {
-                        timeout-ms = <50>;
-                        key-positions = <8 9>;
-                        bindings = <&kp GT>;
-                };
                 combo_chevrons {
                         timeout-ms = <50>;
-                        key-positions = <7 9>;
-                        bindings = <&macro_chevrons>;
+                        key-positions = <33 34>;
+                        bindings = <&ht_chevrons 0 0>;
                 };
                 combo_slh {
                         timeout-ms = <50>;
-                        key-positions = <18 19>;
+                        key-positions = <4 5>;
                         bindings = <&all_slh>;
                 };
                 combo_star {
                         timeout-ms = <50>;
-                        key-positions = <19 20>;
+                        key-positions = <30 34>;
                         bindings = <&kp STAR>;
                 };
                 combo_at {
                         timeout-ms = <50>;
-                        key-positions = <19 21>;
+                        key-positions = <16 21>;
                         bindings = <&kp AT>;
                 };
                 combo_hash {
                         timeout-ms = <50>;
-                        key-positions = <21 22>;
+                        key-positions = <32 33>;
                         bindings = <&kp HASH>;
                 };
                 combo_prc {
                         timeout-ms = <50>;
-                        key-positions = <19 22>;
+                        key-positions = <31 32>;
                         bindings = <&kp PERCENT>;
                 };
                 combo_and {
                         timeout-ms = <50>;
-                        key-positions = <20 21>;
+                        key-positions = <16 20>;
                         bindings = <&kp AMPS>;
                 };
-                combo_diff {
+                combo_equal_diff {
                         timeout-ms = <50>;
                         key-positions = <6 7>;
-                        bindings = <&macro_diff>;
+                        bindings = <&ht_equal 0 0>;
+                };
+                combo_eacu {
+                        timeout-ms = <50>;
+                        key-positions = <19 20>;
+                        bindings = <&kp US_EACU>;
+                };
+                combo_egrv {
+                        timeout-ms = <50>;
+                        key-positions = <20 21>;
+                        bindings = <&ac_egrv>;
+                };
+                combo_ecir {
+                        timeout-ms = <50>;
+                        key-positions = <8 20>;
+                        bindings = <&ac_ecir>;
+                };
+                combo_agrv {
+                        timeout-ms = <50>;
+                        key-positions = <8 21>;
+                        bindings = <&ac_agrv>;
+                };
+                combo_circ {
+                        timeout-ms = <50>;
+                        key-positions = <28 29>;
+                        bindings = <&kp US_DCARET>;
+                };
+                combo_trem {
+                        timeout-ms = <50>;
+                        key-positions = <16 17>;
+                        bindings = <&kp US_DDQT>;
                 };
         };
         keymap {
@@ -191,14 +261,14 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// | Tab |  B  |  M  |  D  |  P  |  K  |   | ! ? |  H  | , ; | ' " |  Y  |  à  |
-// |  J  |  N  |  T  |  R  |  I  |  F  |   |  é  |  S  |  E  |  A  |  U  | _ - |
-// |  V  |  W  |  C  |  L  |  G  |  Q  |   |  X  |  O  | . : | ^ " |  è  |  Z  |
+// | Tab |  W  |  G  |  M  |  F  | ! ? |   | ' " |  U  |  O  |Kq QU| Jz  |     |
+// |     |  R  |  S  |  N  |  T  |  B  |   |  Y  |  I  |  E  |  A  |  H  |     |
+// |     |  X  |  C  |  L  |  D  |  V  |   | - _ |  P  | ({[ | , ; | . : |     |
 //                   |RALT |SUPR | SPC |   |ENTER| DEL | ESC |
                         bindings = <
-   &kp TAB   &kp US_B       &kp US_M       &kp US_D        &kp US_P         &kp US_K      &dot_cstm   &kp US_H        &comma_bvofrak &quotes     &kp US_Y    &ac_agrv
-   &kp US_J  &bhm LGUI US_N &bhm LALT US_T &bhm LCTRL US_R &bhm LSHIFT US_I &kp US_F      &kp US_EACU &bhm LSHIFT US_S &hme LCTRL 0   &hma LALT 0 &hmu LGUI 0 &equal 
-   &kp US_V  &kp US_W       &cced_custom   &kp US_L        &kp US_G         &kp US_Q      &kp US_X    &o_custom       &dot_bvofrak   &accents    &ac_egrv    &kp US_Z
+   &kp TAB   &kp W       &kp G       &kp M        &kp F         &dot_cstm      &quotes   &u_custom     &o_custom    &kq_custom     &jz_custom  &none
+   &none     &bhm LGUI R &hms LALT 0 &bhm LCTRL N &bhm LSHIFT T &kp B          &kp Y     &bhm LSHIFT I &hme LCTRL 0 &hma LALT 0    &bhm LGUI H &none 
+   &none     &kp X       &kp C       &kp L        &kp D         &kp V          &kp MINUS &kp P         &ht_par 0 0  &comma_bvofrak &dot_cstm   &none
                           &lt NUMEROS RALT &lt NAVIGATION SPACE &lt I3 DEL          &kp BSPC     &kp RET   &kp ESC
                         >;
                 };

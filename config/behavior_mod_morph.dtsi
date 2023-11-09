@@ -34,6 +34,13 @@ o_custom: o_custom {
         bindings = <&kp US_O>, <&kp US_OE>;
         mods = <(MOD_LALT|MOD_RALT)>;
 };
+s_custom: s_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "S_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_S>, <&kp US_DLLR>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
 u_custom: u_custom {
         compatible = "zmk,behavior-mod-morph";
         label = "U_CUSTOM";
@@ -292,13 +299,6 @@ all_parf: all_parf {
         #binding-cells = <0>;
         bindings = <&kp RPAR>, <&all_parf1>;
         mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>;
-};
-equal: equal {
-        compatible = "zmk,behavior-mod-morph";
-        label = "equal";
-        #binding-cells = <0>;
-        bindings = <&kp MINUS>, <&kp EQUAL>;
-        mods = <(MOD_LALT|MOD_RALT)>;
 };
 all_slh1: all_slh1 {
         compatible = "zmk,behavior-mod-morph";
