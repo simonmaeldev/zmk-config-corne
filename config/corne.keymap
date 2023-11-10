@@ -148,7 +148,7 @@
                         #binding-cells = <0>;
                         bindings = <&kp LG(RET)>,
                         <&macro_wait_time 1000>,
-                        <&kp C>
+                        <&kp C>,
                         <&macro_wait_time 30>,
                         <&kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
                 };
