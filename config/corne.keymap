@@ -147,8 +147,10 @@
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings = <&kp LG(RET)>,
-                        <&macro_wait_time 1000 &kp C>,
-                        <&macro_wait_time 10 &kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
+                        <&macro_wait_time 1000>,
+                        <&kp C>
+                        <&macro_wait_time 30>,
+                        <&kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
                 };
         };
         combos {
