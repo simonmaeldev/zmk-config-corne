@@ -68,7 +68,7 @@
                         tapping-term-ms = <500>;
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
-                        bindings = <&macro_diff>, <&kp EQUAL>;
+                        bindings = <&macro_diff>, <&kp>;
                 };
                 mo_to: behavior_mo_to {
                         compatible = "zmk,behavior-hold-tap";
@@ -223,7 +223,7 @@
                 combo_equal_diff {
                         timeout-ms = <50>;
                         key-positions = <6 7>;
-                        bindings = <&ht_equal 0 0>;
+                        bindings = <&ht_equal 0 EQUAL>;
                 };
                 combo_eacu {
                         timeout-ms = <50>;
