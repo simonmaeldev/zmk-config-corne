@@ -50,7 +50,7 @@
                         tapping-term-ms = <500>;
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
-                        bindings = <&macro_qu>, <&kp Q>;
+                        bindings = <&macro_qu>, <&kp>;
                 };
                 ht_chevrons: hold_tap_chevrons {
                         compatible = "zmk,behavior-hold-tap";
@@ -127,7 +127,7 @@
                         compatible = "zmk,behavior-mod-morph";
                         label = "JZ_CUSTOM";
                         #binding-cells = <0>;
-                        bindings = <&kp US_K>, <&ht_qqu 0 0>;
+                        bindings = <&kp US_K>, <&ht_qqu 0 Q>;
                         mods = <(MOD_LALT|MOD_RALT)>;
                 };
                 jz_custom: jz_custom {
