@@ -216,7 +216,7 @@
                 combo_equal_diff {
                         timeout-ms = <50>;
                         key-positions = <30 31>;
-                        bindings = <&ht_equal 0 zEQUAL>;
+                        bindings = <&ht_equal 0 EQUAL>;
                 };
                 combo_eacu {
                         timeout-ms = <50>;
