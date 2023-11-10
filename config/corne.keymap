@@ -61,7 +61,7 @@
                         flavor = "tap-preferred";
                         bindings = <&macro_chevrons>, <&lgt>;
                 };
-                ht_equal: hold_tap_chevrons {
+                ht_equal: hold_tap_equal {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOLD_TAP_EQUAL";
                         #binding-cells = <2>;
@@ -70,7 +70,7 @@
                         flavor = "tap-preferred";
                         bindings = <&macro_diff>, <&kp>;
                 };
-                ht_esc: hold_tap_chevrons {
+                ht_esc: hold_tap_esc {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOLD_TAP_ESC";
                         #binding-cells = <2>;
@@ -78,6 +78,15 @@
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
                         bindings = <&kp>, <&macro_corne>;
+                };
+                lt_sk: layer_tap_sk {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "LAYER_TAP_SK";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <500>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&mo>, <&sk>;
                 };
                 mo_to: behavior_mo_to {
                         compatible = "zmk,behavior-hold-tap";
@@ -95,24 +104,6 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <200>;
                         bindings = <&kp>, <&e_custom>;
-                };
-                hma: homerow_mod_a {
-                        compatible = "zmk,behavior-hold-tap";
-                        label = "HOMEROW_MOD_A";
-                        #binding-cells = <2>;
-                        flavor = "tap-preferred";
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <200>;
-                        bindings = <&sk>, <&a_custom>;
-                };
-                hmu: homerow_mod_u {
-                        compatible = "zmk,behavior-hold-tap";
-                        label = "HOMEROW_MOD_U";
-                        #binding-cells = <2>;
-                        flavor = "tap-preferred";
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <200>;
-                        bindings = <&kp>, <&u_custom>;
                 };
                 hms: homerow_mod_s {
                         compatible = "zmk,behavior-hold-tap";
@@ -163,7 +154,9 @@
                         label = "macro_corne";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
-                        bindings = <&macro_tap &kp LG(RET) &kp C &kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
+                        bindings = <&kp LG(RET)>,
+                        <&macro_wait_time 500>,
+                        <&kp C &kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
                 };
         };
         combos {
@@ -171,22 +164,22 @@
                 combo_cut {
                         timeout-ms = <50>;
                         key-positions = <25 27>;
-                        bindings = <&kp K_CUT>;
+                        bindings = <&kp LC(X)>;
                 };
                 combo_copy {
                         timeout-ms = <50>;
                         key-positions = <25 26>;
-                        bindings = <&kp K_COPY>;
+                        bindings = <&kp LC(C)>;
                 };
                 combo_paste {
                         timeout-ms = <50>;
                         key-positions = <26 27>;
-                        bindings = <&kp K_PASTE>;
+                        bindings = <&kp LC(V)>;
                 };
                 combo_undo {
                         timeout-ms = <50>;
                         key-positions = <25 28>;
-                        bindings = <&kp K_UNDO>;
+                        bindings = <&kp LC(Z)>;
                 };
                 combo_caps_word {
                         timeout-ms = <50>;
@@ -230,8 +223,8 @@
                 };
                 combo_equal_diff {
                         timeout-ms = <50>;
-                        key-positions = <6 7>;
-                        bindings = <&ht_equal EQUAL 0>;
+                        key-positions = <30 31>;
+                        bindings = <&ht_equal EQUAL O>;
                 };
                 combo_eacu {
                         timeout-ms = <50>;
@@ -279,10 +272,10 @@
 // |     |  X  |  C  |  L  |  D  |  V  |   | - _ |  P  | ({[ | , ; | . : |     |
 //                   |RALT |SUPR | SPC |   |ENTER| DEL | ESC |
                         bindings = <
-   &kp TAB   &kp W       &kp G       &kp M        &kp F         &dot_cstm      &quotes   &u_custom     &o_custom    &kq_custom     &jz_custom   &ht_esc LG(ESC) 0
-   &none     &bhm LGUI R &hms LALT 0 &bhm LCTRL N &bhm LSHIFT T &kp B          &kp Y     &bhm LSHIFT I &hme LCTRL 0 &hma LALT 0    &bhm LGUI H  &none 
+   &kp TAB   &kp W       &kp G       &kp M        &kp F         &dot_cstm      &quotes   &u_custom     &kp O        &kq_custom     &jz_custom   &ht_esc LG(ESC) 0
+   &none     &bhm LGUI R &hms LALT 0 &bhm LCTRL N &bhm LSHIFT T &kp B          &kp Y     &bhm LSHIFT I &hme LCTRL 0 &bhm LALT A    &bhm LGUI H  &none 
    &none     &kp X       &kp C       &kp L        &kp D         &kp V          &kp MINUS &kp P         &ht_par 0 0  &comma_bvofrak &dot_bvofrak &none
-                          &lt NUMEROS RALT &lt NAVIGATION SPACE &lt I3 DEL          &kp BSPC     &kp RET   &kp ESC
+                          &lt_sk NUMEROS RALT &lt NAVIGATION SPACE &lt I3 DEL          &kp BSPC     &kp RET   &kp ESC
                         >;
                 };
                 i3_layer {
