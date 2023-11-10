@@ -79,15 +79,6 @@
                         flavor = "tap-preferred";
                         bindings = <&kp>, <&macro_corne>;
                 };
-                lt_sk: layer_tap_sk {
-                        compatible = "zmk,behavior-hold-tap";
-                        label = "LAYER_TAP_SK";
-                        #binding-cells = <2>;
-                        tapping-term-ms = <500>;
-                        quick-tap-ms = <200>;
-                        flavor = "tap-preferred";
-                        bindings = <&mo>, <&sk>;
-                };
                 mo_to: behavior_mo_to {
                         compatible = "zmk,behavior-hold-tap";
                         label = "mo_to";
@@ -112,7 +103,7 @@
                         flavor = "tap-preferred";
                         tapping-term-ms = <200>;
                         quick-tap-ms = <200>;
-                        bindings = <&sk>, <&s_custom>;
+                        bindings = <&kp>, <&s_custom>;
                 };
                 bhm: balanced_homerow_mods {
                         compatible = "zmk,behavior-hold-tap";
@@ -127,7 +118,7 @@
                         compatible = "zmk,behavior-mod-morph";
                         label = "KQ_CUSTOM";
                         #binding-cells = <0>;
-                        bindings = <&kp US_K>, <&ht_qqu Q 0>;
+                        bindings = <&kp US_K>, <&ht_qqu 0 Q>;
                         mods = <(MOD_LALT|MOD_RALT)>;
                 };
         };
@@ -148,15 +139,16 @@
                         label = "macro_qu";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
-                        bindings = <&macro_tap &kp Q &kp U>;
+                        bindings = <&macro_tap &kp Q &kp U>,
+                        <&macro_release &kp LALT>;
                 };
                 macro_corne: macro_corne {
                         label = "macro_corne";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings = <&kp LG(RET)>,
-                        <&macro_wait_time 500>,
-                        <&kp C &kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
+                        <&macro_wait_time 1000 &kp C>,
+                        <&macro_wait_time 10 &kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
                 };
         };
         combos {
@@ -224,7 +216,7 @@
                 combo_equal_diff {
                         timeout-ms = <50>;
                         key-positions = <30 31>;
-                        bindings = <&ht_equal EQUAL O>;
+                        bindings = <&ht_equal 0 zEQUAL>;
                 };
                 combo_eacu {
                         timeout-ms = <50>;
@@ -275,7 +267,7 @@
    &kp TAB   &kp W       &kp G       &kp M        &kp F         &dot_cstm      &quotes   &u_custom     &kp O        &kq_custom     &jz_custom   &ht_esc LG(ESC) 0
    &none     &bhm LGUI R &hms LALT 0 &bhm LCTRL N &bhm LSHIFT T &kp B          &kp Y     &bhm LSHIFT I &hme LCTRL 0 &bhm LALT A    &bhm LGUI H  &none 
    &none     &kp X       &kp C       &kp L        &kp D         &kp V          &kp MINUS &kp P         &ht_par 0 0  &comma_bvofrak &dot_bvofrak &none
-                          &lt_sk NUMEROS RALT &lt NAVIGATION SPACE &lt I3 DEL          &kp BSPC     &kp RET   &kp ESC
+                          &lt NUMEROS RALT &lt NAVIGATION SPACE &lt I3 DEL          &kp BSPC     &kp RET   &kp ESC
                         >;
                 };
                 i3_layer {
