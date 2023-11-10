@@ -48,6 +48,13 @@ u_custom: u_custom {
         bindings = <&kp US_U>, <&ac_ugrv>;
         mods = <(MOD_LALT|MOD_RALT)>;
 };
+jz_custom: jz_custom {
+        compatible = "zmk,behavior-mod-morph";
+        label = "JZ_CUSTOM";
+        #binding-cells = <0>;
+        bindings = <&kp US_J>, <&kp US_Z>;
+        mods = <(MOD_LALT|MOD_RALT)>;
+};
 eacu_custom: eacu_custom {
         compatible = "zmk,behavior-mod-morph";
         label = "EACU_CUSTOM";

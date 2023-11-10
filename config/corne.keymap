@@ -36,7 +36,7 @@
                 };
                 ht_par: hold_tap_parenthesis {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "HOLD_TAP";
+                        label = "HOLD_TAP_PAR";
                         #binding-cells = <2>;
                         tapping-term-ms = <500>;
                         quick-tap-ms = <200>;
@@ -45,7 +45,7 @@
                 };
                 ht_qqu: hold_tap_qqu {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "HOLD_TAP";
+                        label = "HOLD_TAP_QQU";
                         #binding-cells = <2>;
                         tapping-term-ms = <500>;
                         quick-tap-ms = <200>;
@@ -54,7 +54,7 @@
                 };
                 ht_chevrons: hold_tap_chevrons {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "HOLD_TAP";
+                        label = "HOLD_TAP_CHEVRONS";
                         #binding-cells = <2>;
                         tapping-term-ms = <500>;
                         quick-tap-ms = <200>;
@@ -63,12 +63,21 @@
                 };
                 ht_equal: hold_tap_chevrons {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "HOLD_TAP";
+                        label = "HOLD_TAP_EQUAL";
                         #binding-cells = <2>;
                         tapping-term-ms = <500>;
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
                         bindings = <&macro_diff>, <&kp>;
+                };
+                ht_esc: hold_tap_chevrons {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP_ESC";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <500>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&macro_corne>;
                 };
                 mo_to: behavior_mo_to {
                         compatible = "zmk,behavior-hold-tap";
@@ -94,7 +103,7 @@
                         flavor = "tap-preferred";
                         tapping-term-ms = <200>;
                         quick-tap-ms = <200>;
-                        bindings = <&kp>, <&a_custom>;
+                        bindings = <&sk>, <&a_custom>;
                 };
                 hmu: homerow_mod_u {
                         compatible = "zmk,behavior-hold-tap";
@@ -112,7 +121,7 @@
                         flavor = "tap-preferred";
                         tapping-term-ms = <200>;
                         quick-tap-ms = <200>;
-                        bindings = <&kp>, <&s_custom>;
+                        bindings = <&sk>, <&s_custom>;
                 };
                 bhm: balanced_homerow_mods {
                         compatible = "zmk,behavior-hold-tap";
@@ -125,16 +134,9 @@
                 };
                 kq_custom: kq_custom {
                         compatible = "zmk,behavior-mod-morph";
-                        label = "JZ_CUSTOM";
+                        label = "KQ_CUSTOM";
                         #binding-cells = <0>;
-                        bindings = <&kp US_K>, <&ht_qqu 0 Q>;
-                        mods = <(MOD_LALT|MOD_RALT)>;
-                };
-                jz_custom: jz_custom {
-                        compatible = "zmk,behavior-mod-morph";
-                        label = "JZ_CUSTOM";
-                        #binding-cells = <0>;
-                        bindings = <&kp US_J>, <&kp US_Z>;
+                        bindings = <&kp US_K>, <&ht_qqu Q 0>;
                         mods = <(MOD_LALT|MOD_RALT)>;
                 };
         };
@@ -156,6 +158,12 @@
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings = <&macro_tap &kp Q &kp U>;
+                };
+                macro_corne: macro_corne {
+                        label = "macro_corne";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&macro_tap &kp LG(RET) &kp C &kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
                 };
         };
         combos {
@@ -223,7 +231,7 @@
                 combo_equal_diff {
                         timeout-ms = <50>;
                         key-positions = <6 7>;
-                        bindings = <&ht_equal 0 EQUAL>;
+                        bindings = <&ht_equal EQUAL 0>;
                 };
                 combo_eacu {
                         timeout-ms = <50>;
@@ -255,20 +263,25 @@
                         key-positions = <16 17>;
                         bindings = <&kp US_DDQT>;
                 };
+                combo_cced {
+                        timeout-ms = <50>;
+                        key-positions = <14 15>;
+                        bindings = <&kp US_CCED>;
+                };
         };
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// | Tab |  W  |  G  |  M  |  F  | ! ? |   | ' " |  U  |  O  |Kq QU| Jz  |     |
+// | Tab |  W  |  G  |  M  |  F  | ! ? |   | ' " |  U  |  O  |Kq QU| Jz  |qt/st|
 // |     |  R  |  S  |  N  |  T  |  B  |   |  Y  |  I  |  E  |  A  |  H  |     |
 // |     |  X  |  C  |  L  |  D  |  V  |   | - _ |  P  | ({[ | , ; | . : |     |
 //                   |RALT |SUPR | SPC |   |ENTER| DEL | ESC |
                         bindings = <
-   &kp TAB   &kp W       &kp G       &kp M        &kp F         &dot_cstm      &quotes   &u_custom     &o_custom    &kq_custom     &jz_custom  &none
-   &none     &bhm LGUI R &hms LALT 0 &bhm LCTRL N &bhm LSHIFT T &kp B          &kp Y     &bhm LSHIFT I &hme LCTRL 0 &hma LALT 0    &bhm LGUI H &none 
-   &none     &kp X       &kp C       &kp L        &kp D         &kp V          &kp MINUS &kp P         &ht_par 0 0  &comma_bvofrak &dot_cstm   &none
+   &kp TAB   &kp W       &kp G       &kp M        &kp F         &dot_cstm      &quotes   &u_custom     &o_custom    &kq_custom     &jz_custom   &ht_esc LG(ESC) 0
+   &none     &bhm LGUI R &hms LALT 0 &bhm LCTRL N &bhm LSHIFT T &kp B          &kp Y     &bhm LSHIFT I &hme LCTRL 0 &hma LALT 0    &bhm LGUI H  &none 
+   &none     &kp X       &kp C       &kp L        &kp D         &kp V          &kp MINUS &kp P         &ht_par 0 0  &comma_bvofrak &dot_bvofrak &none
                           &lt NUMEROS RALT &lt NAVIGATION SPACE &lt I3 DEL          &kp BSPC     &kp RET   &kp ESC
                         >;
                 };
@@ -279,10 +292,10 @@
 // |     |     |     |     |     |     |   |     |     |     |     |     |     |
 //                   |     |     |     |   |SHIFT|     |     |
                         bindings = <
-   &kp LG(TAB) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &none &none        &none        &none      &none         &none 
+   &kp LG(TAB) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &none &none        &none        &none      &none         &LG(Q) 
    &none       &kp LG(US_5) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1)   &none &kp LG(LEFT) &kp LG(DOWN) &kp LG(UP) &kp LG(RIGHT) &none
    &none       &none        &none        &none        &none        &none          &none &none        &none        &none      &none         &none
-                                         &none        &none        &none          &kp LSHIFT &none  &none
+                                         &none        &none        &none          &kp LSHIFT &LG(RET)  &none
                         >;
                 };
                 navigation_layer {
