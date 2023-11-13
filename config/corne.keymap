@@ -29,7 +29,7 @@
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOLD_TAP";
                         #binding-cells = <2>;
-                        tapping-term-ms = <500>;
+                        tapping-term-ms = <250>;
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
                         bindings = <&kp>, <&kp>;
@@ -38,7 +38,7 @@
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOLD_TAP_PAR";
                         #binding-cells = <2>;
-                        tapping-term-ms = <500>;
+                        tapping-term-ms = <250>;
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
                         bindings = <&all_parf>, <&all_paro>;
@@ -47,16 +47,16 @@
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOLD_TAP_QQU";
                         #binding-cells = <2>;
-                        tapping-term-ms = <500>;
+                        tapping-term-ms = <250>;
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
-                        bindings = <&macro_qu>, <&kp>;
+                        bindings = <&kp>, <&macro_qu>;
                 };
                 ht_chevrons: hold_tap_chevrons {
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOLD_TAP_CHEVRONS";
                         #binding-cells = <2>;
-                        tapping-term-ms = <500>;
+                        tapping-term-ms = <250>;
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
                         bindings = <&macro_chevrons>, <&lgt>;
@@ -65,7 +65,7 @@
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOLD_TAP_EQUAL";
                         #binding-cells = <2>;
-                        tapping-term-ms = <500>;
+                        tapping-term-ms = <250>;
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
                         bindings = <&macro_diff>, <&kp>;
@@ -74,7 +74,7 @@
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOLD_TAP_ESC";
                         #binding-cells = <2>;
-                        tapping-term-ms = <500>;
+                        tapping-term-ms = <250>;
                         quick-tap-ms = <200>;
                         flavor = "tap-preferred";
                         bindings = <&kp>, <&macro_corne>;
@@ -118,7 +118,7 @@
                         compatible = "zmk,behavior-mod-morph";
                         label = "KQ_CUSTOM";
                         #binding-cells = <0>;
-                        bindings = <&kp US_K>, <&ht_qqu 0 Q>;
+                        bindings = <&kp US_K>, <&ht_qqu Q 0>;
                         mods = <(MOD_LALT|MOD_RALT)>;
                 };
         };
@@ -147,10 +147,10 @@
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
                         bindings = <&kp LG(RET)>,
-                        <&macro_wait_time 1000>,
-                        <&kp C>,
+                        <&macro_wait_time 2000>,
+                        <&macro_tap &kp C>,
                         <&macro_wait_time 30>,
-                        <&kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
+                        <&macro_tap &kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
                 };
         };
         combos {
