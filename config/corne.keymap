@@ -146,11 +146,11 @@
                         label = "macro_corne";
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
-                        bindings = <&kp LG(RET)>,
+                        bindings = 
                         <&macro_wait_time 2000>,
-                        <&macro_tap &kp C>,
+                        <&macro_tap &kp LG(RET)>,
                         <&macro_wait_time 30>,
-                        <&macro_tap &kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
+                        <&macro_tap  &kp C &kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
                 };
         };
         combos {
@@ -174,6 +174,11 @@
                         timeout-ms = <50>;
                         key-positions = <25 28>;
                         bindings = <&kp LC(Z)>;
+                };
+                combo_redo {
+                        timeout-ms = <50>;
+                        key-positions = <25 29>;
+                        bindings = <&kp LC(Y)>;
                 };
                 combo_caps_word {
                         timeout-ms = <50>;
