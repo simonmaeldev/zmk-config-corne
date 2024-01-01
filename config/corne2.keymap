@@ -1,0 +1,374 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include "../zmk-nodefree-config/helper.h"
+#include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include "accents.dtsi"
+#include "keys_fr.h"
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <../boards/shields/corne/boards/nice_nano.overlay>
+
+// Overwrite number of leds on the keyboard. A Corne has 27 per side.
+&led_strip { chain-length = <27>; };
+
+#define DEFAULT    0 // default_layer
+#define I3    1 // navigation in i3
+#define NAVIGATION    2 // navigation classique
+#define NUMEROS  3 // numeros
+
+/ {
+        behaviors {
+                #include "behavior_mod_morph.dtsi"
+                ht: hold_tap {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <250>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&kp>;
+                };
+                ht_par: hold_tap_parenthesis {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP_PAR";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <250>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&all_parf>, <&all_paro>;
+                };
+                ht_qqu: hold_tap_qqu {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP_QQU";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <250>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&macro_qu>;
+                };
+                ht_chevrons: hold_tap_chevrons {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP_CHEVRONS";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <250>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&macro_chevrons>, <&lgt>;
+                };
+                ht_equal: hold_tap_equal {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP_EQUAL";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <250>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&macro_diff>, <&kp>;
+                };
+                ht_esc: hold_tap_esc {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD_TAP_ESC";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <250>;
+                        quick-tap-ms = <200>;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&macro_corne>;
+                };
+                mo_to: behavior_mo_to {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "mo_to";
+                        #binding-cells = <2>;
+                        flavor = "hold-preferred";
+                        tapping-term-ms = <200>;
+                        bindings = <&mo>, <&to>;
+                }; //momentary on hold, to on tap
+                hme: homerow_mod_e {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_MOD_E";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <200>;
+                        bindings = <&kp>, <&e_custom>;
+                };
+                hms: homerow_mod_s {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_MOD_S";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <200>;
+                        bindings = <&kp>, <&s_custom>;
+                };
+                bhm: balanced_homerow_mods {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_MODS";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <200>;
+                        bindings = <&kp>, <&kp>;
+                };
+                kq_custom: kq_custom {
+                        compatible = "zmk,behavior-mod-morph";
+                        label = "KQ_CUSTOM";
+                        #binding-cells = <0>;
+                        bindings = <&kp US_K>, <&ht_qqu Q 0>;
+                        mods = <(MOD_LALT|MOD_RALT)>;
+                };
+        };
+        macros {
+                macro_diff: macro_diff {
+                        label = "macro_diff";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&macro_tap &kp EXCL &kp EQUAL>;
+                };
+                macro_chevrons: macro_chevrons {
+                        label = "macro_chevrons";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&macro_tap &kp LT &kp GT &kp LEFT>;
+                };
+                macro_qu: macro_qu {
+                        label = "macro_qu";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&macro_wait_time 30 &macro_tap &kp Q &kp U>,
+                        <&macro_release &kp LALT>;
+                };
+                macro_corne: macro_corne {
+                        label = "macro_corne";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = 
+                        <&macro_wait_time 2000>,
+                        <&macro_tap &kp LG(RET)>,
+                        <&macro_wait_time 30>,
+                        <&macro_tap &kp C &kp O &kp R &kp N &kp E &kp RET &kp LG(Q)>;
+                };
+        };
+        combos {
+                compatible = "zmk,combos";
+                combo_cut {
+                        timeout-ms = <50>;
+                        key-positions = <25 27>;
+                        bindings = <&kp LC(X)>;
+                };
+                combo_copy {
+                        timeout-ms = <50>;
+                        key-positions = <25 26>;
+                        bindings = <&kp LC(C)>;
+                };
+                combo_paste {
+                        timeout-ms = <50>;
+                        key-positions = <26 27>;
+                        bindings = <&kp LC(V)>;
+                };
+                combo_undo {
+                        timeout-ms = <50>;
+                        key-positions = <25 28>;
+                        bindings = <&kp LC(Z)>;
+                };
+                combo_redo {
+                        timeout-ms = <50>;
+                        key-positions = <25 29>;
+                        bindings = <&kp LC(Y)>;
+                };
+                combo_caps_word {
+                        timeout-ms = <50>;
+                        key-positions = <16 19>;
+                        bindings = <&caps_word>;
+                };
+                combo_chevrons {
+                        timeout-ms = <50>;
+                        key-positions = <33 34>;
+                        bindings = <&ht_chevrons 0 0>;
+                };
+                combo_slh {
+                        timeout-ms = <50>;
+                        key-positions = <4 5>;
+                        bindings = <&all_slh>;
+                };
+                combo_star {
+                        timeout-ms = <50>;
+                        key-positions = <30 34>;
+                        bindings = <&kp STAR>;
+                };
+                combo_at {
+                        timeout-ms = <50>;
+                        key-positions = <16 21>;
+                        bindings = <&kp AT>;
+                };
+                combo_hash {
+                        timeout-ms = <50>;
+                        key-positions = <32 33>;
+                        bindings = <&kp HASH>;
+                };
+                combo_prc {
+                        timeout-ms = <50>;
+                        key-positions = <31 32>;
+                        bindings = <&kp PERCENT>;
+                };
+                combo_and {
+                        timeout-ms = <50>;
+                        key-positions = <16 20>;
+                        bindings = <&kp AMPS>;
+                };
+                combo_equal_diff {
+                        timeout-ms = <50>;
+                        key-positions = <30 31>;
+                        bindings = <&ht_equal 0 EQUAL>;
+                };
+                combo_eacu {
+                        timeout-ms = <50>;
+                        key-positions = <19 20>;
+                        bindings = <&kp US_EACU>;
+                };
+                combo_egrv {
+                        timeout-ms = <50>;
+                        key-positions = <20 21>;
+                        bindings = <&ac_egrv>;
+                };
+                combo_ecir {
+                        timeout-ms = <50>;
+                        key-positions = <8 20>;
+                        bindings = <&ac_ecir>;
+                };
+                combo_agrv {
+                        timeout-ms = <50>;
+                        key-positions = <8 21>;
+                        bindings = <&ac_agrv>;
+                };
+                combo_circ {
+                        timeout-ms = <50>;
+                        key-positions = <28 29>;
+                        bindings = <&kp US_DCARET>;
+                };
+                combo_trem {
+                        timeout-ms = <50>;
+                        key-positions = <16 17>;
+                        bindings = <&kp US_DDQT>;
+                };
+                combo_cced {
+                        timeout-ms = <50>;
+                        key-positions = <14 15>;
+                        bindings = <&kp US_CCED>;
+                };
+        };
+        keymap {
+                compatible = "zmk,keymap";
+
+                default_layer {
+// -----------------------------------------------------------------------------------------
+// | Tab |  W  |  G  |  M  |  F  | ! ? |   | ' " |  U  |  O  |Kq QU| Jz  |qt/st|
+// |     |  R  |  S  |  N  |  T  |  B  |   |  Y  |  I  |  E  |  A  |  H  |     |
+// |     |  X  |  C  |  L  |  D  |  V  |   | - _ |  P  | ({[ | , ; | . : |     |
+//                   |RALT |SUPR | SPC |   |ENTER| DEL | ESC |
+                        bindings = <
+   &kp TAB   &kp W       &kp G       &kp M        &kp F         &dot_cstm      &quotes   &u_custom     &kp O        &kq_custom     &jz_custom   &ht_esc LG(ESC) 0
+   &none     &bhm LGUI R &hms LALT 0 &bhm LCTRL N &bhm LSHIFT T &kp B          &kp Y     &bhm LSHIFT I &hme LCTRL 0 &bhm LALT A    &bhm LGUI H  &none 
+   &none     &kp X       &kp C       &kp L        &kp D         &kp V          &kp MINUS &kp P         &ht_par 0 0  &comma_bvofrak &dot_bvofrak &none
+                          &lt NUMEROS RALT &lt NAVIGATION SPACE &lt I3 DEL          &kp BSPC     &kp RET   &kp ESC
+                        >;
+                };
+                i3_layer {
+// -----------------------------------------------------------------------------------------
+// |wintb|  6  |  7  |  8  |  9  |  0  |   |     |     |     |     |     |     |
+// |     |  5  |  4  |  3  |  2  |  1  |   |     |  ←  |  ↓  |  ↑  |  →  |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+//                   |     |     |     |   |SHIFT|     |     |
+                        bindings = <
+   &kp LG(TAB) &kp LG(US_6) &kp LG(US_7) &kp LG(US_8) &kp LG(US_9) &kp LG(US_0)   &none &none        &none        &none      &none         &kp LG(Q)
+   &none       &kp LG(US_5) &kp LG(US_4) &kp LG(US_3) &kp LG(US_2) &kp LG(US_1)   &none &kp LG(LEFT) &kp LG(DOWN) &kp LG(UP) &kp LG(RIGHT) &none
+   &none       &none        &none        &none        &none        &none          &none &none        &none        &none      &none         &none
+                                         &none        &none        &none          &kp LSHIFT &kp LG(RET)  &none
+                        >;
+                };
+                navigation_layer {
+// -----------------------------------------------------------------------------------------
+// |     |     |     |     |     |     |   |PG_UP|HOME | END |     |     |     |
+// |     | GUI | ALT | CTRL|SHIFT|     |   |PG_DN|  ←  |  ↓  |  ↑  |  →  |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+//                   |     |     |     |   |     |     |     |
+                        bindings = <
+   &none &none    &none    &none     &none      &none      &kp PG_UP &kp HOME &kp END  &none  &none     &none 
+   &none &kp LGUI &kp LALT &kp LCTRL &kp LSHIFT &none      &kp PG_DN &kp LEFT &kp DOWN &kp UP &kp RIGHT &none
+   &none &none    &none    &none     &none      &none      &none     &none    &none    &none  &none     &none
+                                  &none &none &none      &none &none  &none
+                        >;
+                };
+              num_layer {
+// -----------------------------------------------------------------------------------------
+// |     |     |     |     |     |     |   |) } ]|  7  |  8  |  9  |  +  |  *  |
+// |     | GUI | ALT | CTRL|SHIFT|     |   |  0  |  4  |  5  |  6  |  .  |  =  |
+// |     |     |     |     |     |     |   | < > |  1  |  2  |  3  |  -  |  /  |
+//                   |     |     |     |   |     |     |     |
+                        bindings = <
+   &none &none &none &none &none &none      &all_parf &kp N7 &kp N8 &kp N9 &kp PLUS &kp STAR 
+   &none &kp LGUI &kp LALT &kp LCTRL &kp LSHIFT &none      &kp N0 &kp N4 &kp N5 &kp N6 &kp DOT &kp EQUAL
+   &none &none &none &none &none &none      &lgt &kp N1 &kp N2 &kp N3 &kp MINUS &kp FSLH
+                     &none &none &none      &none &none  &none
+                        >;
+                };
+//                control_layer {
+// -----------------------------------------------------------------------------------------
+// |  F1  |  F2 |  F3 | F4  | F5  | F6  |   | F7  | F8  | F9  | F10 | F11 | F12 |
+// |to def| OUT | BR- | BR+ | EFF | TOG |   |     |     |     |     |mncrf|     |
+// |BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |prev |play |next |vol+ |vol- |mute |
+//                   |     |     |     |   |     |     |     |
+//                        bindings = <
+//   &kp F1      &kp F2       &kp F3          &kp F4          &kp F5          &kp F6          &kp F7     &kp F8   &kp F9     &kp F10      &kp F11       &kp F12
+//   &to DEFAULT &out OUT_TOG &rgb_ug RGB_BRD &rgb_ug RGB_BRI &rgb_ug RGB_EFF &rgb_ug RGB_TOG &none      &none    &none      &none        &to MINECRAFT &none
+//   &bt BT_CLR  &bt BT_SEL 1 &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &bt BT_SEL 5    &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN  &kp C_MUTE
+//                                        &trans       &trans       &mo_to NAVIGATION DEFAULT       &trans     &trans   &trans
+//                        >;
+//                };
+//                minecraft_layer {
+// -----------------------------------------------------------------------------------------
+// | ESC |  Q  |  1  |  W  |  E  |  R  |   |     |       |     |     |     |DEFAULT|
+// | TAB |SHIFT|  A  |  S  |  D  |  L  |   |     |       |     |     |     |       |
+// |  F5 |  F  |     |  H  |  G  |  B  |   |     |       |     |     |     |       |
+//                   | CTRL| F3  |SPACE|   |     |       |     |
+//                        bindings = <
+//   &kp ESC &kp US_Q   &kp US_1 &kp US_W &kp US_E &kp US_R   &none &none &none &none &none &to DEFAULT
+//   &kp TAB &kp LSHIFT &kp US_A &kp US_S &kp US_D &kp US_L   &none &none &none &none &none &none
+//   &kp F5  &kp US_F   &none    &kp US_H &kp US_G &kp US_B   &none &none &none &none &none &none
+//                              &kp LCTRL &kp F3   &kp SPACE  &none &none &none
+//                        >;
+//                };
+                //default_layer {
+// -----------------------------------------------------------------------------------------
+// | Tab | ? ! |  Y  |  P  |  O  | / = |   |'`"^ |  L  |  D  |  M  |  J  | ' " |
+// | ESC |  A  |  U  |  I  |  E  | ( { |   | . : |  S  |  T  |  N  |  R  |  F  |
+// | Alt |  Z  |  X  |  C  |  V  |  B  |   | , ; |  H  |  G  |  W  |  Q  |  K  |
+//                   |CTRL | SPC | LY  |   |SHIFT| ENT | BSP |
+                        //bindings = <
+   //&kp TAB  &dot_cstm &kp US_Y  &kp US_P &o_custom &slheq        &all_accent    &kp US_L &kp US_D &kp US_M &kp US_J &quotes
+   //&kp ESC  &mt LGUI &a_custom &mt LCTRL &u_custom &mt RALT US_I &mt LSHIFT &e_custom &parbrc       &dot_bvofrak   &mt LSHIFT US_S &mt RALT US_T &mt LCTRL US_N &mt LGUI US_R &kp US_F 
+   //&kp RALT &kp US_Z  &kp US_X  &kp US_C &kp US_V  &kp US_B      &comma_bvofrak &kp US_H &kp US_G &kp US_W &kp US_Q &kp US_K
+                          //&kp LCTRL &kp SPACE &mo_to NAVIGATION SYMBOLS          &kp RSHIFT     &kp RET   &kp BSPC
+                        //>;
+                //};
+//              none_layer {
+// -----------------------------------------------------------------------------------------
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+// |     |     |     |     |     |     |   |     |     |     |     |     |     |
+//                   |     |     |     |   |     |     |     |
+//                        bindings = <
+//   &none &none &none &none &none &none      &none &none &none &none &none &none 
+//   &none &none &none &none &none &none      &none &none &none &none &none &none
+//   &none &none &none &none &none &none      &none &none &none &none &none &none
+//                     &none &none &none      &none &none  &none
+//                        >;
+//                };
+        };
+};
