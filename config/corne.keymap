@@ -171,11 +171,12 @@ ZMK_COMBO(cced, &fr_c_cedilla, LM3 LM2, ALL)
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
     )
+
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 MAKE_HRM(hml_s, &kp, &s_morph, KEYS_R THUMBS)
-MAKE_HRM(hml_s, &kp, &e_morph, KEYS_R THUMBS)
+MAKE_HRM(hml_e, &kp, &e_morph, KEYS_L THUMBS)
 
 
 ZMK_LAYER(base,
