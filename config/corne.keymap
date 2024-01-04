@@ -21,6 +21,13 @@
 // Overwrite number of leds on the keyboard. A Corne has 27 per side.
 &led_strip { chain-length = <27>; };
 
+#define DEF 0
+#define I3 1
+#define NAV 2
+#define NUM 3
+#define FUN 4
+
+
 #define XXX &none
 #define ___ &trans
 
@@ -192,7 +199,7 @@ ZMK_LAYER(base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX          &kp X         &kp C         &kp L         &kp D         &kp V           &kp MINUS         &kp P     &par_morph    &comma_morph  &dot_morph     XXX       
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                            &lt NUM RALT    &lt NAV SPACE &lt I3 DEL      &kp BSPC     &kp RET       &lt NUM ESC                                            
+                                            &lt NUM RALT    &lt NAV SPACE &lt I3 DEL      &kp BSPC     &kp RET       &lt FUN ESC                                            
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯                                          
 )
 
