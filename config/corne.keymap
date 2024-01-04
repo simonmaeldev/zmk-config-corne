@@ -124,7 +124,7 @@ ZMK_BEHAVIOR(ht_chevrons_morph, hold_tap,
 ZMK_COMBO(chevrons, &ht_chevrons_morph, RB3 RB4, ALL)
 
 //tap: / | shift + tap: |  | ctrl + shift + tap: \
-SIMPLE_MORPH(slh_morph, SFT, &kp FSLH, &quotes_inner_morph)
+SIMPLE_MORPH(slh_morph, SFT, &kp FSLH, &slh_inner_morph)
 SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
 ZMK_COMBO(slh, &slh_morph, LT1 LT0, ALL)
 ZMK_COMBO(star, &kp STAR, RB0 RB4, ALL)
