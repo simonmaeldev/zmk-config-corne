@@ -178,7 +178,7 @@ ZMK_COMBO(cced, &fr_c_cedilla, LM3 LM2, ALL)
 / { 
     behaviors { 
         hml: hml { 
-            label = ZB_hml; 
+            label = "ZB_hml"; 
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced"; 
