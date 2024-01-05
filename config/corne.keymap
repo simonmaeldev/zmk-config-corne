@@ -96,7 +96,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 // tap: E | alt + tap: €
 SIMPLE_MORPH(e_morph, ALT, &kp E, &euro_sign)
 
-//SIMPLE_MORPH(u_morph, ALT, &kp U, &fr_u_grave)
+SIMPLE_MORPH(u_morph, ALT, &kp U, &fr_u_grave)
 
 // tap: comma | shift + tap: semicolon
 SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
@@ -126,13 +126,10 @@ ZMK_BEHAVIOR(ht_chevrons_morph, hold_tap,
 ZMK_COMBO(chevrons, &ht_chevrons_morph, RB3 RB4, ALL)
 
 //tap: / | shift + tap: |  | ctrl + shift + tap: \
-
-ZMK_BEHAVIOR(slash_morph, mod_morph, mods = <(MOD_LSFT|MOD_RSFT)>; bindings = <&kp FSLH>, <&slh_inner_morph>;)
-ZMK_BEHAVIOR(slh_inner_morph, mod_morph, mods = <(MOD_LCTL|MOD_RCTL)>; bindings = <&kp PIPE>, <&kp BSLH>;)
-
-
-//SIMPLE_MORPH(slh_morph, SFT, &kp FSLH, &slh_inner_morph)
-//SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
+//ZMK_BEHAVIOR(slash_morph, mod_morph, mods = <(MOD_LSFT|MOD_RSFT)>; bindings = <&kp FSLH>, <&slh_inner_morph>;)
+//ZMK_BEHAVIOR(slh_inner_morph, mod_morph, mods = <(MOD_LCTL|MOD_RCTL)>; bindings = <&kp PIPE>, <&kp BSLH>;)
+SIMPLE_MORPH(slash_morph, SFT, &kp FSLH, &slh_inner_morph)
+SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
 ZMK_COMBO(slh, &slash_morph, LT1 LT0, ALL)
 ZMK_COMBO(star, &kp STAR, RB0 RB4, ALL)
 ZMK_COMBO(at, &kp AT, LM1 RM3, ALL)
