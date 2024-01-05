@@ -163,9 +163,9 @@ ZMK_BEHAVIOR(ht_equal, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&macro_diff>, <&kp EQUAL>;
+    bindings = <&macro_diff>, <&kp>;
 )
-ZMK_COMBO(equal_diff, &ht_equal, RB0 RB1, ALL)
+ZMK_COMBO(equal_diff, &ht_equal 0 EQUAL, RB0 RB1, ALL)
 ZMK_COMBO(eacu, &fr_e_acute, RM1 RM2, ALL)
 ZMK_COMBO(egrv, &fr_e_grave, RM2 RM3, ALL)
 ZMK_COMBO(ecir, &fr_e_circumflex, RT2 RM2, ALL)
