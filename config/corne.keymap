@@ -104,6 +104,25 @@ SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
 // tap: dot | shift + tap: colon
 SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &kp COLON)
 
+// tap : () | shift + tap : {} | ctrl + tap : []
+SIMPLE_MORPH(all_paro1, ALT, &kp LBRC, &kp LBKT)
+ZMK_BEHAVIOR(all_paro, mod_morph,
+    mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>; \
+    bindings = <&kp LPAR>, <&all_paro1>; \
+)
+SIMPLE_MORPH(all_parf1, ALT, &kp RBRC, &kp RBKT)
+ZMK_BEHAVIOR(all_parf, mod_morph,
+    mods = <(MOD_LALT|MOD_RALT|MOD_LSFT|MOD_RSFT)>; \
+    bindings = <&kp RPAR>, <&all_parf1>; \
+)
+// hold : parenthesis close | tap : parenthesis open
+ZMK_BEHAVIOR(ht_par, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&all_parf>, <&all_paro>;
+)
+
 ZMK_COMBO(cut, &kp LC(X), LB4 LB2, ALL)
 ZMK_COMBO(copy, &kp LC(C), LB4 LB3, ALL)
 ZMK_COMBO(paste, &kp LC(V), LB3 LB2, ALL)
@@ -126,8 +145,6 @@ ZMK_BEHAVIOR(ht_chevrons_morph, hold_tap,
 ZMK_COMBO(chevrons, &ht_chevrons_morph, RB3 RB4, ALL)
 
 //tap: / | shift + tap: |  | ctrl + shift + tap: \
-//ZMK_BEHAVIOR(slash_morph, mod_morph, mods = <(MOD_LSFT|MOD_RSFT)>; bindings = <&kp FSLH>, <&slh_inner_morph>;)
-//ZMK_BEHAVIOR(slh_inner_morph, mod_morph, mods = <(MOD_LCTL|MOD_RCTL)>; bindings = <&kp PIPE>, <&kp BSLH>;)
 SIMPLE_MORPH(slash_morph, SFT, &kp FSLH, &slh_inner_morph)
 SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
 ZMK_COMBO(slh, &slash_morph, LT1 LT0, ALL)
@@ -201,7 +218,7 @@ ZMK_LAYER(base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX          &hml LGUI R   &hml_s LALT 0   &hml LCTRL N  &hml LSHFT T   &kp B           &kp Y      &hmr RSHFT I  &hmr_e LCTRL 0  &hmr LALT A  &hmr LGUI H   XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX          &kp X         &kp C         &kp L         &kp D         &kp V           &kp MINUS         &kp P     &par_morph    &comma_morph  &dot_morph     XXX       
+    XXX          &kp X         &kp C         &kp L         &kp D         &kp V           &kp MINUS         &kp P     &ht_par    &comma_morph  &dot_morph     XXX       
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                             &lt NUM RALT    &lt NAV SPACE &lt I3 DEL      &kp BSPC     &kp RET       &lt FUN ESC                                            
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯                                          
