@@ -142,7 +142,7 @@ ZMK_BEHAVIOR(ht_chevrons_morph, hold_tap,
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&macro_chevrons>, <&chevrons_morph>;
 )
-ZMK_COMBO(chevrons, &ht_chevrons_morph, RB3 RB4, ALL)
+ZMK_COMBO(chevrons, &ht_chevrons_morph 0 0, RB3 RB4, ALL)
 
 //tap: / | shift + tap: |  | ctrl + shift + tap: \
 SIMPLE_MORPH(slash_morph, SFT, &kp FSLH, &slh_inner_morph)
@@ -218,7 +218,7 @@ ZMK_LAYER(base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX          &hml LGUI R   &hml_s LALT 0   &hml LCTRL N  &hml LSHFT T   &kp B           &kp Y      &hmr RSHFT I  &hmr_e LCTRL 0  &hmr LALT A  &hmr LGUI H   XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX          &kp X         &kp C         &kp L         &kp D         &kp V           &kp MINUS         &kp P     &ht_par    &comma_morph  &dot_morph     XXX       
+    XXX          &kp X         &kp C         &kp L         &kp D         &kp V           &kp MINUS         &kp P     &ht_par 0 0    &comma_morph  &dot_morph     XXX       
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                             &lt NUM RALT    &lt NAV SPACE &lt I3 DEL      &kp BSPC     &kp RET       &lt FUN ESC                                            
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯                                          
