@@ -8,6 +8,8 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include "accents.dtsi"
+#include "keys_fr.h"
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"
 #include "../zmk-nodefree-config/international_chars/french.dtsi"
@@ -50,13 +52,8 @@ SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
 SIMPLE_MORPH(excl_morph, SFT, &kp QMARK, &kp EXCL)
 
 // tap: ' | shift + tap: " | ctrl + shift + tap: `
-ZMK_BEHAVIOR(macro_grave, macro,
-    wait-ms = <30>;
-    tap-ms = <10>;
-    bindings = <&kp GRAVE &kp SPACE>;
-)
-SIMPLE_MORPH(quotes_morph, SFT, &kp SQT, &quotes_inner_morph)
-SIMPLE_MORPH(quotes_inner_morph, CTL, &kp DQT, &macro_grave)
+SIMPLE_MORPH(quotes_morph, SFT, &kp US_SQT, &quotes_inner_morph)
+SIMPLE_MORPH(quotes_inner_morph, CTL, &kp US_DQT, &kp US_GRAVE)
 
 // tap: qu | alt + tap: k | hold: q
 ZMK_BEHAVIOR(macro_qu, macro,
@@ -68,9 +65,9 @@ ZMK_BEHAVIOR(ht_qqu, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&macro_qu>, <&kp>;
+    bindings = <&kp>, <&macro_qu>;
 )
-SIMPLE_MORPH(qk_morph, ALT, &ht_qqu 0 Q, &kp K)
+SIMPLE_MORPH(qk_morph, ALT, &ht_qqu Q Q, &kp K)
 
 // tap: J | alt + tap : Z
 SIMPLE_MORPH(jz_morph, ALT, &kp J, &kp Z)
@@ -91,12 +88,10 @@ SIMPLE_MORPH(connect, SFT, &macro_corne, &kp LG(ESC))
 // tap: S | alt + tap: $
 SIMPLE_MORPH(s_morph, ALT, &kp S, &kp DOLLAR)
 
-// euro sign
-ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 // tap: E | alt + tap: €
-SIMPLE_MORPH(e_morph, ALT, &kp E, &euro_sign)
+SIMPLE_MORPH(e_morph, ALT, &kp E, &kp US_EURO)
 
-SIMPLE_MORPH(u_morph, ALT, &kp U, &fr_u_grave)
+SIMPLE_MORPH(u_morph, ALT, &kp U, &ac_ugrv)
 
 // tap: comma | shift + tap: semicolon
 SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
@@ -123,12 +118,24 @@ ZMK_BEHAVIOR(ht_par, hold_tap,
     bindings = <&all_parf>, <&all_paro>;
 )
 
+// hold : CAPS | tap : caps_word
+ZMK_BEHAVIOR(ht_caps, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&caps_word>;
+)
+
 ZMK_COMBO(cut, &kp LC(X), LB4 LB2, ALL)
 ZMK_COMBO(copy, &kp LC(C), LB4 LB3, ALL)
 ZMK_COMBO(paste, &kp LC(V), LB3 LB2, ALL)
 ZMK_COMBO(undo, &kp LC(Z), LB4 LB1, ALL)
 ZMK_COMBO(redo, &kp LC(Y), LB4 LB0, ALL)
-ZMK_COMBO(caps, &caps_word, LM1 RM1, ALL)
+ZMK_COMBO(caps, &ht_caps CAPS 0, LM1 RM1, ALL)
+ZMK_COMBO(save, &kp LC(S), LM1 LM0, ALL)
+ZMK_COMBO(select_all, &kp LC(A), LM3 LM4, ALL)
+ZMK_COMBO(replace, &kp LC(H), LT1 LT2, ALL)
+
 
 // tap: < | shift + tap: > | hold: <>
 SIMPLE_MORPH(chevrons_morph, SFT, &kp LT, &kp GT)
@@ -147,7 +154,7 @@ ZMK_COMBO(chevrons, &ht_chevrons_morph 0 0, RB3 RB4, ALL)
 //tap: / | shift + tap: |  | ctrl + shift + tap: \
 SIMPLE_MORPH(slash_morph, SFT, &kp FSLH, &slh_inner_morph)
 SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
-ZMK_COMBO(slh, &quotes_morph, LT1 LT0, ALL)
+ZMK_COMBO(slh, &slash_morph, LT1 LT0, ALL)
 ZMK_COMBO(star, &kp STAR, RB0 RB4, ALL)
 ZMK_COMBO(at, &kp AT, LM1 RM3, ALL)
 ZMK_COMBO(hash, &kp HASH, RB2 RB3, ALL)
@@ -166,22 +173,13 @@ ZMK_BEHAVIOR(ht_equal, hold_tap,
     bindings = <&macro_diff>, <&kp>;
 )
 ZMK_COMBO(equal_diff, &ht_equal 0 EQUAL, RB0 RB1, ALL)
-ZMK_COMBO(eacu, &fr_e_acute, RM1 RM2, ALL)
-ZMK_COMBO(egrv, &fr_e_grave, RM2 RM3, ALL)
-ZMK_COMBO(ecir, &fr_e_circumflex, RT2 RM2, ALL)
-ZMK_COMBO(agrv, &fr_a_grave, RT2 RM3, ALL)
-ZMK_COMBO(circ, &kp CARET, LB1 LB0, ALL)
-ZMK_COMBO(trema, &kp DQT, LT1 LT0, ALL)
-ZMK_COMBO(cced, &fr_c_cedilla, LM3 LM2, ALL)
-
-
-
-
-//ZMK_COMBO(save, &kp LC(X), LT1 LT3, ALL)
-//ZMK_COMBO(select_all, &kp LC(X), LT1 LT3, ALL)
-//ZMK_COMBO(search, &kp LC(X), LT1 LT3, ALL)
-//ZMK_COMBO(replace, &kp LC(X), LT1 LT3, ALL)
-
+ZMK_COMBO(eacu, &kp US_EACU, RM1 RM2, ALL)
+ZMK_COMBO(egrv, &ac_egrv, RM2 RM3, ALL)
+ZMK_COMBO(ecir, &ac_ecir, RT2 RM2, ALL)
+ZMK_COMBO(agrv, &ac_agrv, RT2 RM3, ALL)
+ZMK_COMBO(circ, &kp CARET, LB2 LB1, ALL)
+ZMK_COMBO(trema, &kp DQT, LM2 LM1, ALL)
+ZMK_COMBO(cced, &kp US_CCED, LM3 LM2, ALL)
 
 // left-hand keys
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5 
@@ -216,9 +214,9 @@ ZMK_LAYER(base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp TAB         &kp W         &kp G         &kp M         &kp F      &excl_morph     &quotes_morph   &u_morph         &kp O      &qk_morph     &jz_morph      &connect 
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX          &hml LGUI R   &hml_s LALT 0   &hml LCTRL N  &hml LSHFT T   &kp B           &kp Y      &hmr RSHFT I  &hmr_e LCTRL 0  &hmr LALT A  &hmr LGUI H   XXX  
+   &kp LC(PG_UP)    &hml LGUI R   &hml_s LALT 0   &hml LCTRL N  &hml LSHFT T   &kp B        &kp Y      &hmr RSHFT I  &hmr_e LCTRL 0  &hmr LALT A  &hmr LGUI H   XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX          &kp X         &kp C         &kp L         &kp D         &kp V           &kp MINUS         &kp P     &ht_par 0 0    &comma_morph  &dot_morph     XXX       
+   &kp LC(PG_DN) &kp X         &kp C         &kp L         &kp D         &kp V           &kp MINUS         &kp P     &ht_par 0 0    &comma_morph  &dot_morph     XXX       
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                             &lt NUM RALT    &lt NAV SPACE &lt I3 DEL      &kp BSPC     &kp RET       &lt FUN ESC                                            
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯                                          
