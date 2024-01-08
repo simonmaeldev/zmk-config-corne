@@ -43,6 +43,9 @@
         mods = <(MOD_L ## MOD|MOD_R ## MOD)>; \
         bindings = <BINDING1>, <BINDING2>; \
     )
+//tap: / | shift + tap: |  | ctrl + shift + tap: \
+SIMPLE_MORPH(slh_morph, SFT, &kp FSLH, &slh_inner_morph)
+SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
 
 // tap: question mark | shift + tap : exclamation
 SIMPLE_MORPH(excl_morph, SFT, &kp QMARK, &kp EXCL)
@@ -146,10 +149,6 @@ ZMK_BEHAVIOR(ht_chevrons_morph, hold_tap,
     bindings = <&macro_chevrons>, <&chevrons_morph>;
 )
 ZMK_COMBO(chevrons, &ht_chevrons_morph 0 0, RB3 RB4, ALL)
-
-//tap: / | shift + tap: |  | ctrl + shift + tap: \
-SIMPLE_MORPH(slh_morph, SFT, &kp FSLH, &slh_inner_morph)
-SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
 ZMK_COMBO(slh, &slh_morph, LT1 LT0, ALL)
 ZMK_COMBO(star, &kp STAR, RB0 RB4, ALL)
 ZMK_COMBO(at, &kp AT, LM1 RM3, ALL)
