@@ -45,15 +45,21 @@
     )
 //tap: / | shift + tap: |  | ctrl + shift + tap: "\"
 
-SIMPLE_MORPH(slh_morph, SFT, &kp FSLH, &slh_inner_morph)
 SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
+ZMK_BEHAVIOR(slh_morph, mod_morph,
+    mods = <(MOD_LCTL|MOD_RCTL|MOD_LSFT|MOD_RSFT)>; \
+    bindings = <&kp FSLH>, <&slh_inner_morph>; \
+)
 
 // tap: question mark | shift + tap : exclamation
 SIMPLE_MORPH(excl_morph, SFT, &kp QMARK, &kp EXCL)
 
 // tap: ' | shift + tap: " | ctrl + shift + tap: `
-SIMPLE_MORPH(quotes_morph, SFT, &kp US_SQT, &quotes_inner_morph)
 SIMPLE_MORPH(quotes_inner_morph, CTL, &kp US_DQT, &kp US_GRAVE)
+ZMK_BEHAVIOR(quotes_morph, mod_morph,
+    mods = <(MOD_LCTL|MOD_RCTL|MOD_LSFT|MOD_RSFT)>; \
+    bindings = <&kp US_SQT>, <&quotes_inner_morph>; \
+)
 
 // tap: qu | alt + tap: k | hold: q
 ZMK_BEHAVIOR(macro_qu, macro,
