@@ -90,6 +90,12 @@ ZMK_BEHAVIOR(macro_corne, macro,
     < &kp RET &kp LG(Q)>;
 )
 SIMPLE_MORPH(connect, SFT, &macro_corne, &kp LG(ESC))
+ZMK_BEHAVIOR(ht_connect, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&connect>;
+)
 
 // tap: S | alt + tap: $
 SIMPLE_MORPH(s_morph, ALT, &kp S, &kp DOLLAR)
@@ -214,7 +220,7 @@ MAKE_HRM(hmr_e, &kp, &e_morph, KEYS_L THUMBS)
 
 ZMK_LAYER(base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp TAB         &kp W         &kp G         &kp M         &kp F      &excl_morph     &quotes_morph   &u_morph         &kp O      &qk_morph     &jz_morph      &connect 
+    &kp TAB         &kp W         &kp G         &kp M         &kp F      &excl_morph     &quotes_morph   &u_morph         &kp O      &qk_morph     &jz_morph   &ht_connect LG(ESC) 0
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp LC(PG_UP)    &hml LGUI R   &hml_s LALT 0   &hml LCTRL N  &hml LSHFT T   &kp B        &kp Y      &hmr RSHFT I  &hmr_e LCTRL 0  &hmr LALT A  &hmr LGUI H   XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
