@@ -44,10 +44,6 @@
         bindings = <BINDING1>, <BINDING2>; \
     )
 
-// tap: comma | shift + tap: semicolon | ctrl + shift + tap: <
-SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
-SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
-
 // tap: question mark | shift + tap : exclamation
 SIMPLE_MORPH(excl_morph, SFT, &kp QMARK, &kp EXCL)
 
@@ -152,9 +148,9 @@ ZMK_BEHAVIOR(ht_chevrons_morph, hold_tap,
 ZMK_COMBO(chevrons, &ht_chevrons_morph 0 0, RB3 RB4, ALL)
 
 //tap: / | shift + tap: |  | ctrl + shift + tap: \
-SIMPLE_MORPH(slash_morph, SFT, &kp FSLH, &slh_inner_morph)
+SIMPLE_MORPH(slh_morph, SFT, &kp FSLH, &slh_inner_morph)
 SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
-ZMK_COMBO(slh, &slash_morph, LT1 LT0, ALL)
+ZMK_COMBO(slh, &slh_morph, LT1 LT0, ALL)
 ZMK_COMBO(star, &kp STAR, RB0 RB4, ALL)
 ZMK_COMBO(at, &kp AT, LM1 RM3, ALL)
 ZMK_COMBO(hash, &kp HASH, RB2 RB3, ALL)
