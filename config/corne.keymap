@@ -43,7 +43,8 @@
         mods = <(MOD_L ## MOD|MOD_R ## MOD)>; \
         bindings = <BINDING1>, <BINDING2>; \
     )
-//tap: / | shift + tap: |  | ctrl + shift + tap: \\
+//tap: / | shift + tap: |  | ctrl + shift + tap: "\"
+
 SIMPLE_MORPH(slh_morph, SFT, &kp FSLH, &slh_inner_morph)
 SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
 
