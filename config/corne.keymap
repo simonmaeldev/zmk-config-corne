@@ -222,9 +222,9 @@ ZMK_LAYER(base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp TAB         &kp W         &kp G         &kp M         &kp F      &excl_morph     &quotes_morph   &u_morph         &kp O      &qk_morph     &jz_morph   &ht_connect LG(ESC) 0
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp LC(PG_UP)    &hml LGUI R   &hml_s LALT 0   &hml LCTRL N  &hml LSHFT T   &kp B        &kp Y      &hmr RSHFT I  &hmr_e LCTRL 0  &hmr LALT A  &hmr LGUI H   XXX  
+    XXX          &hml LGUI R   &hml_s LALT 0   &hml LCTRL N  &hml LSHFT T   &kp B        &kp Y         &hmr RSHFT I  &hmr_e LCTRL 0  &hmr LALT A  &hmr LGUI H  &kp LC(PG_UP)
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp LC(PG_DN) &kp X         &kp C         &kp L         &kp D         &kp V           &kp MINUS         &kp P     &ht_par 0 0    &comma_morph  &dot_morph     XXX       
+    XXX            &kp X         &kp C         &kp L         &kp D         &kp V           &kp MINUS      &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                             &lt NUM RALT    &lt NAV SPACE &lt I3 DEL      &kp BSPC     &kp RET       &lt FUN ESC                                            
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯                                          
