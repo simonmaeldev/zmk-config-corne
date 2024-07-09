@@ -267,28 +267,28 @@ ZMK_BEHAVIOR(ht_q, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp LCTRL>, <&kp Q>;
+    bindings = <&kp>, <&kp>;
 )
 
 ZMK_BEHAVIOR(ht_esc, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&to DEF>, <&kp ESC>;
+    bindings = <&to>, <&kp>;
 )
 
 ZMK_BEHAVIOR(toggle_r, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp R>, <&kt R>;
+    bindings = <&kp>, <&kt>;
 )
 
 ZMK_LAYER(minecraft,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp TAB       &ht_q         &kp W         &kp E         &toggle_r     XXX             XXX           XXX           XXX           XXX           XXX           XXX          
+    &kp TAB      &ht_q LC(Q) Q  &kp W         &kp E        &toggle_r R R  XXX             XXX           XXX           XXX           XXX           XXX           XXX          
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &ht_esc       &kp A         &kp S         &kp D         &kp F         XXX             XXX           XXX           XXX           XXX           XXX           XXX  
+   &ht_esc DEF ESC &kp A        &kp S         &kp D         &kp F         XXX             XXX           XXX           XXX           XXX           XXX           XXX  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp LSHIFT    &kp C         &kp L         &kp G         &kp B         XXX             XXX           XXX           XXX           XXX           XXX           XXX       
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
