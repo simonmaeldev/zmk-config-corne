@@ -63,10 +63,21 @@ ZMK_BEHAVIOR(slh_morph, mod_morph,
 SIMPLE_MORPH(excl_morph, SFT, &kp QMARK, &kp EXCL)
 
 // tap: ' | shift + tap: " | ctrl + shift + tap: `
-SIMPLE_MORPH(quotes_inner_morph, CTL, &kp DQT, &kp GRAVE)
+ZMK_BEHAVIOR(macro_sqt, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp SQT &kp SPACE>;
+)ZMK_BEHAVIOR(macro_dqt, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp DQT &kp SPACE>;
+)ZMK_BEHAVIOR(macro_bqt, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp GRAVE &kp SPACE>;
+)
+
+SIMPLE_MORPH(quotes_inner_morph, CTL, &macro_dqt, &macro_bqt)
 ZMK_BEHAVIOR(quotes_morph, mod_morph,
     mods = <(MOD_LCTL|MOD_RCTL|MOD_LSFT|MOD_RSFT)>; \
-    bindings = <&kp SQT>, <&quotes_inner_morph>; \
+    bindings = <&macro_sqt>, <&quotes_inner_morph>; \
 )
 
 // tap: connect corne | shift + tap: quit
