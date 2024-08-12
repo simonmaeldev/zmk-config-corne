@@ -189,7 +189,7 @@ ZMK_COMBO(circ, &kp CARET, LB2 LB1, ALL)
 ZMK_COMBO(trema, &kp DQT, LM2 LM1, ALL)
 ZMK_COMBO(cced, &kp US_CCED, LM3 LM2, ALL)
 ZMK_COMBO(combo_k, &kp K, RT2 RT3, ALL)  // O + Q for K
-ZMK_COMBO(combo_z, &kp Z, RT3 RT4, ALL)  // Q + J for Z
+ZMK_COMBO(combo_z, &kp Z, RM3 RM4, ALL)  // A + H for Z
 ZMK_COMBO(combo_u_grave, &ac_ugrv, RT0 RT1, ALL)  // ' + U for Ù
 
 // left-hand keys
