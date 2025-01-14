@@ -221,6 +221,9 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 MAKE_HRM(hml_s, &kp, &s_morph, KEYS_R THUMBS)
 MAKE_HRM(hmr_e, &kp, &e_morph, KEYS_L THUMBS)
 
+// tap: minus | alt + tap: tilde 
+SIMPLE_MORPH(minus_morph, ALT, &kp MINUS, &kp TILDE)
+
 ZMK_BEHAVIOR(lt_cstm, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
@@ -235,7 +238,7 @@ ZMK_LAYER(base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX          &hml LGUI R   &hml_s LALT 0   &hml LCTRL N  &hml LSHFT T   &kp B        &kp Y         &hmr RSHFT I  &hmr_e LCTRL 0  &hmr LALT A  &hmr LGUI H  &kp LC(PG_UP)
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX            &kp X         &kp C         &kp L         &kp D         &kp V           &kp MINUS      &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
+    XXX            &kp X         &kp C         &kp L         &kp D         &kp V           &minus_morph    &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                         &lt_cstm NUM LALT    &lt NAV SPACE &lt I3 DEL      &kp BSPC     &kp RET       &lt FUN ESC                                            
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯                                          
