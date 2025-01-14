@@ -222,7 +222,7 @@ MAKE_HRM(hml_s, &kp, &s_morph, KEYS_R THUMBS)
 MAKE_HRM(hmr_e, &kp, &e_morph, KEYS_L THUMBS)
 
 // tap: minus | alt + tap: tilde 
-SIMPLE_MORPH(minus_morph, ALT, &kp MINUS, &kp US_TILDE)
+SIMPLE_MORPH(minus_morph, ALT, &kp MINUS, &kp TILDE)
 
 ZMK_BEHAVIOR(lt_cstm, hold_tap,
     flavor = "balanced";
