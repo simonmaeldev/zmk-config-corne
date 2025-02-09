@@ -51,7 +51,7 @@ ZMK_BEHAVIOR(ht, hold_tap,
         mods = <(MOD_L ## MOD|MOD_R ## MOD)>; \
         bindings = <BINDING1>, <BINDING2>; \
     )
-//tap: / | shift + tap: |  | ctrl + shift + tap: "\"
+//tap: / | shift + tap: |  | ctrl + tap: "\"
 
 SIMPLE_MORPH(slh_inner_morph, CTL, &kp PIPE, &kp BSLH)
 ZMK_BEHAVIOR(slh_morph, mod_morph,
@@ -62,7 +62,7 @@ ZMK_BEHAVIOR(slh_morph, mod_morph,
 // tap: question mark | shift + tap : exclamation
 SIMPLE_MORPH(excl_morph, SFT, &kp QMARK, &kp EXCL)
 
-// tap: ' | shift + tap: " | ctrl + shift + tap: `
+// tap: ' | shift + tap: "
 ZMK_BEHAVIOR(macro_sqt, macro,
     tap-ms = <10>;
     bindings = <&macro_tap &kp SQT &kp SPACE>;
@@ -74,11 +74,7 @@ ZMK_BEHAVIOR(macro_sqt, macro,
     bindings = <&macro_tap &kp GRAVE &kp SPACE>;
 )
 
-SIMPLE_MORPH(quotes_inner_morph, CTL, &macro_dqt, &macro_bqt)
-ZMK_BEHAVIOR(quotes_morph, mod_morph,
-    mods = <(MOD_LCTL|MOD_RCTL|MOD_LSFT|MOD_RSFT)>; \
-    bindings = <&macro_sqt>, <&quotes_inner_morph>; \
-)
+SIMPLE_MORPH(quotes_morph, SFT, &macro_sqt, &macro_dqt)
 
 // tap: connect corne | shift + tap: quit
 ZMK_BEHAVIOR(macro_corne, macro,
@@ -192,6 +188,7 @@ ZMK_COMBO(cced, &kp US_CCED, LM3 LM2, ALL)
 ZMK_COMBO(combo_k, &kp K, RT2 RT3, ALL)  // O + Q for K
 ZMK_COMBO(combo_z, &kp Z, RM3 RM4, ALL)  // A + H for Z
 ZMK_COMBO(combo_u_grave, &ac_ugrv, RT0 RT1, ALL)  // ' + U for Ù
+ZMK_COMBO(combo_dqt, &macro_bqt, RT0 RM0, ALL)  // ' + Y for `
 
 // left-hand keys
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5 
