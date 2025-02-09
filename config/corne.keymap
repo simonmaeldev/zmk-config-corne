@@ -229,6 +229,7 @@ ZMK_BEHAVIOR(lt_cstm, hold_tap,
 )
 
 ZMK_MACRO_ONE_PARAM(macro_cb,
+    wait-ms = <100>;
     tap-ms = <10>;
     bindings = <&macro_press &kp LCTRL>,
                <&macro_tap &kp B>,
