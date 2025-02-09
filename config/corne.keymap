@@ -230,6 +230,7 @@ ZMK_BEHAVIOR(lt_cstm, hold_tap,
 
 ZMK_MACRO_ONE_PARAM(macro_vimw,
     bindings = <&kp LG(W)>, <&macro_param_1to1 &kp MACRO_PLAECHOLDER>;
+)
 
 
 ZMK_LAYER(base,
