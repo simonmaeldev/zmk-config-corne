@@ -228,7 +228,9 @@ ZMK_BEHAVIOR(lt_cstm, hold_tap,
     bindings = <&mo>, <&kt>;
 )
 
-ZMK_MACRO_ONE_PARAM(macro_vimw,
+ZMK_BEHAVIOR(macro_vimw, macro,
+    compatible = "zmk,behavior-macro-one-param";
+    #binding-cells = <1>;
     wait-ms = <100>;
     tap-ms = <5>;
     bindings = <&kp LG(W)>, <&macro_param_1to1 &kp MACRO_PLAECHOLDER>;
