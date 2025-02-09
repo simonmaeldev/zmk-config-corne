@@ -231,7 +231,7 @@ ZMK_BEHAVIOR(lt_cstm, hold_tap,
 ZMK_BEHAVIOR(macro_vimw, macro_one_param,
     wait-ms = <100>;
     tap-ms = <5>;
-    bindings = <&kp LG(W)>, <&macro_param_1to1 &kp MACRO_PLAECHOLDER>;
+    bindings = <&kp LG(W)>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
 )
 
 
