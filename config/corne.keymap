@@ -23,13 +23,15 @@
 // Overwrite number of leds on the keyboard. A Corne has 27 per side.
 &led_strip { chain-length = <27>; };
 
-#define WINDOWS 0
-#define I3 1
-#define NAV 2
-#define NUM 3
-#define FUN 4
-#define MINECRAFT 5
-#define MACOS 6
+#define WINDOWS_BASE 0
+#define WM_WINDOWS 1
+#define NAV_WINDOWS 2
+#define MACOS_BASE 3
+#define WM_MACOS 4
+#define NAV_MACOS 5
+#define NUM 6
+#define FUN 7
+#define MINECRAFT 8
 
 
 #define XXX &none
@@ -136,15 +138,28 @@ ZMK_BEHAVIOR(ht_caps, hold_tap,
     bindings = <&kp>, <&caps_word>;
 )
 
-ZMK_COMBO(cut, &kp LC(X), LB4 LB2, ALL)
-ZMK_COMBO(copy, &kp LC(C), LB4 LB3, ALL)
-ZMK_COMBO(paste, &kp LC(V), LB3 LB2, ALL)
-ZMK_COMBO(undo, &kp LC(Z), LB4 LB1, ALL)
-ZMK_COMBO(redo, &kp LC(Y), LB4 LB0, ALL)
+// Windows-specific combos
+ZMK_COMBO(cut_win, &kp LC(X), LB4 LB2, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(copy_win, &kp LC(C), LB4 LB3, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(paste_win, &kp LC(V), LB3 LB2, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(undo_win, &kp LC(Z), LB4 LB1, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(redo_win, &kp LC(Y), LB4 LB0, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(save_win, &kp LC(S), LM1 LM0, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(select_all_win, &kp LC(A), LM3 LM4, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(replace_win, &kp LC(H), LT1 LT2, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+
+// macOS-specific combos
+ZMK_COMBO(cut_mac, &kp LG(X), LB4 LB2, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(copy_mac, &kp LG(C), LB4 LB3, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(paste_mac, &kp LG(V), LB3 LB2, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(undo_mac, &kp LG(Z), LB4 LB1, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(redo_mac, &kp LG(Y), LB4 LB0, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(save_mac, &kp LG(S), LM1 LM0, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(select_all_mac, &kp LG(A), LM3 LM4, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(replace_mac, &kp LG(H), LT1 LT2, MACOS_BASE WM_MACOS NAV_MACOS)
+
+// Shared combos
 ZMK_COMBO(caps, &ht_caps CAPS 0, LM1 RM1, ALL)
-ZMK_COMBO(save, &kp LC(S), LM1 LM0, ALL)
-ZMK_COMBO(select_all, &kp LC(A), LM3 LM4, ALL)
-ZMK_COMBO(replace, &kp LC(H), LT1 LT2, ALL)
 
 
 // tap: < | shift + tap: > | hold: <>
@@ -229,10 +244,16 @@ ZMK_BEHAVIOR(lt_cstm, hold_tap,
     bindings = <&mo>, <&kt>;
 )
 
-ZMK_BEHAVIOR(macro_vimw, macro_one_param,
+ZMK_BEHAVIOR(macro_vimw_win, macro_one_param,
     wait-ms = <100>;
     tap-ms = <5>;
     bindings = <&kp LC(W)>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
+)
+
+ZMK_BEHAVIOR(macro_vimw_mac, macro_one_param,
+    wait-ms = <100>;
+    tap-ms = <5>;
+    bindings = <&kp LG(W)>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
 )
 
 ZMK_BEHAVIOR(macro_mode_windows, macro,
@@ -260,31 +281,43 @@ ZMK_BEHAVIOR(mode_switch_macos, hold_tap,
 )
 
 
-ZMK_LAYER(windows,
+ZMK_LAYER(windows_base,
 //╭───────────────────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp TAB                       &kp W         &kp G         &kp M         &kp F      &excl_morph     &quotes_morph   &kp U         &kp O         &kp Q         &kp J        XXX
 //├───────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &mode_switch_windows 0 MACOS &hml LGUI R   &hml_s LALT 0   &hml LCTRL N  &hml LSHFT T   &kp B        &kp Y         &hmr RSHFT I  &hmr_e LCTRL 0  &hmr LALT A  &hmr LGUI H  &kp LC(PG_UP)
+    &mode_switch_windows 0 MACOS_BASE &hml LGUI R   &hml_s LALT 0   &hml LCTRL N  &hml LSHFT T   &kp B        &kp Y         &hmr RSHFT I  &hmr_e LCTRL 0  &hmr LALT A  &hmr LGUI H  &kp LC(PG_UP)
 //├───────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX                          &kp X         &kp C         &kp L         &kp D         &kp V           &minus_morph    &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
 //╰───────────────────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                               &mo NUM    &lt NAV SPACE &lt I3 DEL      &kp BSPC     &kp RET       &lt FUN ESC                                            
+                                                               &mo NUM    &lt NAV_WINDOWS SPACE &lt WM_WINDOWS DEL      &kp BSPC     &kp RET       &lt FUN ESC                                            
 //                                                        ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯                                          
 )
 
-ZMK_LAYER(i3,
+ZMK_LAYER(macos_base,
+//╭─────────────────────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &kp TAB                      &kp W         &kp G         &kp M         &kp F         &excl_morph     &quotes_morph   &kp U         &kp O         &kp Q         &kp J        &kp LG(RET)
+//├─────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &mode_switch_macos 0 WINDOWS_BASE &hml LCTRL R   &hml_s LALT 0   &hml LGUI N  &hml LSHFT T   &kp B        &kp Y         &hmr RSHFT I  &hmr_e LGUI 0  &hmr LALT A  &hmr LCTRL H  &kp LC(PG_UP)
+//├─────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    XXX                           &kp X         &kp C         &kp L         &kp D         &kp V           &minus_morph    &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
+//╰─────────────────────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                                 &mo NUM    &lt NAV_MACOS SPACE &lt WM_MACOS DEL      &kp BSPC     &kp RET       &lt FUN ESC
+//                                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+
+)
+ZMK_LAYER(wm_windows,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp LA(TAB)   XXX           XXX           XXX           XXX            XXX             XXX           XXX           XXX           XXX           XXX             &kp LG(Q) 
+    &kp LA(TAB)   XXX           XXX           XXX           XXX            XXX             XXX           XXX           XXX           XXX           XXX             &kp LG(Q)
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LG(N5)    &kp LG(N4)    &kp LG(N3)    &kp LG(N2)    &kp LG(N1)     XXX             XXX          &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(UP)    &kp LG(RIGHT)   XXX  
+    &kp LG(N5)    &kp LG(N4)    &kp LG(N3)    &kp LG(N2)    &kp LG(N1)     XXX             XXX          &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(UP)    &kp LG(RIGHT)   XXX
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           XXX           XXX           XXX           XXX           XXX             XXX          &macro_vimw H &macro_vimw J &macro_vimw K &macro_vimw L XXX       
+    XXX           XXX           XXX           XXX           XXX           XXX             XXX          &macro_vimw_win H &macro_vimw_win J &macro_vimw_win K &macro_vimw_win L XXX       
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                               XXX           XXX           XXX            &kp LSHIFT     &kp LG(RET)         XXX                                              
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯                                          
 )
 
-ZMK_LAYER(nav,
+ZMK_LAYER(nav_windows,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     XXX           XXX           XXX           XXX           XXX           XXX             &kp PG_UP     &kp HOME      &kp END       XXX           XXX             &kp LG(Q) 
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -292,8 +325,32 @@ ZMK_LAYER(nav,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX           XXX           XXX           XXX           XXX           XXX             XXX           XXX           XXX           XXX           XXX           XXX       
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              XXX           XXX           XXX             XXX           XXX           XXX                                              
-//                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯                                          
+                                              XXX           XXX           XXX             XXX           XXX           XXX
+//                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+)
+
+ZMK_LAYER(nav_macos,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    XXX           XXX           XXX           XXX           XXX           XXX             &kp PG_UP     &kp HOME      &kp END       XXX           XXX             &kp LG(Q)
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    XXX          &kp LCTRL      &kp LALT     &kp LGUI      &kp LSHIFT     XXX             &kp PG_DN    &kp LEFT       &kp DOWN      &kp UP        &kp RIGHT      XXX
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    XXX           XXX           XXX           XXX           XXX           XXX             XXX           XXX           XXX           XXX           XXX           XXX
+//╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              XXX           XXX           XXX             XXX           XXX           XXX
+//                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+)
+
+ZMK_LAYER(wm_macos,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &kp LG(TAB)   XXX           XXX           XXX           XXX            XXX             XXX           XXX           XXX           XXX           XXX             &kp LG(Q)
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &kp LG(N5)    &kp LG(N4)    &kp LG(N3)    &kp LG(N2)    &kp LG(N1)     XXX             XXX          &kp LA(LEFT)  &kp LA(DOWN)  &kp LA(UP)    &kp LA(RIGHT)   XXX
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    XXX           XXX           XXX           XXX           XXX           XXX             XXX          &macro_vimw_mac H &macro_vimw_mac J &macro_vimw_mac K &macro_vimw_mac L XXX
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              XXX           XXX           XXX            &kp LSHIFT     &kp LG(RET)         XXX
+//                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
 ZMK_LAYER(num,
@@ -341,7 +398,7 @@ ZMK_BEHAVIOR(toggle, hold_tap,
 
 ZMK_LAYER(minecraft,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &ht TAB ESC   &ht LC(Q) Q    &kp W        &kp E        &toggle R R    &kp F4          XXX           XXX           XXX           XXX           XXX           &to WINDOWS
+    &ht TAB ESC   &ht LC(Q) Q    &kp W        &kp E        &toggle R R    &kp F4          XXX           XXX           XXX           XXX           XXX           &to WINDOWS_BASE
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &toggle LSHFT LSHFT &kp A    &kp S        &kp D         &kp F         &kp B           XXX           XXX           XXX           XXX           XXX           &kp PG_DN
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -351,14 +408,4 @@ ZMK_LAYER(minecraft,
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
-ZMK_LAYER(macos,
-//╭─────────────────────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp TAB                      &kp W         &kp G         &kp M         &kp F         &excl_morph     &quotes_morph   &kp U         &kp O         &kp Q         &kp J        &kp LG(RET)
-//├─────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &mode_switch_macos 0 WINDOWS &hml LCTRL R   &hml_s LALT 0   &hml LGUI N  &hml LSHFT T   &kp B        &kp Y         &hmr RSHFT I  &hmr_e LGUI 0  &hmr LALT A  &hmr LCTRL H  &kp LC(PG_UP)
-//├─────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX            &kp X         &kp C         &kp L         &kp D         &kp V           &minus_morph    &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
-//╰─────────────────────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                                 &mo NUM    &lt NAV SPACE &lt I3 DEL      &kp BSPC     &kp RET       &lt FUN ESC
-//                                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
-)
+
