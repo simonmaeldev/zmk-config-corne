@@ -74,7 +74,43 @@ ZMK_BEHAVIOR(macro_sqt, macro,
     bindings = <&macro_tap &kp DQT &kp SPACE>;
 )ZMK_BEHAVIOR(macro_bqt, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp GRAVE &kp SPACE>;
+    bindings = <&macro_tap &kp LA(GRAVE)>;
+)
+
+// macOS accent macros
+ZMK_BEHAVIOR(macro_eacu_mac, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp LA(E) &kp E>;
+)
+
+ZMK_BEHAVIOR(macro_egrv_mac, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp LA(GRAVE) &kp E>;
+)
+
+ZMK_BEHAVIOR(macro_agrv_mac, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp LA(GRAVE) &kp A>;
+)
+
+ZMK_BEHAVIOR(macro_ugrv_mac, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp LA(GRAVE) &kp U>;
+)
+
+ZMK_BEHAVIOR(macro_cced_mac, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp LA(C)>;
+)
+
+ZMK_BEHAVIOR(macro_euro_mac, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp LA(LS(N2))>;
+)
+
+ZMK_BEHAVIOR(macro_tilde_mac, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp LA(N) &kp SPACE>;
 )
 
 SIMPLE_MORPH(quotes_morph, SFT, &macro_sqt, &macro_dqt)
@@ -102,8 +138,11 @@ ZMK_BEHAVIOR(ht_connect, hold_tap,
 // tap: S | alt + tap: $
 SIMPLE_MORPH(s_morph, ALT, &kp S, &kp DOLLAR)
 
-// tap: E | alt + tap: €
+// tap: E | alt + tap: € (Windows)
 SIMPLE_MORPH(e_morph, ALT, &kp E, &kp US_EURO)
+
+// tap: E | alt + tap: € (macOS using Option+Shift+2)
+SIMPLE_MORPH(e_morph_mac, ALT, &kp E, &macro_euro_mac)
 
 // tap: comma | shift + tap: semicolon
 SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
@@ -193,16 +232,27 @@ ZMK_BEHAVIOR(ht_equal, hold_tap,
     bindings = <&macro_diff>, <&kp>;
 )
 ZMK_COMBO(equal_diff, &ht_equal 0 EQUAL, RB0 RB1, ALL)
-ZMK_COMBO(eacu, &kp US_EACU, RM1 RM2, ALL)
-ZMK_COMBO(egrv, &ac_egrv, RM2 RM3, ALL)
-ZMK_COMBO(ecir, &ac_ecir, RT2 RM2, ALL)
-ZMK_COMBO(agrv, &ac_agrv, RT2 RM3, ALL)
+// Windows-specific accents
+ZMK_COMBO(eacu_win, &kp US_EACU, RM1 RM2, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(egrv_win, &ac_egrv, RM2 RM3, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(ecir_win, &ac_ecir, RT2 RM2, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(agrv_win, &ac_agrv, RT2 RM3, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(cced_win, &kp US_CCED, LM3 LM2, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(combo_u_grave_win, &ac_ugrv, RT0 RT1, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+
+// macOS-specific accents
+ZMK_COMBO(eacu_mac, &macro_eacu_mac, RM1 RM2, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(egrv_mac, &macro_egrv_mac, RM2 RM3, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(ecir_mac, &ac_ecir, RT2 RM2, MACOS_BASE WM_MACOS NAV_MACOS)  // Keep existing for ê
+ZMK_COMBO(agrv_mac, &macro_agrv_mac, RT2 RM3, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(cced_mac, &macro_cced_mac, LM3 LM2, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(combo_u_grave_mac, &macro_ugrv_mac, RT0 RT1, MACOS_BASE WM_MACOS NAV_MACOS)
+
+// Shared combos
 ZMK_COMBO(circ, &kp CARET, LB2 LB1, ALL)
 ZMK_COMBO(trema, &kp DQT, LM2 LM1, ALL)
-ZMK_COMBO(cced, &kp US_CCED, LM3 LM2, ALL)
 ZMK_COMBO(combo_k, &kp K, RT2 RT3, ALL)  // O + Q for K
 ZMK_COMBO(combo_z, &kp Z, RM3 RM4, ALL)  // A + H for Z
-ZMK_COMBO(combo_u_grave, &ac_ugrv, RT0 RT1, ALL)  // ' + U for Ù
 ZMK_COMBO(combo_dqt, &macro_bqt, RT0 RM0, ALL)  // ' + Y for `
 
 // left-hand keys
@@ -233,8 +283,14 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 MAKE_HRM(hml_s, &kp, &s_morph, KEYS_R THUMBS)
 MAKE_HRM(hmr_e, &kp, &e_morph, KEYS_L THUMBS)
 
-// tap: minus | alt + tap: tilde 
+// macOS version for E key (euro symbol)
+MAKE_HRM(hmr_e_mac, &kp, &e_morph_mac, KEYS_L THUMBS)
+
+// tap: minus | alt + tap: tilde
 SIMPLE_MORPH(minus_morph, ALT, &kp MINUS, &kp TILDE)
+
+// macOS version: minus | alt + tap: tilde via Option+N+Space
+SIMPLE_MORPH(minus_morph_mac, ALT, &kp MINUS, &macro_tilde_mac)
 
 ZMK_BEHAVIOR(lt_cstm, hold_tap,
     flavor = "balanced";
@@ -320,9 +376,9 @@ ZMK_LAYER(macos_base,
 //╭─────────────────────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp TAB                      &kp W         &kp G         &kp M         &kp F         &excl_morph     &quotes_morph   &kp U         &kp O         &kp Q         &kp J        &kp LG(RET)
 //├─────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &mode_switch_macos 0 WINDOWS_BASE &hml LCTRL R   &hml_s LALT 0   &hml LGUI N  &hml LSHFT T   &kp B        &kp Y         &hmr RSHFT I  &hmr_e LGUI 0  &hmr LALT A  &hmr LCTRL H  &kp LC(PG_UP)
+    &mode_switch_macos 0 WINDOWS_BASE &hml LCTRL R   &hml_s LALT 0   &hml LGUI N  &hml LSHFT T   &kp B        &kp Y         &hmr RSHFT I  &hmr_e_mac LGUI 0  &hmr LALT A  &hmr LCTRL H  &kp LC(PG_UP)
 //├─────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX                           &kp X         &kp C         &kp L         &kp D         &kp V           &minus_morph    &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
+    XXX                           &kp X         &kp C         &kp L         &kp D         &kp V           &minus_morph_mac    &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
 //╰─────────────────────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                               &mo NUM      &lt NAV_MACOS SPACE &lt WM_MACOS DEL      &kp BSPC     &kp RET       &lt FUN ESC
 //                                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
