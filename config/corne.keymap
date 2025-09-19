@@ -117,7 +117,7 @@ SIMPLE_MORPH(s_morph, ALT, &kp S, &kp DOLLAR)
 SIMPLE_MORPH(e_morph, ALT, &kp E, &kp US_EURO)
 
 // tap: E | alt + tap: € (macOS using Option+Shift+2)
-SIMPLE_MORPH(e_morph_mac, ALT, &kp E, &kp LA(LS(NB_2)))
+SIMPLE_MORPH(e_morph_mac, ALT, &kp E, &kp LA(LS(N2)))
 
 // tap: comma | shift + tap: semicolon
 SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
