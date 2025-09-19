@@ -156,7 +156,6 @@ ZMK_COMBO(undo_mac, &kp LG(Z), LB4 LB1, MACOS_BASE WM_MACOS NAV_MACOS)
 ZMK_COMBO(redo_mac, &kp LG(Y), LB4 LB0, MACOS_BASE WM_MACOS NAV_MACOS)
 ZMK_COMBO(save_mac, &kp LG(S), LM1 LM0, MACOS_BASE WM_MACOS NAV_MACOS)
 ZMK_COMBO(select_all_mac, &kp LG(A), LM3 LM4, MACOS_BASE WM_MACOS NAV_MACOS)
-ZMK_COMBO(replace_mac, &kp LG(H), LT1 LT2, MACOS_BASE WM_MACOS NAV_MACOS)
 
 // Shared combos
 ZMK_COMBO(caps, &ht_caps CAPS 0, LM1 RM1, ALL)
@@ -253,7 +252,7 @@ ZMK_BEHAVIOR(macro_vimw_win, macro_one_param,
 ZMK_BEHAVIOR(macro_vimw_mac, macro_one_param,
     wait-ms = <100>;
     tap-ms = <5>;
-    bindings = <&kp LG(W)>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
+    bindings = <&kp LC(W)>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
 )
 
 ZMK_BEHAVIOR(macro_mode_windows, macro,
