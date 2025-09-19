@@ -80,22 +80,22 @@ ZMK_BEHAVIOR(macro_sqt, macro,
 // macOS accent macros
 ZMK_BEHAVIOR(macro_eacu_mac, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp LA(E) &kp E>;
+    bindings = <&macro_tap &kp SQT &kp E>;
 )
 
 ZMK_BEHAVIOR(macro_egrv_mac, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp LA(GRAVE) &kp E>;
+    bindings = <&macro_tap &kp GRAVE &kp E>;
 )
 
 ZMK_BEHAVIOR(macro_agrv_mac, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp LA(GRAVE) &kp A>;
+    bindings = <&macro_tap &kp GRAVE &kp A>;
 )
 
 ZMK_BEHAVIOR(macro_ugrv_mac, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp LA(GRAVE) &kp U>;
+    bindings = <&macro_tap &kp GRAVE &kp U>;
 )
 
 ZMK_BEHAVIOR(macro_cced_mac, macro,
@@ -103,37 +103,12 @@ ZMK_BEHAVIOR(macro_cced_mac, macro,
     bindings = <&macro_tap &kp LA(C)>;
 )
 
-ZMK_BEHAVIOR(macro_euro_mac, macro,
-    tap-ms = <10>;
-    bindings = <&macro_tap &kp LA(LS(N2))>;
-)
-
 ZMK_BEHAVIOR(macro_tilde_mac, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp LA(N) &kp SPACE>;
+    bindings = <&macro_tap &kp LS(GRAVE) &kp SPACE>;
 )
 
 SIMPLE_MORPH(quotes_morph, SFT, &macro_sqt, &macro_dqt)
-
-// tap: connect corne | shift + tap: quit
-ZMK_BEHAVIOR(macro_corne, macro,
-    tap-ms = <10>;
-    bindings = 
-    <&macro_wait_time 2000>,
-    <&macro_tap &kp LG(RET)>,
-    <&macro_wait_time 30>,
-    <&macro_tap &kp C &kp O &kp R &kp N &kp E>,
-    <&macro_wait_time 1000>,
-    < &kp RET &kp LG(Q)>;
-)
-SIMPLE_MORPH(connect, SFT, &macro_corne, &kp LG(ESC))
-ZMK_BEHAVIOR(ht_connect, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <280>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp>, <&connect>;
-)
-// &ht_connect LG(ESC) 0
 
 // tap: S | alt + tap: $
 SIMPLE_MORPH(s_morph, ALT, &kp S, &kp DOLLAR)
@@ -142,7 +117,7 @@ SIMPLE_MORPH(s_morph, ALT, &kp S, &kp DOLLAR)
 SIMPLE_MORPH(e_morph, ALT, &kp E, &kp US_EURO)
 
 // tap: E | alt + tap: € (macOS using Option+Shift+2)
-SIMPLE_MORPH(e_morph_mac, ALT, &kp E, &macro_euro_mac)
+SIMPLE_MORPH(e_morph_mac, ALT, &kp E, &kp LA(LS(NB_2)))
 
 // tap: comma | shift + tap: semicolon
 SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
@@ -376,7 +351,7 @@ ZMK_LAYER(macos_base,
 //╭─────────────────────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp TAB                      &kp W         &kp G         &kp M         &kp F         &excl_morph     &quotes_morph   &kp U         &kp O         &kp Q         &kp J        &kp LG(RET)
 //├─────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &mode_switch_macos 0 WINDOWS_BASE &hml LCTRL R   &hml_s LALT 0   &hml LGUI N  &hml LSHFT T   &kp B        &kp Y         &hmr RSHFT I  &hmr_e_mac LGUI 0  &hmr LALT A  &hmr LCTRL H  &kp LC(PG_UP)
+    &mode_switch_macos 0 WINDOWS_BASE &hml LCTRL R   &hml_s LALT 0   &hml LGUI N  &hml LSHFT T   &kp B    &kp Y         &hmr RSHFT I  &hmr_e_mac LGUI 0  &hmr LALT A  &hmr LCTRL H  &kp LC(PG_UP)
 //├─────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX                           &kp X         &kp C         &kp L         &kp D         &kp V           &minus_morph_mac    &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
 //╰─────────────────────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
