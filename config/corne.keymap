@@ -36,6 +36,8 @@
 
 #define XXX &none
 #define ___ &trans
+#define MACOS_GRAVE NUBS
+#define MACOS_NUBS GRAVE
 
 /* Global settings */
 
@@ -85,17 +87,17 @@ ZMK_BEHAVIOR(macro_eacu_mac, macro,
 
 ZMK_BEHAVIOR(macro_egrv_mac, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp GRAVE &kp E>;
+    bindings = <&macro_tap &kp MACOS_GRAVE &kp E>;
 )
 
 ZMK_BEHAVIOR(macro_agrv_mac, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp GRAVE &kp A>;
+    bindings = <&macro_tap &kp MACOS_GRAVE &kp A>;
 )
 
 ZMK_BEHAVIOR(macro_ugrv_mac, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp GRAVE &kp U>;
+    bindings = <&macro_tap &kp MACOS_GRAVE &kp U>;
 )
 
 ZMK_BEHAVIOR(macro_cced_mac, macro,
@@ -105,7 +107,7 @@ ZMK_BEHAVIOR(macro_cced_mac, macro,
 
 ZMK_BEHAVIOR(macro_tilde_mac, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp LS(GRAVE) &kp SPACE>;
+    bindings = <&macro_tap &kp MACOS_GRAVE &kp SPACE>;
 )
 
 SIMPLE_MORPH(quotes_morph, SFT, &macro_sqt, &macro_dqt)
@@ -353,7 +355,7 @@ ZMK_LAYER(macos_base,
 //├─────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &mode_switch_macos 0 WINDOWS_BASE &hml LCTRL R   &hml_s LALT 0   &hml LGUI N  &hml LSHFT T   &kp B    &kp Y         &hmr RSHFT I  &hmr_e_mac LGUI 0  &hmr LALT A  &hmr LCTRL H  &kp LC(PG_UP)
 //├─────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp NUBS                           &kp X         &kp C         &kp L         &kp D         &kp V           &minus_morph_mac    &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
+    XXX                           &kp X         &kp C         &kp L         &kp D         &kp V           &minus_morph_mac    &kp P     &ht_par 0 0    &comma_morph  &dot_morph    &kp LC(PG_DN)
 //╰─────────────────────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                               &mo NUM      &lt NAV_MACOS SPACE &lt WM_MACOS DEL      &kp BSPC     &kp RET       &lt FUN ESC
 //                                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
