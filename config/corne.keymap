@@ -74,9 +74,13 @@ ZMK_BEHAVIOR(macro_sqt, macro,
 )ZMK_BEHAVIOR(macro_dqt, macro,
     tap-ms = <10>;
     bindings = <&macro_tap &kp DQT &kp SPACE>;
-)ZMK_BEHAVIOR(macro_bqt, macro,
+)ZMK_BEHAVIOR(macro_bqt_win, macro,
     tap-ms = <10>;
     bindings = <&macro_tap &kp LA(GRAVE)>;
+)
+)ZMK_BEHAVIOR(macro_bqt_mac, macro,
+    tap-ms = <10>;
+    bindings = <&macro_tap &kp MACOS_GRAVE &kp SPACE>;
 )
 
 // macOS accent macros
@@ -119,7 +123,7 @@ SIMPLE_MORPH(s_morph, ALT, &kp S, &kp DOLLAR)
 SIMPLE_MORPH(e_morph, ALT, &kp E, &kp US_EURO)
 
 // tap: E | alt + tap: € (macOS using Option+Shift+2)
-SIMPLE_MORPH(e_morph_mac, ALT, &kp E, &kp LA(LS(N2)))
+SIMPLE_MORPH(e_morph_mac, ALT, &kp E, &kp RA(LS(N2)))
 
 // tap: comma | shift + tap: semicolon
 SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
@@ -216,6 +220,7 @@ ZMK_COMBO(ecir_win, &ac_ecir, RT2 RM2, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM F
 ZMK_COMBO(agrv_win, &ac_agrv, RT2 RM3, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
 ZMK_COMBO(cced_win, &kp US_CCED, LM3 LM2, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
 ZMK_COMBO(combo_u_grave_win, &ac_ugrv, RT0 RT1, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)
+ZMK_COMBO(combo_dqt_win, &macro_bqt_win, RT0 RM0, WINDOWS_BASE WM_WINDOWS NAV_WINDOWS NUM FUN MINECRAFT)  // ' + Y for `
 
 // macOS-specific accents
 ZMK_COMBO(eacu_mac, &macro_eacu_mac, RM1 RM2, MACOS_BASE WM_MACOS NAV_MACOS)
@@ -224,13 +229,13 @@ ZMK_COMBO(ecir_mac, &ac_ecir, RT2 RM2, MACOS_BASE WM_MACOS NAV_MACOS)  // Keep e
 ZMK_COMBO(agrv_mac, &macro_agrv_mac, RT2 RM3, MACOS_BASE WM_MACOS NAV_MACOS)
 ZMK_COMBO(cced_mac, &macro_cced_mac, LM3 LM2, MACOS_BASE WM_MACOS NAV_MACOS)
 ZMK_COMBO(combo_u_grave_mac, &macro_ugrv_mac, RT0 RT1, MACOS_BASE WM_MACOS NAV_MACOS)
+ZMK_COMBO(combo_dqt_mac, &macro_bqt_mac, RT0 RM0, MACOS_BASE WM_MACOS NAV_MACOS)  // ' + Y for `
 
 // Shared combos
 ZMK_COMBO(circ, &kp CARET, LB2 LB1, ALL)
 ZMK_COMBO(trema, &kp DQT, LM2 LM1, ALL)
 ZMK_COMBO(combo_k, &kp K, RT2 RT3, ALL)  // O + Q for K
 ZMK_COMBO(combo_z, &kp Z, RM3 RM4, ALL)  // A + H for Z
-ZMK_COMBO(combo_dqt, &macro_bqt, RT0 RM0, ALL)  // ' + Y for `
 
 // left-hand keys
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5 
