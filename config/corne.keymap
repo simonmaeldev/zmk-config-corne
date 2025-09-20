@@ -74,11 +74,12 @@ ZMK_BEHAVIOR(macro_sqt, macro,
 )ZMK_BEHAVIOR(macro_dqt, macro,
     tap-ms = <10>;
     bindings = <&macro_tap &kp DQT &kp SPACE>;
-)ZMK_BEHAVIOR(macro_bqt_win, macro,
+)
+ZMK_BEHAVIOR(macro_bqt_win, macro,
     tap-ms = <10>;
     bindings = <&macro_tap &kp LA(GRAVE)>;
 )
-)ZMK_BEHAVIOR(macro_bqt_mac, macro,
+ZMK_BEHAVIOR(macro_bqt_mac, macro,
     tap-ms = <10>;
     bindings = <&macro_tap &kp MACOS_GRAVE &kp SPACE>;
 )
