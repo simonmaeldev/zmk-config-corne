@@ -77,7 +77,7 @@ ZMK_BEHAVIOR(macro_sqt, macro,
 )
 ZMK_BEHAVIOR(macro_bqt_win, macro,
     tap-ms = <10>;
-    bindings = <&macro_tap &kp LA(GRAVE)>;
+    bindings = <&macro_tap &kp GRAVE &kp SPACE>;
 )
 ZMK_BEHAVIOR(macro_bqt_mac, macro,
     tap-ms = <10>;
